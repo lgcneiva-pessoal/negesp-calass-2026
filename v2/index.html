@@ -1533,6 +1533,7 @@ function goTo(i,full){
   document.body.classList.toggle('light', cur!==0);
   document.body.classList.toggle('showlogo', cur>=1 && cur<=18);
   if(full)step[cur]=stepMax[cur];
+  if(s.id==='s13')step[cur]=0;            /* s13 sempre entra pela órbita, mesmo em acesso direto/índice */
   applySteps(cur);
   hudTitle.textContent=s.dataset.title||'';
   hudNum.innerHTML='<b>'+String(cur+1).padStart(2,'0')+'</b> · '+String(N).padStart(2,'0');
