@@ -800,18 +800,24 @@ body.light #s08 svg.links path{stroke:rgba(14,122,78,.5);filter:none}
 @keyframes beamflow{from{stroke-dashoffset:var(--boff)}to{stroke-dashoffset:0}}
 @media (prefers-reduced-motion:reduce){#s10 .bpulse{animation:none;opacity:0}}
 
-/* ═══ S12: cards espelhados iguais; conexão apenas nos vãos ═══ */
-#s12 .line::before{content:none}
-#s12 .side{width:clamp(17rem,27vw,25rem)}
-#s12 .side .io{width:100%;max-width:none;min-height:clamp(3.6rem,10.5vh,5.6rem);
-  display:flex;align-items:center;font-size:clamp(.92rem,1.34vw,1.18rem)}
-#s12 .side.right .io{justify-content:flex-start;text-align:left}
-#s12 .reactor::before,#s12 .reactor::after{content:"";position:absolute;top:50%;height:2px;
-  width:clamp(1rem,2.6vw,2.2rem);background:linear-gradient(90deg,rgba(232,119,34,.5),rgba(14,122,78,.6))}
-#s12 .reactor::before{right:100%}
-#s12 .reactor::after{left:100%;background:linear-gradient(90deg,rgba(14,122,78,.6),rgba(232,119,34,.5))}
+/* ═══ S12: fluxo simétrico — linha única atrás; cards/reator opacos escondem as pontas ═══ */
+#s12 .line::before{content:"";position:absolute;left:0;right:0;top:50%;height:2px;transform:translateY(-50%);z-index:0;
+  background:linear-gradient(90deg,rgba(232,119,34,.5),rgba(14,122,78,.6) 50%,rgba(232,119,34,.5))}
+#s12 .reactor::before,#s12 .reactor::after{content:none}
+#s12 .side,#s12 .reactor{position:relative;z-index:1}
+#s12 .side .io{width:100%;max-width:none;min-height:clamp(3.6rem,10.5vh,5.6rem);background:#fff;
+  display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;
+  font-size:clamp(.92rem,1.34vw,1.18rem)}
+#s12 .side .io span{display:block;margin-top:.3em}
+/* rótulos de seção: maiores, verde, com traço de destaque */
+#s12 h5{font-size:clamp(.9rem,1.3vw,1.15rem);letter-spacing:.22em;font-weight:800;font-stretch:120%;
+  color:var(--green);margin-bottom:1em;position:relative;padding-bottom:.55em}
+#s12 h5::after{content:"";position:absolute;left:0;bottom:0;width:2.6em;height:2px;background:var(--orange)}
+#s12 .side.right h5{text-align:right;align-self:flex-end}
+#s12 .side.right h5::after{left:auto;right:0}
 #s12 .proc{font-size:clamp(.85rem,1.24vw,1.08rem)}
 #s12 .rlabel{font-size:clamp(1.05rem,1.6vw,1.4rem)}
+
 /* ═══ S13: ÓRBITA RADIAL (porta do 21st.dev · Radial Orbital Timeline) ═══ */
 #s13 .orb5{position:relative;flex:1;min-height:0;overflow:visible}
 #s13 .oring,#s13 .oring2{position:absolute;left:50%;top:50%;translate:-50% -50%;border-radius:50%;pointer-events:none}
