@@ -782,12 +782,22 @@ body.light #s08 svg.links path{stroke:rgba(14,122,78,.5);filter:none}
 #s09 .chips{margin-bottom:auto}
 #s09 .statement{font-size:clamp(1.45rem,2.85vw,2.6rem)}
 #s09 .chip{font-size:clamp(.88rem,1.28vw,1.12rem);padding:.65em 1.3em}
-/* ═══ S10: fontes maiores ═══ */
-#s10 .head{max-width:min(52ch,46vw)}
-#s10 .head .title{font-size:clamp(1.15rem,2vw,1.75rem);padding-right:0}
-#s10 .head .lead{font-size:clamp(1rem,1.5vw,1.32rem)}
+/* ═══ S10: cabeçalho abaixo da logo; título e lead em linha única e largura total ═══ */
+#s10 .wrap{padding-top:clamp(8rem,15vh,9.2rem)}
+#s10 .head{max-width:none}
+#s10 .head .title{max-width:none;white-space:nowrap;font-size:clamp(1.05rem,1.92vw,1.85rem);margin-top:.35em}
+#s10 .head .lead{max-width:none;white-space:nowrap;font-size:clamp(.78rem,1.21vw,1.26rem);margin-top:.5em}
 #s10 .core{font-size:clamp(1.2rem,1.9vw,1.7rem);padding:.85em 1.7em}
 #s10 .fn{font-size:clamp(.88rem,1.28vw,1.12rem);padding:.6em 1.2em .6em .55em}
+#s10 svg.beams{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+#s10 .bgrp{opacity:0;transition:opacity .6s ease}
+#s10 .bgrp.go{opacity:1}
+#s10 .bbase{fill:none;stroke:rgba(6,46,30,.13);stroke-width:2;stroke-linecap:round}
+#s10 .bpulse{fill:none;stroke:#0E7A4E;stroke-width:2.6;stroke-linecap:round;
+  filter:drop-shadow(0 0 4px rgba(14,122,78,.55));
+  animation:beamflow var(--bt,3.2s) cubic-bezier(.16,1,.3,1) infinite;animation-delay:var(--bd,0s)}
+@keyframes beamflow{from{stroke-dashoffset:var(--boff)}to{stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){#s10 .bpulse{animation:none;opacity:0}}
 
 /* ═══ S12: cards espelhados iguais; conexão apenas nos vãos ═══ */
 #s12 .line::before{content:none}
@@ -1068,14 +1078,14 @@ body.light #s08 svg.links path{stroke:rgba(14,122,78,.5);filter:none}
       <h2 class="title rv" style="--d:200">Uma estrutura estratégica <em>deliberativa</em>, vinculada à alta gestão da secretaria estadual</h2>
       <p class="lead rv" style="--d:360">Apoia a gestão na formulação, no monitoramento e na avaliação das ações de qualidade do cuidado e segurança do paciente, e cumpre cinco funções.</p>
     </div>
-    <div class="stage" id="pentaStage">
-      <svg class="web" aria-hidden="true"></svg>
+    <div class="stage" id="beamStage">
+      <svg class="beams" aria-hidden="true"></svg>
       <div class="core rv" style="--d:500">Negesp</div>
-      <div class="fn st" style="left:50%;top:9%"><i>1</i> · Espaço de governança</div>
-      <div class="fn st" style="left:81%;top:38%"><i>2</i> · Integração entre áreas</div>
-      <div class="fn st" style="left:69%;top:87%"><i>3</i> · Apoio à tomada de decisão</div>
-      <div class="fn st" style="left:31%;top:87%"><i>4</i> · Produção de inteligência para a gestão</div>
-      <div class="fn st" style="left:19%;top:38%"><i>5</i> · Indução da cultura de segurança</div>
+      <div class="fn st" style="left:17%;top:16%"><i>1</i> · Espaço de governança</div>
+      <div class="fn st" style="left:83%;top:24%"><i>2</i> · Integração entre áreas</div>
+      <div class="fn st" style="left:83%;top:76%"><i>3</i> · Apoio à tomada de decisão</div>
+      <div class="fn st" style="left:24%;top:86%"><i>4</i> · Produção de inteligência para a gestão</div>
+      <div class="fn st" style="left:15%;top:51%"><i>5</i> · Indução da cultura de segurança</div>
     </div>
   </div>
   <aside class="notes">A definição vem da norma: estrutura estratégica deliberativa, vinculada à secretaria estadual. As cinco funções entram por clique, em órbita: governança, integração, decisão, inteligência e cultura. Frase de apoio: “é um núcleo que pensa o sistema enquanto o sistema cuida das pessoas.” Transição: “E onde isso já está acontecendo?”</aside>
@@ -1394,6 +1404,7 @@ function applySteps(i){
   $$('.st',slides[i]).forEach(e=>e.classList.toggle('go',+e.dataset.st<=step[i]));
   if(slides[i].id==='s05'&&window.__s05link)window.__s05link(step[i]>=4);
   if(slides[i].id==='s13'&&window.__s13step)window.__s13step(step[i]);
+  if(slides[i].id==='s10'&&window.__s10sync)window.__s10sync();
 }
 
 const hudTitle=$('#hudTitle'),hudNum=$('#hudNum'),progBar=$('#progBar');
@@ -1417,15 +1428,35 @@ function drawS08(){
   q(svg,fed,est,30);q(svg,fed,mun,30);q(svg,est,srv,-30);q(svg,mun,srv,-30);
 }
 function drawS10(){
-  const s=$('#s10'),svg=$('svg.web',s);if(!svg)return;const root=prepSvg(svg);
-  const core=mid($('.core',s),root);const fns=$$('.fn',s).map(f=>mid(f,root));
-  fns.forEach(p=>{const l=document.createElementNS('http://www.w3.org/2000/svg','line');
-    l.setAttribute('x1',core[0]);l.setAttribute('y1',core[1]);l.setAttribute('x2',p[0]);l.setAttribute('y2',p[1]);
-    svg.appendChild(l);});
-  for(let i=0;i<fns.length;i++){const a=fns[i],b=fns[(i+1)%fns.length];
-    const l=document.createElementNS('http://www.w3.org/2000/svg','line');
-    l.setAttribute('x1',a[0]);l.setAttribute('y1',a[1]);l.setAttribute('x2',b[0]);l.setAttribute('y2',b[1]);
-    l.setAttribute('class','ring');svg.appendChild(l);}
+  const s=$('#s10'),svg=$('svg.beams',s);if(!svg)return;const root=prepSvg(svg);
+  const NS='http://www.w3.org/2000/svg';
+  const [cx,cy]=mid($('.core',s),root);
+  $$('.fn',s).forEach((f,idx)=>{
+    const [fx,fy]=mid(f,root);
+    const g=document.createElementNS(NS,'g');
+    g.setAttribute('class','bgrp');g.dataset.st=f.dataset.st||'';
+    const dy=fy-cy;
+    const curv=Math.abs(dy)<40?0:(dy<0?-75:75);
+    const d=`M ${cx},${cy} Q ${(cx+fx)/2},${(cy+fy)/2+curv} ${fx},${fy}`;
+    const base=document.createElementNS(NS,'path');
+    base.setAttribute('class','bbase');base.setAttribute('d',d);
+    const pulse=document.createElementNS(NS,'path');
+    pulse.setAttribute('class','bpulse');pulse.setAttribute('d',d);
+    g.appendChild(base);g.appendChild(pulse);svg.appendChild(g);
+    const L=pulse.getTotalLength();
+    pulse.style.strokeDasharray=`${L*.28} ${L*1.1}`;
+    pulse.style.setProperty('--boff',String(L*1.38));
+    pulse.style.setProperty('--bt',(2.6+idx*.3)+'s');
+    pulse.style.setProperty('--bd',(idx*.45)+'s');
+  });
+  window.__s10sync&&window.__s10sync();
+}
+window.__s10sync=function(){
+  const s=document.getElementById('s10');if(!s)return;
+  const fns=[...s.querySelectorAll('.fn')];
+  [...s.querySelectorAll('.bgrp')].forEach((g,i)=>{
+    g.classList.toggle('go',fns[i]&&fns[i].classList.contains('go'));
+  });
 }
 function drawS14(){
   const s=$('#s14'),svg=$('svg.ties',s);if(!svg)return;const root=prepSvg(svg);
