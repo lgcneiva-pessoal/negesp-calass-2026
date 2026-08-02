@@ -807,34 +807,30 @@ body.light #s08 svg.links path{stroke:rgba(14,122,78,.5);filter:none}
 #s13 .crow.r4{width:min(60%,640px);background:linear-gradient(120deg,#0E7A4E,#0A5638);border-color:#0A5638;
   box-shadow:0 18px 44px rgba(14,122,78,.35)}
 #s13 .crow.r4 b{color:#fff}#s13 .crow.r4 span{color:#D9EFE3}#s13 .crow.r4 i{background:#fff;color:#0A5638}
-/* ═══ S14: Função central no topo; Atribuições + Composição lado a lado ═══ */
-#s14 .title{padding-right:0 !important;max-width:56ch;font-size:clamp(1.15rem,1.95vw,1.7rem)}
-#s14 .tri{display:grid;grid-template-columns:1.18fr .82fr;grid-template-rows:auto 1fr;
-  grid-template-areas:"fn fn" "atr comp";gap:clamp(.6rem,1.5vw,1.1rem);
-  flex:1;min-height:0;margin-top:clamp(.6rem,1.8vh,1.1rem);align-items:stretch}
-#s14 .tcol{padding:clamp(.7rem,1.5vw,1.1rem) clamp(.9rem,1.9vw,1.4rem);display:flex;flex-direction:column;min-height:0}
-#s14 .tcol.fn{grid-area:fn}
-#s14 .tcol.atr{grid-area:atr}
-#s14 .tcol.comp{grid-area:comp}
-#s14 .tcol h4{display:flex;align-items:center;gap:.55em;font-size:clamp(.95rem,1.38vw,1.2rem);
-  font-weight:800;font-stretch:110%;letter-spacing:.04em;text-transform:uppercase;color:var(--green);margin-bottom:.5em}
+/* ═══ S14: OPÇÃO A — faixas horizontais, colunas internas por densidade ═══ */
+#s14 .title{padding-right:0 !important;max-width:56ch;font-size:clamp(1.1rem,1.85vw,1.62rem)}
+#s14 .tri{display:flex;flex-direction:column;justify-content:space-evenly;gap:clamp(.45rem,1.4vh,.9rem);
+  flex:1;min-height:0;margin-top:clamp(.5rem,1.6vh,1rem)}
+#s14 .tcol{padding:clamp(.6rem,1.3vw,.95rem) clamp(1rem,2.1vw,1.5rem);display:block;flex:0 0 auto}
+#s14 .tcol h4{display:flex;align-items:center;gap:.55em;font-size:clamp(.92rem,1.3vw,1.1rem);
+  font-weight:800;font-stretch:110%;letter-spacing:.04em;text-transform:uppercase;color:var(--green);margin-bottom:.38em}
 #s14 .tcol.atr h4{color:var(--orange-soft)}
 #s14 .mk{width:.6em;height:.6em;border-radius:3px;flex:none}
 #s14 .mk.g{background:var(--green)}#s14 .mk.o{background:var(--orange)}#s14 .mk.g2{background:#57B98A}
-#s14 .tcol ul{list-style:none;display:flex;flex-direction:column;flex:1;min-height:0;justify-content:space-evenly;gap:.2em}
-#s14 .tcol.fn ul{display:grid;grid-template-columns:1fr 1fr;column-gap:1.6em;row-gap:.3em;align-content:center}
-#s14 .tcol li{position:relative;padding-left:1em;font-size:clamp(.92rem,1.3vw,1.14rem);color:var(--ink-2);line-height:1.35}
-#s14 .tcol li::before{content:"";position:absolute;left:0;top:.5em;width:.32em;height:.32em;border-radius:50%;
-  background:var(--orange)}
-#s14 .tcol .intro{font-size:clamp(.88rem,1.24vw,1.08rem);color:var(--ink-3);margin-bottom:.35em;line-height:1.4}
-#s14 .tcol.comp ul{display:flex;flex-direction:column;justify-content:space-evenly;gap:.16em}
-#s14 .foot{font-size:clamp(.9rem,1.28vw,1.12rem);margin-top:clamp(.4rem,1.2vh,.7rem)}
-@media(max-height:820px){
-  #s14 .tcol li{font-size:.88rem;line-height:1.3}
-  #s14 .tcol .intro{font-size:.84rem}
-  #s14 .tcol h4{font-size:.92rem;margin-bottom:.35em}
-  #s14 .title{font-size:1.12rem}
-  #s14 .foot{font-size:.85rem}
+#s14 .tcol ul{list-style:none;columns:2;column-gap:2.4em}
+#s14 .tcol.comp ul{columns:3;column-gap:2em}
+#s14 .tcol li{break-inside:avoid;margin-bottom:clamp(.26em,.9vh,.45em)}
+#s14 .tcol li{position:relative;padding-left:1em;font-size:clamp(.92rem,1.28vw,1.08rem);color:var(--ink-2);line-height:1.4}
+#s14 .tcol li::before{content:"";position:absolute;left:0;top:.5em;width:.32em;height:.32em;border-radius:50%;background:var(--orange)}
+#s14 .tcol .intro{font-size:clamp(.88rem,1.24vw,1.06rem);color:var(--ink-3);margin-bottom:.5em;line-height:1.4}
+#s14 .foot{font-size:clamp(.9rem,1.28vw,1.12rem);margin-top:clamp(.35rem,1.1vh,.6rem)}
+@media(max-height:780px){
+  #s14 .tcol li{font-size:.88rem;line-height:1.32}
+  #s14 .tcol .intro{font-size:.82rem;margin-bottom:.3em}
+  #s14 .tcol h4{font-size:.9rem;margin-bottom:.32em}
+  #s14 .title{font-size:1.1rem}
+  #s14 .foot{font-size:.84rem}
+  #s14 .tcol{padding:.55rem 1rem}
 }
 
 /* ═══ S15: fonte maior, conteúdo centrado no card ═══ */
