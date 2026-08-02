@@ -1081,11 +1081,11 @@ body.light #s08 svg.links path{stroke:rgba(14,122,78,.5);filter:none}
     <div class="stage" id="beamStage">
       <svg class="beams" aria-hidden="true"></svg>
       <div class="core rv" style="--d:500">Negesp</div>
-      <div class="fn st" style="left:17%;top:16%"><i>1</i> · Espaço de governança</div>
-      <div class="fn st" style="left:83%;top:24%"><i>2</i> · Integração entre áreas</div>
-      <div class="fn st" style="left:83%;top:76%"><i>3</i> · Apoio à tomada de decisão</div>
-      <div class="fn st" style="left:24%;top:86%"><i>4</i> · Produção de inteligência para a gestão</div>
-      <div class="fn st" style="left:15%;top:51%"><i>5</i> · Indução da cultura de segurança</div>
+      <div class="fn st" style="left:22%;top:16%"><i>1</i> · Espaço de governança</div>
+      <div class="fn st" style="left:78%;top:16%"><i>2</i> · Integração entre áreas</div>
+      <div class="fn st" style="left:85%;top:54%"><i>3</i> · Apoio à tomada de decisão</div>
+      <div class="fn st" style="left:50%;top:88%"><i>4</i> · Produção de inteligência para a gestão</div>
+      <div class="fn st" style="left:15%;top:54%"><i>5</i> · Indução da cultura de segurança</div>
     </div>
   </div>
   <aside class="notes">A definição vem da norma: estrutura estratégica deliberativa, vinculada à secretaria estadual. As cinco funções entram por clique, em órbita: governança, integração, decisão, inteligência e cultura. Frase de apoio: “é um núcleo que pensa o sistema enquanto o sistema cuida das pessoas.” Transição: “E onde isso já está acontecendo?”</aside>
@@ -1430,14 +1430,23 @@ function drawS08(){
 function drawS10(){
   const s=$('#s10'),svg=$('svg.beams',s);if(!svg)return;const root=prepSvg(svg);
   const NS='http://www.w3.org/2000/svg';
-  const [cx,cy]=mid($('.core',s),root);
+  const core=$('.core',s);
+  const [cx,cy]=mid(core,root);
+  /* ponto no centro da borda voltada ao alvo (caixa com folga de 5px) */
+  const edge=(x,y,hw,hh,tx,ty)=>{
+    const dx=tx-x,dy=ty-y;
+    const t=1/Math.max(Math.abs(dx)/(hw+5),Math.abs(dy)/(hh+5));
+    return [x+dx*t,y+dy*t];
+  };
   $$('.fn',s).forEach((f,idx)=>{
     const [fx,fy]=mid(f,root);
     const g=document.createElementNS(NS,'g');
     g.setAttribute('class','bgrp');g.dataset.st=f.dataset.st||'';
-    const dy=fy-cy;
-    const curv=Math.abs(dy)<40?0:(dy<0?-75:75);
-    const d=`M ${cx},${cy} Q ${(cx+fx)/2},${(cy+fy)/2+curv} ${fx},${fy}`;
+    const [sx,sy]=edge(cx,cy,core.offsetWidth/2,core.offsetHeight/2,fx,fy);
+    const [ex,ey]=edge(fx,fy,f.offsetWidth/2,f.offsetHeight/2,cx,cy);
+    const dy=ey-sy;
+    const curv=Math.abs(dy)<40?0:(dy<0?-70:70);
+    const d=`M ${sx},${sy} Q ${(sx+ex)/2},${(sy+ey)/2+curv} ${ex},${ey}`;
     const base=document.createElementNS(NS,'path');
     base.setAttribute('class','bbase');base.setAttribute('d',d);
     const pulse=document.createElementNS(NS,'path');
