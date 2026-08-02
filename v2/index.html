@@ -957,6 +957,78 @@ body.light #s08 svg.links path{stroke:rgba(14,122,78,.5);filter:none}
 #s19 .qtile{align-self:stretch;background:#fff;border-radius:18px;padding:clamp(.75rem,1.4vw,1.2rem);box-shadow:0 20px 50px rgba(6,46,30,.26),0 0 0 1px rgba(6,46,30,.06)}
 #s19 .qtile img{display:block;width:100%;height:auto}
 
+/* ═══ SORG: organograma do Conass (Assembleia → coordenações → núcleos e câmaras) ═══ */
+#sorg .wrap{padding-top:clamp(2.5rem,5.8vh,3.5rem);padding-bottom:clamp(2rem,5vh,3rem);display:flex;flex-direction:column}
+#sorg .title{font-size:clamp(1rem,1.7vw,1.5rem);margin-top:.3em;margin-bottom:clamp(.5rem,1.5vh,.85rem)}
+#sorg .chart{flex:1;min-height:0;display:flex;flex-direction:column;gap:clamp(.28rem,.9vh,.52rem)}
+#sorg .obox{background:#fff;border:1px solid var(--hair);border-radius:12px;text-align:center;
+  padding:.42em .95em;box-shadow:0 10px 26px rgba(6,46,30,.08)}
+#sorg .obox b{display:block;font-weight:800;font-stretch:110%;font-size:clamp(.76rem,1.08vw,.98rem);color:var(--ink);line-height:1.22}
+#sorg .obox span{display:block;font-size:clamp(.58rem,.85vw,.78rem);color:var(--ink-2);line-height:1.3;margin-top:.14em}
+#sorg .obox.top{align-self:center;width:min(48vw,580px);background:var(--green);border-color:transparent;
+  box-shadow:0 14px 34px rgba(14,122,78,.3)}
+#sorg .obox.top b{color:#fff}#sorg .obox.top span{color:rgba(255,255,255,.88)}
+#sorg .obox.sec{border-top:3px solid var(--orange)}
+#sorg .vl{align-self:center;width:2px;height:clamp(.45rem,1.4vh,.85rem);background:rgba(14,122,78,.4)}
+#sorg .brow{display:grid;grid-template-columns:1fr clamp(.7rem,1.8vw,1.5rem) min(34vw,430px) clamp(.7rem,1.8vw,1.5rem) 1fr;align-items:center}
+#sorg .hl{height:2px;background:rgba(14,122,78,.4);width:100%}
+#sorg .sats{display:flex;flex-direction:column;gap:.32em}
+#sorg .sats.L{align-items:flex-end}
+#sorg .sats.R{align-items:flex-start}
+#sorg .chip{background:rgba(255,255,255,.85);border:1px solid rgba(14,122,78,.28);border-radius:9px;
+  padding:.3em .8em;text-align:center}
+#sorg .chip b{font-weight:700;font-size:clamp(.62rem,.9vw,.8rem);color:var(--ink);line-height:1.2;display:block}
+#sorg .chip span{display:block;font-size:clamp(.52rem,.76vw,.68rem);color:var(--ink-3);line-height:1.2}
+#sorg .asslbl{font-size:clamp(.5rem,.72vw,.64rem);letter-spacing:.24em;text-transform:uppercase;font-weight:700;
+  color:var(--orange);margin-bottom:.1em}
+#sorg .chiprow{display:flex;flex-wrap:wrap;gap:.3em}
+#sorg .hl.o{background:rgba(230,126,34,.45)}
+/* linha de distribuição: Secretaria (50%) alimenta as 3 coordenações (25% · 62.5% · 87.5%) */
+#sorg .dist{position:relative;height:clamp(.85rem,2.4vh,1.25rem)}
+#sorg .dist i{position:absolute;background:rgba(14,122,78,.4)}
+#sorg .dist .feed{left:50%;top:0;width:2px;height:52%;translate:-1px 0}
+#sorg .dist .bar{left:25%;right:12.5%;top:50%;height:2px}
+#sorg .dist .drop{width:2px;top:50%;bottom:0}
+#sorg .dist .d1{left:25%}#sorg .dist .d2{left:62.5%}#sorg .dist .d3{left:87.5%}
+#sorg .cols{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(.5rem,1.2vw,.95rem)}
+#sorg .coord{display:flex;align-items:center;justify-content:center;border-radius:10px;padding:.4em .7em}
+#sorg .coord b{font-size:clamp(.68rem,.98vw,.9rem);line-height:1.22}
+#sorg .coord.tec{grid-column:1/3;border-top:3px solid var(--green)}
+#sorg .coord.adm{border-top:3px solid var(--orange)}
+#sorg .coord.dev{border-top:3px solid #57B98A}
+/* ticks: Técnica bifurca p/ os 2 painéis; Adm e Desenv descem direto */
+#sorg .ticks{position:relative;height:clamp(.6rem,1.7vh,.95rem)}
+#sorg .ticks i{position:absolute;background:rgba(14,122,78,.4)}
+#sorg .ticks .tfeed{left:25%;top:0;width:2px;height:34%;translate:-1px 0}
+#sorg .ticks .tbar{left:12.5%;width:25%;top:34%;height:2px}
+#sorg .ticks .tk{width:2px;bottom:0}
+#sorg .ticks .k1{left:12.5%;top:34%}#sorg .ticks .k2{left:37.5%;top:34%}
+#sorg .ticks .k3{left:62.5%;top:0}#sorg .ticks .k4{left:87.5%;top:0}
+#sorg .pan{background:#fff;border:1px solid var(--hair);border-radius:12px;box-shadow:0 10px 26px rgba(6,46,30,.08);
+  padding:.55em .85em}
+#sorg .pan h6{font-size:clamp(.66rem,.96vw,.88rem);font-weight:800;font-stretch:112%;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--green);margin-bottom:.46em}
+#sorg .pan ul{list-style:none;columns:2;column-gap:1.1em;margin:0;padding:0}
+#sorg .pan li{font-size:clamp(.58rem,.85vw,.78rem);line-height:1.3;color:var(--ink-2);break-inside:avoid;
+  position:relative;padding-left:.72em;margin-bottom:.18em}
+#sorg .pan li::before{content:"";position:absolute;left:0;top:.42em;width:.28em;height:.28em;border-radius:50%;background:var(--green)}
+#sorg .pan li.hi{color:var(--ink);font-weight:700}
+#sorg .pan li.hi::before{background:var(--orange)}
+/* seta: as câmaras técnicas derivam dos núcleos técnicos */
+#sorg .pans{position:relative}
+#sorg .n2c{position:absolute;left:25%;top:50%;width:.5em;height:.5em;translate:-50% -50%;rotate:45deg;
+  border-top:2.5px solid var(--green);border-right:2.5px solid var(--green);z-index:2}
+#sorg .stackcol{display:flex;flex-direction:column;gap:.42em}
+#sorg .chip.ger{border-radius:10px;border:1px solid var(--hair);border-left:3px solid var(--orange);background:#fff;
+  padding:.42em .7em;box-shadow:0 8px 20px rgba(6,46,30,.06)}
+#sorg .chip.ger b{font-size:clamp(.62rem,.9vw,.82rem)}
+#sorg .chip.ger.dev{border-left-color:#57B98A}
+@media (max-height:640px){
+  #sorg .pan li{font-size:.56rem;line-height:1.24;margin-bottom:.14em}
+  #sorg .obox b{font-size:.72rem}
+  #sorg .title{font-size:1rem;margin-bottom:.3rem}
+}
+
 /* ═══ S20: foto + contatos com fonte máxima ═══ */
 #s20 .cphoto{width:clamp(8.5rem,13vw,11.5rem);border-radius:20px;overflow:hidden;
   box-shadow:0 24px 60px rgba(6,46,30,.28),0 0 0 4px #fff;margin-bottom:.7em}
@@ -1012,6 +1084,100 @@ body.light #s08 svg.links path{stroke:rgba(14,122,78,.5);filter:none}
     </div>
   </div>
   <aside class="notes">Abra com o nome que dá título ao slide: Conass, o Conselho Nacional de Secretários de Saúde, que representa os vinte e sete secretários estaduais e é reconhecido em lei federal, pela Lei 8.142, de 1990, e pela Lei 12.466, de 2011, que acrescentou os artigos 14-A e 14-B. Os três números entram por clique: fundação, capilaridade, base legal. Feche com a frase-síntese e a foto do doutor Adib Jatene, referência histórica do Conselho. Transição: “E dentro do Conselho, existe um espaço onde a qualidade e a segurança do paciente viraram pauta permanente.”</aside>
+</section>
+
+<section class="slide" id="sorg" data-title="Organograma do Conass">
+  <div class="wrap">
+    <div class="kick rv" style="--d:60">Como o Conass se organiza</div>
+    <h2 class="title rv" style="--d:160">Da Assembleia às <em>câmaras técnicas</em></h2>
+    <div class="chart">
+      <div class="obox top rv" style="--d:300"><b>Assembleia</b><span>Os 27 secretários de Saúde dos estados e do Distrito Federal</span></div>
+      <i class="vl rv" style="--d:360"></i>
+      <div class="brow rv" style="--d:420">
+        <div class="sats L">
+          <div class="chip"><b>Comissão Fiscal</b></div>
+          <div class="chip"><b>Representações Oficiais</b></div>
+        </div>
+        <i class="hl"></i>
+        <div class="obox mid"><b>Diretoria do Conass</b><span>1 presidente e 5 vice-presidentes · 1 por macrorregião</span></div>
+        <i class="hl"></i>
+        <div class="sats R">
+          <div class="chip"><b>Comitê Consultivo</b><span>ex-presidentes</span></div>
+        </div>
+      </div>
+      <i class="vl rv" style="--d:480"></i>
+      <div class="brow rv" style="--d:540">
+        <div class="sats L"></div>
+        <i></i>
+        <div class="obox mid sec"><b>Secretaria Executiva do Conass</b><span>Secretário Executivo · Equipes Técnica e Administrativa</span></div>
+        <i class="hl o"></i>
+        <div class="sats R">
+          <div class="asslbl">Assessorias</div>
+          <div class="chiprow">
+            <div class="chip sm"><b>Jurídica</b></div>
+            <div class="chip sm"><b>Comunicação Social</b></div>
+            <div class="chip sm"><b>Parlamentar</b></div>
+          </div>
+        </div>
+      </div>
+      <div class="dist rv" style="--d:620"><i class="feed"></i><i class="bar"></i><i class="drop d1"></i><i class="drop d2"></i><i class="drop d3"></i></div>
+      <div class="cols rv" style="--d:700">
+        <div class="obox coord tec"><b>Coordenação Técnica</b></div>
+        <div class="obox coord adm"><b>Coordenação de Administração e de Finanças</b></div>
+        <div class="obox coord dev"><b>Coordenação de Desenvolvimento Institucional</b></div>
+      </div>
+      <div class="ticks rv" style="--d:740"><i class="tfeed"></i><i class="tbar"></i><i class="tk k1"></i><i class="tk k2"></i><i class="tk k3"></i><i class="tk k4"></i></div>
+      <div class="cols pans rv" style="--d:800">
+        <div class="pan nuc">
+          <h6>14 Núcleos Técnicos</h6>
+          <ul>
+            <li>Planejamento e Gestão</li>
+            <li>Financiamento e Investimento</li>
+            <li>Atenção Primária à Saúde</li>
+            <li>Atenção à Saúde (MAC e Regulação)</li>
+            <li>Assistência Farmacêutica</li>
+            <li>Epidemiologia</li>
+            <li>Vigilância em Saúde Ambiental</li>
+            <li>Vigilância Sanitária</li>
+            <li>Gestão do Trabalho e da Educação em Saúde</li>
+            <li>Promoção à Saúde</li>
+            <li>Ciência e Tecnologia</li>
+            <li>Relações Internacionais</li>
+            <li>Informação e Informática em Saúde</li>
+            <li class="hi">Qualidade no Cuidado e Segurança do Paciente</li>
+          </ul>
+        </div>
+        <i class="n2c" aria-hidden="true"></i>
+        <div class="pan cam">
+          <h6>13 Câmaras Técnicas</h6>
+          <ul>
+            <li>Atenção Primária à Saúde</li>
+            <li>Atenção à Saúde</li>
+            <li>Assistência Farmacêutica</li>
+            <li>Epidemiologia</li>
+            <li>Vigilância Sanitária</li>
+            <li>Gestão e Financiamento</li>
+            <li>Gestão do Trabalho e da Educação em Saúde</li>
+            <li>Informação e Informática</li>
+            <li>Comunicação em Saúde</li>
+            <li>Saúde Ambiental</li>
+            <li>Saúde do Trabalhador</li>
+            <li>Direito Sanitário</li>
+            <li class="hi">Qualidade no Cuidado e Segurança do Paciente</li>
+          </ul>
+        </div>
+        <div class="stackcol">
+          <div class="chip ger"><b>Gerência Administrativa</b></div>
+          <div class="chip ger"><b>Gerência de Compras e Contratos</b></div>
+          <div class="chip ger"><b>Gerência Financeira</b></div>
+        </div>
+        <div class="stackcol">
+          <div class="chip ger dev"><b>Unidade de Gestão de Projetos</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Antes de falar da Câmara Técnica, vale ver o desenho institucional completo. No topo, a Assembleia reúne os 27 secretários de Saúde dos estados e do Distrito Federal. A Diretoria tem 1 presidente e 5 vice-presidentes, um por macrorregião, com o apoio da Comissão Fiscal, das Representações Oficiais e do Comitê Consultivo, formado pelos ex-presidentes. A Secretaria Executiva conduz a operação com as assessorias Jurídica, de Comunicação Social e Parlamentar, e se organiza em três coordenações. Na Coordenação Técnica estão os 14 núcleos técnicos, que se desdobram em 13 câmaras técnicas, entre elas a Câmara Técnica de Qualidade no Cuidado e Segurança do Paciente, que veremos a seguir. A Coordenação de Administração e de Finanças reúne as gerências Administrativa, de Compras e Contratos e Financeira. A Coordenação de Desenvolvimento Institucional abriga a Unidade de Gestão de Projetos.</aside>
 </section>
 
 <section class="slide" id="s04" data-title="Câmara Técnica">
@@ -1396,23 +1562,24 @@ body.light #s08 svg.links path{stroke:rgba(14,122,78,.5);filter:none}
 <a href="#" data-i="0"><b>01</b><span>Capa</span></a>
 <a href="#" data-i="1"><b>02</b><span>Pergunta de abertura</span></a>
 <a href="#" data-i="2"><b>03</b><span>Conass</span></a>
-<a href="#" data-i="3"><b>04</b><span>Câmara Técnica</span></a>
-<a href="#" data-i="4"><b>05</b><span>O problema: fragmentação</span></a>
-<a href="#" data-i="5"><b>06</b><span>A definição da política</span></a>
-<a href="#" data-i="6"><b>07</b><span>O marco legal</span></a>
-<a href="#" data-i="7"><b>08</b><span>Governança em quatro níveis</span></a>
-<a href="#" data-i="8"><b>09</b><span>O elo crítico</span></a>
-<a href="#" data-i="9"><b>10</b><span>O que é o Negesp</span></a>
-<a href="#" data-i="10"><b>11</b><span>O Negesp em números</span></a>
-<a href="#" data-i="11"><b>12</b><span>O motor do Negesp</span></a>
-<a href="#" data-i="12"><b>13</b><span>Camadas de governança</span></a>
-<a href="#" data-i="13"><b>14</b><span>Comitê consultivo por dentro</span></a>
-<a href="#" data-i="14"><b>15</b><span>A dinâmica na secretaria</span></a>
-<a href="#" data-i="15"><b>16</b><span>A rede nacional colaborativa</span></a>
-<a href="#" data-i="16"><b>17</b><span>Além dos muros</span></a>
-<a href="#" data-i="17"><b>18</b><span>A equação de valor</span></a>
-<a href="#" data-i="18"><b>19</b><span>Visão: mensagem final</span></a>
-<a href="#" data-i="19"><b>20</b><span>Encerramento</span></a>
+<a href="#" data-i="3"><b>04</b><span>Organograma do Conass</span></a>
+<a href="#" data-i="4"><b>05</b><span>Câmara Técnica</span></a>
+<a href="#" data-i="5"><b>06</b><span>O problema: fragmentação</span></a>
+<a href="#" data-i="6"><b>07</b><span>A definição da política</span></a>
+<a href="#" data-i="7"><b>08</b><span>O marco legal</span></a>
+<a href="#" data-i="8"><b>09</b><span>Governança em quatro níveis</span></a>
+<a href="#" data-i="9"><b>10</b><span>O elo crítico</span></a>
+<a href="#" data-i="10"><b>11</b><span>O que é o Negesp</span></a>
+<a href="#" data-i="11"><b>12</b><span>O Negesp em números</span></a>
+<a href="#" data-i="12"><b>13</b><span>O motor do Negesp</span></a>
+<a href="#" data-i="13"><b>14</b><span>Camadas de governança</span></a>
+<a href="#" data-i="14"><b>15</b><span>Comitê consultivo por dentro</span></a>
+<a href="#" data-i="15"><b>16</b><span>A dinâmica na secretaria</span></a>
+<a href="#" data-i="16"><b>17</b><span>A rede nacional colaborativa</span></a>
+<a href="#" data-i="17"><b>18</b><span>Além dos muros</span></a>
+<a href="#" data-i="18"><b>19</b><span>A equação de valor</span></a>
+<a href="#" data-i="19"><b>20</b><span>Visão: mensagem final</span></a>
+<a href="#" data-i="20"><b>21</b><span>Encerramento</span></a>
 </div></div>
 <div class="notesbar" id="notesBar"><h6>Notas da apresentadora</h6><div id="notesTxt"></div></div>
 
@@ -1549,7 +1716,7 @@ function goTo(i,full){
   const s=slides[cur];
   s.classList.add('on');
   document.body.classList.toggle('light', cur!==0);
-  document.body.classList.toggle('showlogo', cur>=1 && cur<=18);
+  document.body.classList.toggle('showlogo', cur>=1 && cur<N-1); /* logo em todos, exceto capa e encerramento */
   if(full)step[cur]=stepMax[cur];
   if(s.id==='s13')step[cur]=0;            /* s13 sempre entra pela órbita, mesmo em acesso direto/índice */
   applySteps(cur);
