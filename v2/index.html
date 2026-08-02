@@ -792,8 +792,8 @@ body.light #s08 svg.links path{stroke:rgba(14,122,78,.5);filter:none}
 #s10 svg.beams{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 #s10 .bgrp{opacity:0;transition:opacity .6s ease}
 #s10 .bgrp.go{opacity:1}
-#s10 .bbase{fill:none;stroke:rgba(6,46,30,.13);stroke-width:2;stroke-linecap:round}
-#s10 .bpulse{fill:none;stroke:#0E7A4E;stroke-width:2.6;stroke-linecap:round;
+#s10 .bbase{fill:none;stroke:#79B295;stroke-width:2.6;stroke-linecap:round}
+#s10 .bpulse{fill:none;stroke:#0E7A4E;stroke-width:3;stroke-linecap:round;
   filter:drop-shadow(0 0 4px rgba(14,122,78,.55));
   animation:beamflow var(--bt,3.2s) cubic-bezier(.16,1,.3,1) infinite;animation-delay:var(--bd,0s)}
 @keyframes beamflow{from{stroke-dashoffset:var(--boff)}to{stroke-dashoffset:0}}
@@ -1410,10 +1410,11 @@ function applySteps(i){
 const hudTitle=$('#hudTitle'),hudNum=$('#hudNum'),progBar=$('#progBar');
 const notesBar=$('#notesBar'),notesTxt=$('#notesTxt'),menu=$('#menu');
 
-/* ── desenhadores de conexões (coordenadas sem transform: offset*) ── */
-function off(el,root){let x=0,y=0,n=el;while(n&&n!==root){x+=n.offsetLeft;y+=n.offsetTop;n=n.offsetParent;}return[x,y];}
-function mid(el,root){const[x,y]=off(el,root);return[x+el.offsetWidth/2,y+el.offsetHeight/2];}
-function prepSvg(svg){const p=svg.parentElement;svg.setAttribute('viewBox',`0 0 ${p.offsetWidth} ${p.offsetHeight}`);svg.innerHTML='';return p;}
+/* ── desenhadores de conexões (retângulos reais: respeita translate/centralização) ── */
+function off(el,root){const a=el.getBoundingClientRect(),b=root.getBoundingClientRect();return[a.left-b.left,a.top-b.top];}
+function mid(el,root){const a=el.getBoundingClientRect(),b=root.getBoundingClientRect();return[a.left+a.width/2-b.left,a.top+a.height/2-b.top];}
+function half(el){const r=el.getBoundingClientRect();return[r.width/2,r.height/2];}
+function prepSvg(svg){const p=svg.parentElement,r=p.getBoundingClientRect();svg.setAttribute('viewBox',`0 0 ${r.width} ${r.height}`);svg.innerHTML='';return p;}
 function q(svg,[x1,y1],[x2,y2],lift,cls){
   const mx=(x1+x2)/2,my=(y1+y2)/2-(lift||0);
   const el=document.createElementNS('http://www.w3.org/2000/svg','path');
@@ -1442,8 +1443,10 @@ function drawS10(){
     const [fx,fy]=mid(f,root);
     const g=document.createElementNS(NS,'g');
     g.setAttribute('class','bgrp');g.dataset.st=f.dataset.st||'';
-    const [sx,sy]=edge(cx,cy,core.offsetWidth/2,core.offsetHeight/2,fx,fy);
-    const [ex,ey]=edge(fx,fy,f.offsetWidth/2,f.offsetHeight/2,cx,cy);
+    const [chw,chh]=half(core);
+    const [sx,sy]=edge(cx,cy,chw,chh,fx,fy);
+    const [fhw,fhh]=half(f);
+    const [ex,ey]=edge(fx,fy,fhw,fhh,cx,cy);
     const dy=ey-sy;
     const curv=Math.abs(dy)<40?0:(dy<0?-70:70);
     const d=`M ${sx},${sy} Q ${(sx+ex)/2},${(sy+ey)/2+curv} ${ex},${ey}`;
@@ -1472,21 +1475,22 @@ function drawS14(){
   const node=$('#mindNode',s),nm=mid(node,root);
   [['#blkFn',-1],['#blkComp',-1],['#blkAtr',1]].forEach(([sel,side])=>{
     const b=$(sel,s);if(!b)return;const[bx,by]=off(b,root);
-    const p=side<0?[bx+b.offsetWidth,by+b.offsetHeight/2]:[bx,by+b.offsetHeight/2];
+    const br=b.getBoundingClientRect();
+    const p=side<0?[bx+br.width,by+br.height/2]:[bx,by+br.height/2];
     q(svg,nm,p,20);
   });
 }
 function drawS15(){
   const s=$('#s15'),svg=$('svg.path',s);if(!svg)return;const root=prepSvg(svg);
-  const steps=$$('.stepc',s).map(el=>{const[x,y]=off(el,root);return[x+el.offsetWidth/2,y];});
+  const steps=$$('.stepc',s).map(el=>{const[x,y]=off(el,root);return[x+el.getBoundingClientRect().width/2,y];});
   for(let i=0;i<steps.length-1;i++)q(svg,steps[i],steps[i+1],36);
-  const res=$('.result .badge',s);if(res){const[rx,ry]=off(res,root);
-    q(svg,steps[2],[rx+res.offsetWidth/2,ry+res.offsetHeight],26);}
+  const res=$('.result .badge',s);if(res){const[rx,ry]=off(res,root);const rr=res.getBoundingClientRect();
+    q(svg,steps[2],[rx+rr.width/2,ry+rr.height],26);}
 }
 function drawS17(){
   const s=$('#s17'),svg=$('svg.rays',s);if(!svg)return;const root=prepSvg(svg);
   const hub=mid($('#fanHub',s),root);
-  $$('.qd',s).forEach(c=>{const[x,y]=off(c,root);q(svg,hub,[x,y+c.offsetHeight/2],26);});
+  $$('.qd',s).forEach(c=>{const[x,y]=off(c,root);q(svg,hub,[x,y+c.getBoundingClientRect().height/2],26);});
 }
 const SCENES={s08:drawS08,s10:drawS10,s14:drawS14,s15:drawS15,s17:drawS17};
 
@@ -1509,6 +1513,7 @@ function goTo(i,full){
   notesTxt.textContent=($('aside.notes',s)||{}).textContent||'';
   history.replaceState(null,'','#'+(cur+1));
   requestAnimationFrame(()=>requestAnimationFrame(()=>{SCENES[s.id]&&SCENES[s.id]();}));
+  setTimeout(()=>{if(slides[cur]===s&&SCENES[s.id])SCENES[s.id]();},950);
   if(s.id==='s11')armMap();
   if(s.id==='s16')armNet();
   if(s.id==='s12')armGear();
@@ -1773,6 +1778,11 @@ function armGear(){
 
 const h=parseInt(location.hash.slice(1),10);
 goTo(isNaN(h)?0:h-1,!isNaN(h));
+/* redesenha a cena atual quando a fonte embutida terminar de carregar
+   (as larguras dos cards mudam e os conectores precisam nascer nas bordas certas) */
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{
+  const s=slides[cur];if(s&&SCENES[s.id])SCENES[s.id]();
+});
 })();
 
 </script>
