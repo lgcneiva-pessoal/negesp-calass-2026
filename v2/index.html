@@ -789,7 +789,8 @@ body.light #s08 svg.links path{stroke:rgba(14,122,78,.5);filter:none}
 #s10 .head .lead{max-width:none;white-space:nowrap;font-size:clamp(.78rem,1.21vw,1.26rem);margin-top:.5em}
 #s10 .core{font-size:clamp(1.2rem,1.9vw,1.7rem);padding:.85em 1.7em}
 #s10 .fn{font-size:clamp(.88rem,1.28vw,1.12rem);padding:.6em 1.2em .6em .55em}
-#s10 svg.beams{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+#s10 svg.beams{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+#s10 .core,#s10 .fn{z-index:3}
 #s10 .bgrp{opacity:0;transition:opacity .6s ease}
 #s10 .bgrp.go{opacity:1}
 #s10 .bbase{fill:none;stroke:#79B295;stroke-width:2.6;stroke-linecap:round}
@@ -1431,35 +1432,26 @@ function drawS08(){
 function drawS10(){
   const s=$('#s10'),svg=$('svg.beams',s);if(!svg)return;const root=prepSvg(svg);
   const NS='http://www.w3.org/2000/svg';
-  const core=$('.core',s);
-  const [cx,cy]=mid(core,root);
-  /* ponto no centro da borda voltada ao alvo (caixa com folga de 5px) */
-  const edge=(x,y,hw,hh,tx,ty)=>{
-    const dx=tx-x,dy=ty-y;
-    const t=1/Math.max(Math.abs(dx)/(hw+5),Math.abs(dy)/(hh+5));
-    return [x+dx*t,y+dy*t];
-  };
+  const [cx,cy]=mid($('.core',s),root);
+  /* feixes de CENTRO a CENTRO; núcleo (z2) e cards (z2) ficam por cima e
+     escondem as pontas — nunca há folga, seja qual for o tamanho do pino */
   $$('.fn',s).forEach((f,idx)=>{
     const [fx,fy]=mid(f,root);
     const g=document.createElementNS(NS,'g');
     g.setAttribute('class','bgrp');g.dataset.st=f.dataset.st||'';
-    const [chw,chh]=half(core);
-    const [sx,sy]=edge(cx,cy,chw,chh,fx,fy);
-    const [fhw,fhh]=half(f);
-    const [ex,ey]=edge(fx,fy,fhw,fhh,cx,cy);
-    const dy=ey-sy;
-    const curv=Math.abs(dy)<40?0:(dy<0?-70:70);
-    const d=`M ${sx},${sy} Q ${(sx+ex)/2},${(sy+ey)/2+curv} ${ex},${ey}`;
+    const dy=fy-cy, dx=fx-cx;
+    const curv=Math.abs(dy)<60?0:(dy<0?-58:58);
+    const d=`M ${cx},${cy} Q ${(cx+fx)/2},${(cy+fy)/2+curv} ${fx},${fy}`;
     const base=document.createElementNS(NS,'path');
     base.setAttribute('class','bbase');base.setAttribute('d',d);
     const pulse=document.createElementNS(NS,'path');
     pulse.setAttribute('class','bpulse');pulse.setAttribute('d',d);
     g.appendChild(base);g.appendChild(pulse);svg.appendChild(g);
     const L=pulse.getTotalLength();
-    pulse.style.strokeDasharray=`${L*.28} ${L*1.1}`;
-    pulse.style.setProperty('--boff',String(L*1.38));
-    pulse.style.setProperty('--bt',(2.6+idx*.3)+'s');
-    pulse.style.setProperty('--bd',(idx*.45)+'s');
+    pulse.style.strokeDasharray=`${L*.22} ${L}`;
+    pulse.style.setProperty('--boff',String(L*1.22));
+    pulse.style.setProperty('--bt',(2.8+idx*.35)+'s');
+    pulse.style.setProperty('--bd',(idx*.5)+'s');
   });
   window.__s10sync&&window.__s10sync();
 }
