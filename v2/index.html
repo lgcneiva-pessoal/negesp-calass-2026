@@ -741,17 +741,22 @@ body.showlogo .title{padding-right:clamp(9.5rem,18vw,14.5rem)}
 #s05 .pain p b{color:#0A2416}
 #s05 .tt-a em,#s05 .tt-b em{font-style:normal;color:var(--orange-soft)}
 
-/* ═══ S08: 2×2, tópicos empilhados, fonte máxima, sem espaço vago ═══ */
-#s08 .diamond{grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;
-  gap:clamp(.6rem,1.6vh,1rem) clamp(.8rem,2vw,1.5rem);
-  grid-template-areas:"fed est" "mun srv"}
-#s08 .dcard{width:auto !important;justify-self:stretch !important;display:flex;flex-direction:column;min-height:0;
-  padding:clamp(.6rem,1.3vw,1rem) clamp(.9rem,1.9vw,1.4rem)}
-#s08 .dcard ul{grid-template-columns:1fr !important;column-gap:0;flex:1;display:flex;flex-direction:column;justify-content:space-evenly;gap:.2em}
-#s08 .dcard li{font-size:clamp(.85rem,1.22vw,1.1rem);line-height:1.35}
-#s08 .dcard .who{font-size:clamp(.88rem,1.28vw,1.15rem)}
-#s08 .dcard .resp{margin-top:.4em;flex:1;display:flex;flex-direction:column;min-height:0}
-#s08 .dcard .resp b{margin-bottom:.3em}
+/* ═══ S08: diamante original em fundo claro, fontes maiores ═══ */
+#s08 .dcard li{font-size:clamp(.82rem,1.16vw,1.05rem);line-height:1.32}
+#s08 .dcard ul{gap:.18em}
+#s08 .dcard .who{font-size:clamp(.85rem,1.22vw,1.08rem)}
+#s08 .dcard .resp{margin-top:.35em}
+#s08 .dcard .resp b{margin-bottom:.28em}
+body.light #s08 svg.links path{stroke:rgba(14,122,78,.35);filter:none}
+#s08 .diamond{gap:clamp(.4rem,1.1vh,.75rem) clamp(3rem,8vw,7rem)}
+#s08 .dcard{padding:clamp(.5rem,1.1vw,.85rem) clamp(.85rem,1.8vw,1.35rem)}
+@media(max-height:780px){
+  #s08 .dcard li{font-size:.8rem;line-height:1.28}
+  #s08 .dcard ul{gap:.13em}
+  #s08 .dcard .who{font-size:.85rem}
+  #s08 .title{margin-top:.3em}
+}
+
 
 /* ═══ S09: título mais alto + fontes maiores ═══ */
 #s09 .wrap{justify-content:flex-start;padding-top:clamp(2rem,6vh,3.4rem)}
@@ -952,9 +957,10 @@ body.showlogo .title{padding-right:clamp(9.5rem,18vw,14.5rem)}
     <div class="kick rv" style="--d:60">Do macro ao micro</div>
     <h2 class="title rv" style="--d:180">Uma política, <em>quatro níveis</em> de responsabilidade</h2>
     <div class="diamond">
+      <svg class="links" aria-hidden="true"></svg>
       <div class="dcard fed glass st" data-link="fed"><div class="lvl">Federal</div><div class="who">Ministério da Saúde</div><div class="resp"><b>Responsabilidade estratégica</b><ul><li>Definir a política nacional.</li><li>Estabelecer diretrizes, estratégias e prioridades nacionais.</li><li>Instituir mecanismos de financiamento e adotar estratégias indutoras para o fortalecimento das ações.</li></ul></div></div>
       <div class="dcard est glass st" data-link="est"><div class="lvl">Estadual</div><div class="who">Núcleo Estadual de Gestão Estratégica da Segurança do Paciente</div><div class="resp"><b>Responsabilidade estratégica</b><ul><li>Coordenar a implementação da política no território.</li><li>Promover a integração das ações no âmbito das regiões de saúde.</li><li>Apoiar tecnicamente os municípios na implementação das ações.</li><li>Monitorar resultados da Rede de Atenção à Saúde.</li></ul></div></div>
-      <div class="dcard mun glass st" data-link="mun"><div class="lvl">Municipal</div><div class="who">Núcleos municipais de segurança do paciente</div><div class="resp"><b>Responsabilidade estratégica</b><ul><li>Coordenar a implementação das ações da política nos serviços de saúde.</li><li>Monitorar e analisar indicadores.</li><li>Apoiar a implementação e o funcionamento dos Núcleos de Segurança do Paciente nos serviços de saúde.</li></ul></div></div>
+      <div class="dcard mun glass st" data-link="mun"><div class="lvl">Municipal</div><div class="who">Núcleo Municipal de Gestão Estratégica da Segurança do Paciente</div><div class="resp"><b>Responsabilidade estratégica</b><ul><li>Coordenar a implementação das ações da política nos serviços de saúde.</li><li>Monitorar e analisar indicadores.</li><li>Apoiar a implementação e o funcionamento dos Núcleos de Segurança do Paciente nos serviços de saúde.</li></ul></div></div>
       <div class="dcard srv glass st" data-link="srv"><div class="lvl">Serviços de saúde</div><div class="who">Hospitais, unidades básicas e demais pontos de atenção à saúde</div><div class="resp"><b>Responsabilidade estratégica</b><ul><li>Instituir Núcleo de Segurança do Paciente.</li><li>Implementar práticas assistenciais seguras baseadas em evidências e diretrizes.</li><li>Notificar, analisar e promover aprendizagem organizacional a partir de incidentes e eventos adversos.</li></ul></div></div>
     </div>
   </div>
@@ -1355,7 +1361,7 @@ function drawS17(){
   const hub=mid($('#fanHub',s),root);
   $$('.qd',s).forEach(c=>{const[x,y]=off(c,root);q(svg,hub,[x,y+c.offsetHeight/2],26);});
 }
-const SCENES={s10:drawS10,s14:drawS14,s15:drawS15,s17:drawS17};
+const SCENES={s08:drawS08,s10:drawS10,s14:drawS14,s15:drawS15,s17:drawS17};
 
 /* navegação */
 let cur=-1;
