@@ -801,25 +801,58 @@ body.light #s08 svg.links path{stroke:rgba(14,122,78,.5);filter:none}
 #s12 .reactor::after{left:100%;background:linear-gradient(90deg,rgba(14,122,78,.6),rgba(232,119,34,.5))}
 #s12 .proc{font-size:clamp(.85rem,1.24vw,1.08rem)}
 #s12 .rlabel{font-size:clamp(1.05rem,1.6vw,1.4rem)}
-/* ═══ S13: cascata única com conteúdo integrado ═══ */
-#s13 .cake{flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;
-  justify-content:space-evenly;margin-top:clamp(.5rem,1.6vh,1rem);width:100%}
-#s13 .crow{display:flex;align-items:center;gap:clamp(.8em,1.6vw,1.3em);
-  border-radius:18px;border:1px solid;padding:clamp(.6rem,1.4vh,.95rem) clamp(1rem,2.2vw,1.7rem);
-  box-shadow:0 14px 34px rgba(6,46,30,.1)}
-#s13 .crow i{font-style:normal;flex:none;width:2.1em;height:2.1em;border-radius:50%;display:grid;place-items:center;
-  font-weight:800;font-size:clamp(.95rem,1.35vw,1.2rem);color:#fff}
-#s13 .crow b{display:block;font-size:clamp(1rem,1.5vw,1.32rem);line-height:1.2}
-#s13 .crow span{display:block;font-size:clamp(.85rem,1.24vw,1.08rem);line-height:1.35;margin-top:.15em}
-#s13 .crow.r1{width:min(96%,1000px);background:#FDEFE2;border-color:rgba(232,119,34,.5)}
-#s13 .crow.r1 b{color:#9A4508}#s13 .crow.r1 span{color:#7A5A41}#s13 .crow.r1 i{background:#E87722}
-#s13 .crow.r2{width:min(84%,880px);background:#E9F5EE;border-color:rgba(14,122,78,.45)}
-#s13 .crow.r2 b{color:#0A5638}#s13 .crow.r2 span{color:#40604E}#s13 .crow.r2 i{background:#0E7A4E}
-#s13 .crow.r3{width:min(72%,760px);background:#F3FAF6;border-color:rgba(87,185,138,.5)}
-#s13 .crow.r3 b{color:#0A5638}#s13 .crow.r3 span{color:#40604E}#s13 .crow.r3 i{background:#57B98A}
-#s13 .crow.r4{width:min(60%,640px);background:linear-gradient(120deg,#0E7A4E,#0A5638);border-color:#0A5638;
-  box-shadow:0 18px 44px rgba(14,122,78,.35)}
-#s13 .crow.r4 b{color:#fff}#s13 .crow.r4 span{color:#D9EFE3}#s13 .crow.r4 i{background:#fff;color:#0A5638}
+/* ═══ S13: ÓRBITA RADIAL (porta do 21st.dev · Radial Orbital Timeline) ═══ */
+#s13 .orb5{position:relative;flex:1;min-height:0;overflow:visible}
+#s13 .oring,#s13 .oring2{position:absolute;left:50%;top:50%;translate:-50% -50%;border-radius:50%;pointer-events:none}
+#s13 .oring{width:min(64vh,72%);aspect-ratio:1/.92;border:1.5px solid rgba(6,46,30,.13)}
+#s13 .oring2{width:min(46vh,52%);aspect-ratio:1/.92;border:1.5px dashed rgba(14,122,78,.22);animation:spin 34s linear infinite}
+@keyframes spin{to{rotate:360deg}}
+#s13 .ocore{position:absolute;left:50%;top:50%;translate:-50% -50%;z-index:5;width:clamp(3.4rem,7vh,4.6rem);aspect-ratio:1;
+  border-radius:50%;background:radial-gradient(circle at 35% 30%,#17A468,#0A5638 75%);
+  box-shadow:0 0 0 1px rgba(255,255,255,.2) inset,0 14px 40px rgba(14,122,78,.35);display:grid;place-items:center}
+#s13 .ocore::before{content:"";position:absolute;inset:-11px;border-radius:50%;border:1.5px solid rgba(14,122,78,.35);
+  animation:pulseR 2.6s var(--ease) infinite}
+#s13 .ocore::after{content:"";position:absolute;inset:-24px;border-radius:50%;border:1px solid rgba(14,122,78,.18);
+  animation:pulseR 2.6s var(--ease) .9s infinite}
+#s13 .ocore span{width:38%;aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.85)}
+#s13 .onode{position:absolute;translate:-50% -50%;transition:opacity .5s ease}
+#s13 .onode .obtn{display:grid;place-items:center;width:clamp(2.9rem,5.6vh,3.8rem);aspect-ratio:1;border-radius:50%;
+  border:2.5px solid;background:#fff;cursor:pointer;margin:0 auto;
+  box-shadow:0 10px 26px rgba(6,46,30,.16);transition:box-shadow .3s ease,border-color .3s ease}
+#s13 .onode .obtn i{font-style:normal;font-weight:850;font-size:clamp(1.05rem,1.8vh,1.35rem)}
+#s13 .onode.k1 .obtn{border-color:#E87722;color:#C4560A}
+#s13 .onode.k2 .obtn{border-color:#0E7A4E;color:#0A5638}
+#s13 .onode.k3 .obtn{border-color:#57B98A;color:#0A5638}
+#s13 .onode.k4 .obtn{border-color:#0A5638;background:linear-gradient(120deg,#0E7A4E,#0A5638);color:#fff}
+#s13 .onode.open .obtn{box-shadow:0 0 0 6px rgba(14,122,78,.14),0 16px 40px rgba(6,46,30,.24)}
+#s13 .olabel{margin-top:.5em;text-align:center;font-size:clamp(.78rem,1.5vh,1rem);font-weight:750;color:var(--ink);
+  white-space:nowrap;letter-spacing:.01em;transition:opacity .3s ease}
+#s13 .onode.open .olabel{opacity:0}
+#s13 .ocard{position:absolute;top:calc(100% + 16px);left:50%;translate:-50% 0;width:clamp(19rem,36vw,25rem);
+  background:#fff;border:1px solid rgba(6,46,30,.1);border-top:3px solid var(--green);border-radius:14px;
+  box-shadow:0 26px 60px rgba(6,46,30,.2);padding:1rem 1.2rem;text-align:left;
+  opacity:0;transform:translateY(-8px);pointer-events:none;transition:opacity .4s var(--ease),transform .4s var(--ease)}
+#s13 .onode.k1 .ocard{border-top-color:#E87722}
+#s13 .onode.open .ocard{opacity:1;transform:none;pointer-events:auto}
+#s13 .ocard::before{content:"";position:absolute;top:-14px;left:50%;translate:-50% 0;width:2px;height:12px;background:rgba(14,122,78,.5)}
+#s13 .ocard h5{display:flex;align-items:center;gap:.55em;font-size:clamp(.95rem,1.9vh,1.15rem);font-weight:800;color:var(--ink);margin-bottom:.4em}
+#s13 .ocard h5 i{font-style:normal;flex:none;width:1.7em;height:1.7em;border-radius:50%;display:grid;place-items:center;
+  font-size:.85em;color:#fff;background:var(--green)}
+#s13 .onode.k1 .ocard h5 i{background:#E87722}
+#s13 .ocard p{font-size:clamp(.88rem,1.75vh,1.08rem);line-height:1.5;color:var(--ink-2)}
+#s13 .orel{display:flex;flex-wrap:wrap;gap:.4em;margin-top:.7em;padding-top:.6em;border-top:1px solid rgba(6,46,30,.08)}
+#s13 .orel button{font-family:inherit;font-size:clamp(.68rem,1.35vh,.8rem);font-weight:650;color:var(--ink-2);
+  background:#F1F6F2;border:1px solid rgba(6,46,30,.1);border-radius:999px;padding:.35em .9em;cursor:pointer;
+  transition:all .25s ease}
+#s13 .orel button:hover{color:var(--ink);border-color:rgba(14,122,78,.45);background:#E7F4EC}
+#s13 .orbprint{display:none}
+@media print{
+  #s13 .orb5{display:none}
+  #s13 .orbprint{display:grid;gap:1rem;margin-top:1.4rem}
+  #s13 .orbprint b{display:block;font-size:1.05rem;color:#0A2416}
+  #s13 .orbprint span{font-size:.95rem;color:#40604E}
+}
+
 /* ═══ S14: OPÇÃO A — faixas horizontais, colunas internas por densidade ═══ */
 #s14 .title{padding-right:0 !important;max-width:56ch;font-size:clamp(1.1rem,1.85vw,1.62rem)}
 #s14 .tri{display:flex;flex-direction:column;justify-content:space-evenly;gap:clamp(.45rem,1.4vh,.9rem);
@@ -1112,12 +1145,36 @@ body.light #s08 svg.links path{stroke:rgba(14,122,78,.5);filter:none}
 <section class="slide" id="s13" data-title="Camadas de governança">
   <div class="wrap">
     <div class="kick rv" style="--d:60">Da equipe técnica à rede nacional</div>
-    <div class="cake rv" style="--d:200" >
-      <div class="crow r1 st" data-st="4"><i>1</i><div><b>Rede nacional e parceiros externos</b><span>a articulação sistêmica, coordenada pelo Conselho Nacional de Secretários de Saúde.</span></div></div>
-      <div class="crow r2 st" data-st="3"><i>2</i><div><b>Negesp estadual</b><span>a estrutura consolidada de governança no estado.</span></div></div>
-      <div class="crow r3 st" data-st="2"><i>3</i><div><b>Comitê consultivo</b><span>a integração com os departamentos da secretaria estadual de saúde.</span></div></div>
-      <div class="crow r4 st" data-st="1"><i>4</i><div><b>Equipe técnica multiprofissional</b><span>a base de operação técnica, dentro da secretaria estadual.</span></div></div>
+    <div class="orb5 rv" style="--d:220" id="orb5">
+      <div class="oring"></div>
+      <div class="oring2"></div>
+      <div class="ocore"><span></span></div>
+      <div class="onode st k1" data-st="4">
+        <button type="button" class="obtn"><i>1</i></button>
+        <div class="olabel">Rede nacional e parceiros externos</div>
+        <div class="ocard"><h5><i>1</i>Rede nacional e parceiros externos</h5><p>a articulação sistêmica, coordenada pelo Conselho Nacional de Secretários de Saúde.</p>
+          <div class="orel"><button type="button" data-goto="1">Negesp estadual</button></div></div>
+      </div>
+      <div class="onode st k2" data-st="3">
+        <button type="button" class="obtn"><i>2</i></button>
+        <div class="olabel">Negesp estadual</div>
+        <div class="ocard"><h5><i>2</i>Negesp estadual</h5><p>a estrutura consolidada de governança no estado.</p>
+          <div class="orel"><button type="button" data-goto="0">Rede nacional e parceiros externos</button><button type="button" data-goto="2">Comitê consultivo</button></div></div>
+      </div>
+      <div class="onode st k3" data-st="2">
+        <button type="button" class="obtn"><i>3</i></button>
+        <div class="olabel">Comitê consultivo</div>
+        <div class="ocard"><h5><i>3</i>Comitê consultivo</h5><p>a integração com os departamentos da secretaria estadual de saúde.</p>
+          <div class="orel"><button type="button" data-goto="1">Negesp estadual</button><button type="button" data-goto="3">Equipe técnica multiprofissional</button></div></div>
+      </div>
+      <div class="onode st k4" data-st="1">
+        <button type="button" class="obtn"><i>4</i></button>
+        <div class="olabel">Equipe técnica multiprofissional</div>
+        <div class="ocard"><h5><i>4</i>Equipe técnica multiprofissional</h5><p>a base de operação técnica, dentro da secretaria estadual.</p>
+          <div class="orel"><button type="button" data-goto="2">Comitê consultivo</button></div></div>
+      </div>
     </div>
+    <div class="orbprint"><div><b>1 · Rede nacional e parceiros externos</b><span>a articulação sistêmica, coordenada pelo Conselho Nacional de Secretários de Saúde.</span></div><div><b>2 · Negesp estadual</b><span>a estrutura consolidada de governança no estado.</span></div><div><b>3 · Comitê consultivo</b><span>a integração com os departamentos da secretaria estadual de saúde.</span></div><div><b>4 · Equipe técnica multiprofissional</b><span>a base de operação técnica, dentro da secretaria estadual.</span></div></div>
   </div>
   <aside class="notes">As camadas crescem do centro para fora, a cada clique: equipe técnica, comitê consultivo, o núcleo estadual e, por fim, a rede nacional com parceiros externos. A mensagem: nenhuma camada substitui a outra, elas se sustentam. Transição: “Vamos abrir a camada do comitê consultivo.”</aside>
 </section>
@@ -1336,6 +1393,7 @@ const step=new Array(N).fill(0);
 function applySteps(i){
   $$('.st',slides[i]).forEach(e=>e.classList.toggle('go',+e.dataset.st<=step[i]));
   if(slides[i].id==='s05'&&window.__s05link)window.__s05link(step[i]>=4);
+  if(slides[i].id==='s13'&&window.__s13step)window.__s13step(step[i]);
 }
 
 const hudTitle=$('#hudTitle'),hudNum=$('#hudNum'),progBar=$('#progBar');
@@ -1612,6 +1670,65 @@ function armGear(){
     if(ta&&tb){ ta.hidden = on; tb.hidden = !on; }
   };
   window.__s05link(false);
+})();
+
+
+/* s13: órbita radial (porta do 21st.dev · Radial Orbital Timeline) */
+(function(){
+  const orb=document.getElementById('orb5');
+  if(!orb)return;
+  const sec=document.getElementById('s13');
+  const nodes=[...orb.querySelectorAll('.onode')];
+  let ang=90, tAng=90, auto=true;
+  function layout(){
+    const W=orb.clientWidth,H=orb.clientHeight;
+    if(!W||!H)return;
+    const R=Math.min(W*.42,H*.33);
+    nodes.forEach((n,i)=>{
+      const a=((i/nodes.length)*360+ang)%360, rad=a*Math.PI/180;
+      const x=W/2+R*Math.cos(rad), y=H/2+R*Math.sin(rad)*0.92;
+      const open=n.classList.contains('open');
+      const depth=(1-Math.sin(rad))/2;           /* 1 = topo (frente do palco) */
+      n.style.left=x+'px'; n.style.top=y+'px';
+      n.style.zIndex=open?200:Math.round(50+depth*50);
+      const vis=n.classList.contains('go');
+      n.style.opacity=vis?(open?1:(0.45+0.55*depth)):0;
+      n.style.pointerEvents=vis?'auto':'none';
+      n.style.scale=open?'1.12':String(.84+.24*depth);
+    });
+  }
+  (function tick(){
+    if(sec.classList.contains('on')){
+      if(auto&&!reduced)tAng=(tAng+0.1)%360;
+      ang+=(tAng-ang)*0.08;
+      layout();
+    }
+    requestAnimationFrame(tick);
+  })();
+  function openNode(n){
+    nodes.forEach(m=>m.classList.toggle('open',m===n));
+    auto=false;
+    const i=nodes.indexOf(n);
+    tAng=270-(i/nodes.length)*360;               /* leva o nó ao topo */
+    ang=tAng-24;                                  /* pequena chegada animada */
+  }
+  function closeAll(){nodes.forEach(m=>m.classList.remove('open'));auto=true;}
+  nodes.forEach(n=>{
+    n.querySelector('.obtn').addEventListener('click',e=>{
+      e.stopPropagation();
+      n.classList.contains('open')?closeAll():openNode(n);
+    });
+  });
+  orb.querySelectorAll('.orel button').forEach(b=>b.addEventListener('click',e=>{
+    e.stopPropagation();
+    openNode(nodes[+b.dataset.goto]);
+  }));
+  orb.addEventListener('click',e=>{e.stopPropagation();if(!e.target.closest('.onode'))closeAll();});
+  window.__s13step=(st)=>{
+    if(st<=0){closeAll();return;}
+    const n=nodes.find(m=>+m.dataset.st===st);
+    if(n)openNode(n);
+  };
 })();
 
 const h=parseInt(location.hash.slice(1),10);
