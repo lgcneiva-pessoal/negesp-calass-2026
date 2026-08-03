@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=1280">
 <title>Negesp · Governança da Segurança do Paciente · CALASS 2026</title>
 <style>
 /* ═══════════════════════════════════════════════════════════════
@@ -957,6 +957,19 @@ body.light #s08 svg.links path{stroke:rgba(14,122,78,.5);filter:none}
 #s19 .qtile{align-self:stretch;background:#fff;border-radius:18px;padding:clamp(.75rem,1.4vw,1.2rem);box-shadow:0 20px 50px rgba(6,46,30,.26),0 0 0 1px rgba(6,46,30,.06)}
 #s19 .qtile img{display:block;width:100%;height:auto}
 
+/* ═══ CELULAR: aviso para girar a tela (o deck é 16:9; retrato não comporta) ═══ */
+/* dimensões em vw: no retrato o viewport CSS é 1280px escalado p/ ~390px físicos, então as
+   unidades compensam o fator de escala e o aviso aparece em tamanho legível no aparelho */
+.rotatehint{display:none}
+@media (orientation:portrait) and (pointer:coarse){
+  .rotatehint{position:fixed;inset:0;z-index:990;display:flex;flex-direction:column;align-items:center;
+    justify-content:center;gap:6vw;background:#07130C;color:#EAF4EE;text-align:center}
+  .rotatehint .ph{width:15vw;height:26vw;border:1.1vw solid #2FBF83;border-radius:3vw;display:block;
+    animation:rotph 2.4s ease-in-out infinite}
+  .rotatehint p{font-size:4.6vw;font-weight:700;line-height:1.45;max-width:24ch;font-stretch:105%}
+  @keyframes rotph{0%,22%{transform:rotate(0)}58%,100%{transform:rotate(-90deg)}}
+}
+
 /* ═══ SORG: organograma do Conass (Assembleia → coordenações → núcleos e câmaras) ═══ */
 #sorg .wrap{padding-top:clamp(2.5rem,5.8vh,3.5rem);padding-bottom:clamp(2rem,5vh,3rem);display:flex;flex-direction:column}
 #sorg .title{font-size:clamp(1rem,1.7vw,1.5rem);margin-top:.3em;margin-bottom:clamp(.5rem,1.5vh,.85rem)}
@@ -1548,6 +1561,8 @@ body.light #s08 svg.links path{stroke:rgba(14,122,78,.5);filter:none}
   <aside class="notes">Agradeça em português e em francês, cortesia com a casa. Deixe os contatos na tela durante as perguntas. Se houver tempo, encerre reforçando: o Negesp é um convite, cada sistema de saúde pode construir o seu elo entre a evidência e a prática.</aside>
 </section>
 
+<div class="rotatehint" aria-hidden="true"><i class="ph"></i><p>Gire o celular para ver a apresentação</p></div>
+
 <div class="hud" aria-hidden="true">
   <i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i>
   <div class="htl"><b>Conass</b> · Negesp · CALASS 2026</div>
@@ -1746,6 +1761,7 @@ addEventListener('keydown',e=>{
   else if(e.key==='Escape'){menu.classList.remove('open');notesBar.classList.remove('open');}
 });
 addEventListener('click',e=>{
+  if(portraitLock&&portraitLock())return;
   if(e.target.closest('.menu a'))return;
   if(e.target.closest('.menu')){menu.classList.remove('open');return;}
   if(e.clientX>innerWidth*.6)next(); else if(e.clientX<innerWidth*.25)prev();
@@ -1767,10 +1783,13 @@ addEventListener('wheel',e=>{
     wAcc=0;wLock=now+760;
   }
 },{passive:false});
-/* gesto de arrastar (touch) */
+/* gesto de arrastar (touch) — inerte enquanto o aviso de girar a tela está visível */
+const portraitLock=()=>matchMedia('(orientation:portrait) and (pointer:coarse)').matches;
 let tx=0,ty=0;
 addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY;},{passive:true});
 addEventListener('touchend',e=>{
+  if(portraitLock())return;
+  if(e.touches.length>0)return; /* pinch em andamento: não navegar */
   const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;
   if(Math.max(Math.abs(dx),Math.abs(dy))<42)return;
   (Math.abs(dx)>Math.abs(dy)?(dx<0?next:prev):(dy<0?next:prev))();
