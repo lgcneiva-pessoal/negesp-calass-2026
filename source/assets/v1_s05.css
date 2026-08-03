@@ -1,0 +1,21 @@
+/* ============================================================
+   S5 · PROBLEMA — pontos dispersos que se conectam
+   ============================================================ */
+#s05 .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1rem,3vw,3rem);align-items:center;min-height:0}
+#s05 .dotstage{position:relative;height:min(58vh,470px)}
+#s05 .dotstage svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+#s05 .dotstage line{stroke:var(--verde);stroke-width:1.4;opacity:0;transition:opacity .9s ease .35s}
+#s05.linked .dotstage line{opacity:.4}
+#s05 .dot{position:absolute;width:clamp(9px,1.3vw,14px);height:clamp(9px,1.3vw,14px);border-radius:50%;background:var(--laranja);
+  transition:left 1.15s var(--ease-expo),top 1.15s var(--ease-expo),background .9s ease;box-shadow:0 2px 8px rgba(6,46,30,.14)}
+#s05.linked .dot{background:var(--verde)}
+#s05 .dot{animation:drift 5s ease-in-out infinite alternate}
+#s05.linked .dot{animation:none}
+@keyframes drift{from{margin-top:-4px}to{margin-top:5px}}
+.pains{display:flex;flex-direction:column;gap:clamp(.45rem,1.4vh,.9rem)}
+.pain{display:flex;gap:.8em;align-items:flex-start;padding:clamp(.55rem,1.5vw,.95rem) clamp(.7rem,1.8vw,1.2rem);border-radius:12px;background:var(--mist);border:1px solid var(--linha)}
+.pain i{font-style:normal;flex:none;width:1.7em;height:1.7em;border-radius:50%;display:grid;place-items:center;background:var(--laranja-suave);color:var(--laranja-texto);font-weight:800;font-size:.95em}
+.pain.good i{background:var(--verde-claro);color:var(--verde)}
+.pain p{font-size:var(--body-size);line-height:1.38;color:var(--ink)}
+.pain p b{color:var(--verde-900)}
+
