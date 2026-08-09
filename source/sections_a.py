@@ -101,21 +101,23 @@ SBRA = '''
   <div class="wrap">
     <div class="kick rv" style="--d:60">O contexto brasileiro</div>
     <h2 class="title rv" style="--d:160"><em>Brasil</em>: dimensão continental</h2>
-    <div class="bbar rv" style="--d:280">
-      <div class="popn"><b>213.485.153</b><span>habitantes · população residente (IBGE, 2026)</span></div>
-      <div class="fchips">
-        <div class="fc"><b>26<i>+DF</i></b><span>Estados e DF</span></div>
-        <div class="fc"><b>5.571</b><span>Municípios</span></div>
-        <div class="fc"><b>5</b><span>Regiões geográficas</span></div>
-        <div class="fc"><b>117</b><span>Macrorregiões de saúde</span></div>
-        <div class="fc"><b>453</b><span>Regiões de saúde</span></div>
+    <div class="bcols">
+      <div class="bleft">
+        <figure class="tmap jump" style="--jd:.14s">
+          <img src="data:image/png;base64,%%MAPTERR%%" alt="Mapa do território brasileiro por população, com área de 8.510.418 km² e densidade de 23,86 habitantes por km² (Censo 2022, IBGE)">
+          <figcaption>Território, área e densidade · Censo 2022 · 71% dos municípios com menos de 20 mil hab. (IBGE)</figcaption>
+        </figure>
+        <div class="stats rv" style="--d:560">
+          <div class="pop"><b>213.485.153</b><span>habitantes · população residente (IBGE, 2026)</span></div>
+          <div class="grid5">
+            <div class="s"><b>26<i>+DF</i></b><span>Estados e DF</span></div>
+            <div class="s"><b>5.571</b><span>Municípios</span></div>
+            <div class="s"><b>5</b><span>Regiões geográficas</span></div>
+            <div class="s"><b>117</b><span>Macrorregiões de saúde</span></div>
+            <div class="s"><b>453</b><span>Regiões de saúde</span></div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="bmaps">
-      <figure class="tmap jump" style="--jd:.14s">
-        <img src="data:image/png;base64,%%MAPTERR%%" alt="Mapa do território brasileiro por população, com área de 8.510.418 km² e densidade de 23,86 habitantes por km² (Censo 2022, IBGE)">
-        <figcaption>Território, área e densidade · Censo 2022 · 71% dos municípios com menos de 20 mil hab. (IBGE)</figcaption>
-      </figure>
       <figure class="gmap jump" style="--jd:.3s">
         <img src="data:image/png;base64,%%MAPGINI%%" alt="Mapa do Brasil pelo Índice de Gini por grande região: Sul 0,448, Centro-Oeste 0,486, Sudeste 0,508, Norte 0,517 e Nordeste 0,520; Brasil 0,509. Fonte: IBGE">
         <figcaption>Índice de Gini por grande região (2024) · Brasil <b>0,509</b> · 2º país com maior desigualdade no <em>G20</em></figcaption>

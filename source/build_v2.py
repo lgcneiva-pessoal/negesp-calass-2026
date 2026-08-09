@@ -363,21 +363,21 @@ body.light #s08 svg.links path{stroke:rgba(14,122,78,.5);filter:none}
 /* ═══ SORG: organograma do Conass (estrutura oficial, modelo enxuto) ═══ */
 #sorg .wrap{padding-top:clamp(2.1rem,4.8vh,3.1rem);padding-bottom:clamp(1.3rem,3.4vh,2.2rem);display:flex;flex-direction:column}
 #sorg .title{font-size:clamp(1rem,1.7vw,1.5rem);margin-top:.3em;margin-bottom:clamp(.4rem,1.2vh,.7rem)}
-#sorg .chart{flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(.18rem,.62vh,.4rem)}
+#sorg .chart{flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(.26rem,.85vh,.55rem)}
 /* caixas */
-#sorg .obox{background:#fff;border:1px solid var(--hair);border-radius:11px;text-align:center;
-  padding:clamp(.28rem,.8vh,.5rem) clamp(.7rem,1.3vw,1.1rem);box-shadow:0 8px 22px rgba(6,46,30,.07)}
-#sorg .obox b{display:block;font-weight:800;font-stretch:110%;font-size:clamp(.72rem,1.02vw,.94rem);color:var(--ink);line-height:1.2}
-#sorg .obox span{display:block;font-size:clamp(.55rem,.8vw,.73rem);color:var(--ink-2);line-height:1.26;margin-top:.1em}
+#sorg .obox{background:#fff;border:1px solid var(--hair);border-radius:12px;text-align:center;
+  padding:clamp(.42rem,1.05vh,.72rem) clamp(1rem,1.8vw,1.5rem);box-shadow:0 9px 24px rgba(6,46,30,.08)}
+#sorg .obox b{display:block;font-weight:800;font-stretch:110%;font-size:clamp(.92rem,1.35vw,1.24rem);color:var(--ink);line-height:1.2}
+#sorg .obox span{display:block;font-size:clamp(.68rem,.98vw,.9rem);color:var(--ink-2);line-height:1.26;margin-top:.12em}
 #sorg .obox.solo{align-self:center}
-#sorg .obox.top{background:var(--green);border-color:transparent;box-shadow:0 12px 30px rgba(14,122,78,.28);max-width:min(52vw,560px)}
+#sorg .obox.top{background:var(--green);border-color:transparent;box-shadow:0 14px 34px rgba(14,122,78,.3);max-width:min(54vw,620px)}
 #sorg .obox.top b{color:#fff}#sorg .obox.top span{color:rgba(255,255,255,.9)}
 #sorg .obox.sec{border-top:3px solid var(--orange)}
-#sorg .obox.cam{background:var(--orange);border-color:transparent;box-shadow:0 12px 30px rgba(232,119,34,.32);
-  padding:clamp(.34rem,.95vh,.6rem) clamp(.85rem,1.7vw,1.5rem)}
-#sorg .obox.cam b{color:#fff;font-size:clamp(.74rem,1.06vw,1rem);letter-spacing:.02em}
+#sorg .obox.cam{background:var(--orange);border-color:transparent;box-shadow:0 14px 34px rgba(232,119,34,.34);
+  padding:clamp(.48rem,1.25vh,.78rem) clamp(1.1rem,2.1vw,1.85rem)}
+#sorg .obox.cam b{color:#fff;font-size:clamp(.94rem,1.4vw,1.32rem);letter-spacing:.02em}
 /* conectores verticais */
-#sorg .vl{width:2px;height:clamp(.32rem,1vh,.62rem);background:rgba(14,122,78,.4)}
+#sorg .vl{width:2px;height:clamp(.42rem,1.3vh,.85rem);background:rgba(14,122,78,.4)}
 /* linhas com satélite à direita (Assembleia+Comitê, Diretoria+Conselho Fiscal) */
 #sorg .orow{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;width:100%}
 #sorg .orow>.obox{grid-column:2;justify-self:center}
@@ -386,23 +386,23 @@ body.light #s08 svg.links path{stroke:rgba(14,122,78,.5);filter:none}
 #sorg .tap{height:2px;width:clamp(.7rem,1.9vw,1.5rem);background:rgba(14,122,78,.4);flex:none}
 #sorg .tap.o{background:rgba(232,119,34,.5)}
 /* chips (satélites e subitens) */
-#sorg .chip{background:#fff;border:1px solid var(--hair);border-radius:9px;padding:.3em .75em;text-align:center;
-  box-shadow:0 6px 16px rgba(6,46,30,.05)}
-#sorg .chip b{font-weight:700;font-size:clamp(.6rem,.86vw,.78rem);color:var(--ink);line-height:1.2;display:block}
-#sorg .chip span{display:block;font-size:clamp(.5rem,.74vw,.66rem);color:var(--ink-3);line-height:1.2}
+#sorg .chip{background:#fff;border:1px solid var(--hair);border-radius:10px;padding:.4em .95em;text-align:center;
+  box-shadow:0 7px 18px rgba(6,46,30,.06)}
+#sorg .chip b{font-weight:700;font-size:clamp(.76rem,1.08vw,.98rem);color:var(--ink);line-height:1.2;display:block}
+#sorg .chip span{display:block;font-size:clamp(.62rem,.88vw,.8rem);color:var(--ink-3);line-height:1.2}
 /* faixa de ramais: Câmaras Técnicas (esq.) · espinha · Gabinete (dir.) */
 #sorg .branch{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;width:100%;margin:clamp(.1rem,.3vh,.24rem) 0}
 #sorg .branch .bcol{display:flex;align-items:center}
 #sorg .branch .bcol.L{grid-column:1;justify-content:flex-end}
 #sorg .branch .spine{grid-column:2;width:2px;align-self:stretch;justify-self:center;background:rgba(14,122,78,.4)}
 #sorg .branch .bcol.R{grid-column:3;justify-content:flex-start}
-#sorg .pan.gab{background:#fff;border:1px solid var(--hair);border-radius:11px;box-shadow:0 8px 22px rgba(6,46,30,.07);
-  padding:clamp(.34rem,.85vh,.58rem) clamp(.6rem,1.1vw,.95rem);max-width:min(30vw,340px)}
-#sorg .pan.gab h6{font-size:clamp(.62rem,.9vw,.82rem);font-weight:800;font-stretch:110%;letter-spacing:.05em;
-  text-transform:uppercase;color:var(--green);margin-bottom:.3em;text-align:center}
-#sorg .pan.gab ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.13em}
-#sorg .pan.gab li{position:relative;font-size:clamp(.56rem,.8vw,.72rem);line-height:1.24;color:var(--ink-2);padding-left:.85em}
-#sorg .pan.gab li::before{content:"";position:absolute;left:0;top:.42em;width:.26em;height:.26em;border-radius:50%;background:var(--green)}
+#sorg .pan.gab{background:#fff;border:1px solid var(--hair);border-radius:12px;box-shadow:0 9px 24px rgba(6,46,30,.08);
+  padding:clamp(.5rem,1.15vh,.82rem) clamp(.85rem,1.5vw,1.3rem);max-width:min(34vw,420px)}
+#sorg .pan.gab h6{font-size:clamp(.78rem,1.1vw,1.02rem);font-weight:800;font-stretch:110%;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--green);margin-bottom:.4em;text-align:center}
+#sorg .pan.gab ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.22em}
+#sorg .pan.gab li{position:relative;font-size:clamp(.72rem,1vw,.92rem);line-height:1.26;color:var(--ink-2);padding-left:.95em}
+#sorg .pan.gab li::before{content:"";position:absolute;left:0;top:.46em;width:.3em;height:.3em;border-radius:50%;background:var(--green)}
 /* distribuidor: Secretaria (50%) → 3 coordenações (16.7% · 50% · 83.3%) */
 #sorg .dist3{position:relative;width:100%;height:clamp(.55rem,1.5vh,.95rem)}
 #sorg .dist3 i{position:absolute;background:rgba(14,122,78,.4)}
@@ -411,10 +411,10 @@ body.light #s08 svg.links path{stroke:rgba(14,122,78,.5);filter:none}
 #sorg .dist3 .d{width:2px;top:50%;bottom:0;translate:-1px 0}
 #sorg .dist3 .a{left:16.667%}#sorg .dist3 .b{left:50%}#sorg .dist3 .c{left:83.333%}
 /* coordenações */
-#sorg .coords{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(.5rem,1.2vw,1rem);width:100%}
+#sorg .coords{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(.6rem,1.4vw,1.2rem);width:100%}
 #sorg .coord{display:flex;align-items:center;justify-content:center;text-align:center;background:#fff;border:1px solid var(--hair);
-  border-radius:10px;padding:.5em .7em;box-shadow:0 8px 22px rgba(6,46,30,.07)}
-#sorg .coord b{font-size:clamp(.64rem,.94vw,.86rem);line-height:1.2;color:var(--ink)}
+  border-radius:11px;padding:.65em .85em;box-shadow:0 9px 24px rgba(6,46,30,.08)}
+#sorg .coord b{font-size:clamp(.82rem,1.2vw,1.08rem);line-height:1.2;color:var(--ink)}
 #sorg .coord.dev{border-top:3px solid #57B98A}
 #sorg .coord.tec{border-top:3px solid var(--green)}
 #sorg .coord.adm{border-top:3px solid var(--orange)}
@@ -429,55 +429,66 @@ body.light #s08 svg.links path{stroke:rgba(14,122,78,.5);filter:none}
 #sorg .fork .fb{left:25%;right:25%;top:0;height:2px}
 #sorg .fork .fd{width:2px;top:0;bottom:0}
 #sorg .fork .fl{left:25%}#sorg .fork .fr{right:25%}
-@media (max-height:680px){
-  #sorg .obox b{font-size:.72rem}
-  #sorg .obox span,#sorg .pan.gab li{font-size:.58rem}
+@media (max-height:760px){
+  #sorg .chart{gap:clamp(.18rem,.55vh,.36rem)}
+  #sorg .obox{padding:clamp(.32rem,.85vh,.56rem) clamp(.9rem,1.6vw,1.3rem)}
+  #sorg .obox b{font-size:clamp(.85rem,1.2vw,1.08rem)}
+  #sorg .obox span{font-size:clamp(.64rem,.9vw,.82rem)}
+  #sorg .obox.cam b{font-size:clamp(.88rem,1.25vw,1.14rem)}
+  #sorg .coord b{font-size:clamp(.78rem,1.08vw,.98rem)}
+  #sorg .pan.gab h6{font-size:clamp(.74rem,1vw,.92rem)}
+  #sorg .pan.gab li{font-size:clamp(.68rem,.92vw,.84rem)}
+  #sorg .chip b{font-size:clamp(.72rem,1vw,.9rem)}
+  #sorg .vl{height:clamp(.32rem,.95vh,.6rem)}
   #sorg .title{font-size:1rem;margin-bottom:.28rem}
 }
 
-/* ═══ SBRA: Brasil (faixa de dados no topo + dois mapas em destaque) ═══ */
+/* ═══ SBRA: Brasil (território + números em destaque à esq.; Gini alto à dir.) ═══ */
 #sbra .wrap{padding-top:clamp(2.1rem,4.8vh,3.1rem);padding-bottom:clamp(1.2rem,3.2vh,2.1rem);display:flex;flex-direction:column}
-#sbra .title{margin-bottom:clamp(.45rem,1.4vh,.9rem)}
-/* faixa compacta de dados */
-#sbra .bbar{display:flex;align-items:center;gap:clamp(1rem,2.6vw,2.2rem);flex-wrap:wrap;
-  border-bottom:1px solid var(--hair);padding-bottom:clamp(.5rem,1.5vh,.95rem)}
-body.showlogo #sbra .bbar{padding-right:clamp(10rem,18.5vw,15rem)}
-#sbra .popn{display:flex;flex-direction:column;gap:.06em;flex:none}
-#sbra .popn b{font-size:clamp(1.5rem,2.7vw,2.35rem);font-weight:800;font-stretch:112%;line-height:.95;color:var(--green);
-  font-variant-numeric:tabular-nums;letter-spacing:-.02em;text-shadow:0 0 26px rgba(14,122,78,.16)}
-#sbra .popn span{font-size:clamp(.62rem,.9vw,.82rem);color:var(--ink-2);font-weight:600}
-#sbra .fchips{display:flex;flex-wrap:wrap;gap:clamp(.7rem,1.8vw,1.6rem);margin-left:auto}
-#sbra .fc{display:flex;flex-direction:column;gap:.05em}
-#sbra .fc b{font-size:clamp(.98rem,1.5vw,1.35rem);font-weight:800;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
-#sbra .fc b i{font-style:normal;font-size:.5em;color:var(--orange);margin-left:.1em;vertical-align:.32em}
-#sbra .fc span{font-size:clamp(.58rem,.82vw,.74rem);color:var(--ink-2);line-height:1.2}
-/* palco dos mapas */
-#sbra .bmaps{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;
-  gap:clamp(1.4rem,4vw,3.4rem);padding-top:clamp(.3rem,1vh,.7rem)}
-#sbra .bmaps figure{margin:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:clamp(.3rem,.9vh,.6rem);min-height:0;max-height:100%}
-#sbra .bmaps img{display:block;object-fit:contain;border-radius:12px;
+#sbra .title{margin-bottom:clamp(.4rem,1.2vh,.8rem)}
+#sbra .bcols{flex:1;min-height:0;display:grid;grid-template-columns:1fr auto;gap:clamp(1.6rem,4vw,3.4rem);
+  align-items:stretch;padding-top:clamp(.3rem,1vh,.7rem)}
+/* coluna esquerda: território em cima, números grandes embaixo */
+#sbra .bleft{display:flex;flex-direction:column;justify-content:center;gap:clamp(1rem,2.8vh,1.9rem);min-width:0;min-height:0}
+#sbra .tmap{margin:0;display:flex;flex-direction:column;align-items:flex-start;gap:clamp(.28rem,.85vh,.5rem)}
+#sbra .tmap img{width:min(46vw,600px);max-width:100%;height:auto;max-height:min(42vh,342px);border-radius:12px;
   filter:drop-shadow(0 26px 46px rgba(6,46,30,.34)) drop-shadow(0 6px 14px rgba(6,46,30,.18))}
-#sbra .tmap img{width:min(48vw,600px);max-width:100%;height:auto}
-#sbra .gmap img{height:min(66vh,560px);width:auto;max-width:min(42vw,430px)}
-#sbra .bmaps figcaption{font-size:clamp(.6rem,.88vw,.78rem);color:var(--ink-2);text-align:center;line-height:1.34;max-width:46ch}
+#sbra .tmap figcaption{font-size:clamp(.58rem,.85vw,.75rem);color:var(--ink-2);line-height:1.3;padding-left:.15em;max-width:52ch}
+/* números bem maiores */
+#sbra .stats{display:flex;flex-direction:column;gap:clamp(.55rem,1.7vh,1.1rem)}
+#sbra .pop{display:flex;flex-direction:column;gap:.04em}
+#sbra .pop b{font-size:clamp(2rem,3.7vw,3.05rem);font-weight:800;font-stretch:112%;line-height:.92;color:var(--green);
+  font-variant-numeric:tabular-nums;letter-spacing:-.02em;text-shadow:0 0 30px rgba(14,122,78,.16)}
+#sbra .pop span{font-size:clamp(.72rem,1.06vw,.96rem);color:var(--ink-2);font-weight:600}
+#sbra .grid5{display:flex;flex-wrap:wrap;gap:clamp(.9rem,2.3vw,2.1rem);align-items:flex-end}
+#sbra .s{display:flex;flex-direction:column;gap:.1em}
+#sbra .s b{font-size:clamp(1.4rem,2.3vw,2rem);font-weight:800;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
+#sbra .s b i{font-style:normal;font-size:.48em;color:var(--orange);margin-left:.1em;vertical-align:.34em}
+#sbra .s span{font-size:clamp(.68rem,.98vw,.88rem);color:var(--ink-2);line-height:1.18}
+/* coluna direita: Gini alto */
+#sbra .gmap{margin:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:clamp(.4rem,1.1vh,.8rem);min-height:0}
+#sbra .gmap img{height:min(63vh,548px);width:auto;max-width:min(42vw,470px);border-radius:12px;
+  filter:drop-shadow(0 26px 46px rgba(6,46,30,.34)) drop-shadow(0 6px 14px rgba(6,46,30,.18))}
+#sbra .gmap figcaption{font-size:clamp(.62rem,.9vw,.8rem);color:var(--ink-2);text-align:center;line-height:1.34;max-width:44ch}
 #sbra .gmap figcaption b{color:var(--orange-soft);font-weight:800}
 #sbra .gmap figcaption em{font-style:normal;color:var(--orange);font-weight:700}
 /* entrada em "pulo" (escala com leve overshoot) + flutuação contínua = salta da página */
-#sbra .bmaps figure{opacity:0;transform:translateY(32px) scale(.86)}
-#sbra.on .bmaps figure{opacity:1;transform:none;
+#sbra .bcols figure{opacity:0;transform:translateY(32px) scale(.88)}
+#sbra.on .bcols figure{opacity:1;transform:none;
   transition:opacity .5s ease,transform .85s cubic-bezier(.34,1.46,.5,1);transition-delay:var(--jd,0s)}
 @keyframes sbfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
-#sbra.on .bmaps img{animation:sbfloat 6s ease-in-out 1.1s infinite}
+#sbra.on .bcols img{animation:sbfloat 6s ease-in-out 1.1s infinite}
 #sbra.on .gmap img{animation-duration:6.9s}
 @media (prefers-reduced-motion:reduce){
-  #sbra .bmaps figure{opacity:1;transform:none;transition:none}
-  #sbra.on .bmaps img{animation:none}
+  #sbra .bcols figure{opacity:1;transform:none;transition:none}
+  #sbra.on .bcols img{animation:none}
 }
 @media (max-height:680px){
-  #sbra .popn b{font-size:clamp(1.4rem,2.5vw,2rem)}
-  #sbra .tmap img{max-height:44vh}
-  #sbra .gmap img{height:60vh}
+  #sbra .pop b{font-size:clamp(1.7rem,3vw,2.3rem)}
+  #sbra .s b{font-size:clamp(1.2rem,2vw,1.6rem)}
+  #sbra .tmap img{width:min(42vw,520px)}
+  #sbra .gmap img{height:63vh}
 }
 
 /* ═══ S20: foto + contatos com fonte máxima ═══ */
