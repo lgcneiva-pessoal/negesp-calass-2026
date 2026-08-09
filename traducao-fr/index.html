@@ -1,0 +1,1164 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Verificação da tradução (PT→FR) — Negesp · CALASS 2026</title>
+</head>
+<body>
+<style>
+:root{
+ --ground:#F5F8F4; --surface:#FFFFFF; --surface2:#FCFDFB;
+ --ink:#12241B; --muted:#4C6657; --faint:#7B9384;
+ --hair:rgba(14,64,44,.13); --green:#0E7A4E; --orange:#C4560A;
+ --warnbg:#FCF1DE; --warnink:#7E5410; --warnedge:#E3A85A;
+ --shadow:0 10px 30px rgba(6,46,30,.07);
+}
+@media (prefers-color-scheme:dark){:root{
+ --ground:#0E1512; --surface:#172420; --surface2:#141F1B;
+ --ink:#E7EFEA; --muted:#9EB4A7; --faint:#6F8879;
+ --hair:rgba(230,240,235,.13); --green:#46C892; --orange:#EF9257;
+ --warnbg:#2A2214; --warnink:#EAC98C; --warnedge:#6E5628;
+ --shadow:0 12px 34px rgba(0,0,0,.35);
+}}
+:root[data-theme="light"]{
+ --ground:#F5F8F4; --surface:#FFFFFF; --surface2:#FCFDFB;
+ --ink:#12241B; --muted:#4C6657; --faint:#7B9384;
+ --hair:rgba(14,64,44,.13); --green:#0E7A4E; --orange:#C4560A;
+ --warnbg:#FCF1DE; --warnink:#7E5410; --warnedge:#E3A85A;
+ --shadow:0 10px 30px rgba(6,46,30,.07);
+}
+:root[data-theme="dark"]{
+ --ground:#0E1512; --surface:#172420; --surface2:#141F1B;
+ --ink:#E7EFEA; --muted:#9EB4A7; --faint:#6F8879;
+ --hair:rgba(230,240,235,.13); --green:#46C892; --orange:#EF9257;
+ --warnbg:#2A2214; --warnink:#EAC98C; --warnedge:#6E5628;
+ --shadow:0 12px 34px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box} 
+body{margin:0}
+.doc{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+ color:var(--ink);background:var(--ground);line-height:1.55;-webkit-font-smoothing:antialiased;
+ padding-bottom:5rem}
+.bar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--ground) 88%,transparent);
+ backdrop-filter:blur(8px);border-bottom:1px solid var(--hair);padding:.7rem clamp(1rem,4vw,2rem);
+ display:flex;align-items:center;gap:.6em;font-size:.82rem}
+.bar b{color:var(--green);font-weight:800;letter-spacing:.02em}
+.bar .sep{color:var(--faint)}
+.wrap{max-width:1140px;margin:0 auto;padding:clamp(1.4rem,4vw,3rem) clamp(1rem,4vw,2rem)}
+.eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;font-weight:700;color:var(--green)}
+h1{font-size:clamp(1.7rem,4.4vw,2.7rem);line-height:1.05;margin:.35em 0 .2em;letter-spacing:-.02em;text-wrap:balance;font-weight:800}
+h1 .fr{color:var(--orange)}
+.lead{color:var(--muted);font-size:clamp(1rem,1.6vw,1.12rem);max-width:60ch}
+.chips{display:flex;flex-wrap:wrap;gap:.6rem;margin:1.3rem 0 .2rem}
+.chip{background:var(--surface);border:1px solid var(--hair);border-radius:999px;padding:.4em .9em;font-size:.82rem;color:var(--muted);box-shadow:var(--shadow)}
+.chip b{color:var(--ink);font-weight:800;font-variant-numeric:tabular-nums}
+.card{background:var(--surface);border:1px solid var(--hair);border-radius:16px;padding:1.2rem 1.4rem;margin:1.6rem 0;box-shadow:var(--shadow)}
+.card h3{margin:0 0 .5em;color:var(--green);font-size:1.02rem}
+.card p{margin:.5em 0;color:var(--muted)} .card p b{color:var(--ink)}
+.legend{display:flex;flex-wrap:wrap;gap:1.2rem;margin-top:.8rem;font-size:.85rem;color:var(--muted)}
+.legend i{display:inline-block;width:.85em;height:.85em;border-radius:3px;vertical-align:-1px;margin-right:.4em}
+code{background:color-mix(in srgb,var(--green) 12%,transparent);color:var(--ink);padding:.12em .45em;border-radius:5px;font-size:.9em}
+.slide{margin-top:2.4rem}
+h2{display:flex;align-items:center;gap:.6em;font-size:1.05rem;font-weight:800;margin:0 0 .7rem;
+ padding-top:1.2rem;border-top:1px solid var(--hair);color:var(--ink)}
+h2 .sn{font-variant-numeric:tabular-nums;font-family:ui-monospace,"SF Mono",Menlo,monospace;
+ background:var(--green);color:#fff;border-radius:8px;padding:.12em .5em;font-size:.82rem}
+.colhead{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;
+ color:var(--faint);font-weight:700;padding:0 .2rem .35rem}
+.segs{display:flex;flex-direction:column;gap:1px;background:var(--hair);border:1px solid var(--hair);border-radius:12px;overflow:hidden}
+.seg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--hair)}
+.cell{background:var(--surface);padding:.7rem .85rem}
+.cell.f{background:var(--surface2)}
+.cell.b{color:var(--muted)}
+.cell p{margin:0;font-size:.92rem}
+.cell .lbl{display:none;text-transform:uppercase;letter-spacing:.1em;font-size:.62rem;font-weight:700;color:var(--faint);margin-bottom:.25em}
+.seg.warn .cell{background:var(--warnbg)}
+.seg.warn .cell.b{color:var(--warnink)}
+.wm{color:var(--orange);font-weight:800}
+.gloss .grow{display:grid;grid-template-columns:1.1fr 1.1fr .9fr;gap:1rem;padding:.6rem 0;border-bottom:1px solid var(--hair);font-size:.9rem}
+.gloss .gp{color:var(--ink)} .gloss .gf{color:var(--green);font-weight:600} .gloss .gs{color:var(--faint);font-size:.85rem}
+footer{max-width:1140px;margin:2rem auto 0;padding:1.4rem clamp(1rem,4vw,2rem);color:var(--faint);font-size:.82rem;border-top:1px solid var(--hair)}
+@media (max-width:760px){
+ .seg,.colhead{grid-template-columns:1fr}
+ .colhead{display:none}
+ .cell .lbl{display:block}
+ .seg{gap:1px;padding:0}
+ .gloss .grow{grid-template-columns:1fr;gap:.15rem}
+ .gloss .gf{font-weight:700}
+}
+</style>
+<div class="doc">
+<div class="bar"><b>Vérification</b><span class="sep">·</span>PT → FR<span class="sep">·</span>Negesp · CALASS 2026</div>
+<div class="wrap">
+<div class="eyebrow">Contrôle de traduction · Montréal 2026</div>
+<h1>Português &rarr; <span class="fr">Français</span></h1>
+<p class="lead">Documento para conferir o <b>sentido em português</b>, mesmo sem saber francês. A prova está na 3ª coluna: uma retrotradução independente do francês de volta ao português.</p>
+<div class="chips"><span class="chip"><b>22</b> slides</span><span class="chip"><b>240</b> trechos conferidos</span><span class="chip"><b>0</b> erros de sentido</span><span class="chip">terminologia: <b>OMS · ALASS · OPS</b></span></div>
+
+<div class="card">
+<h3>Como conferir</h3>
+<p>Cada trecho aparece em três colunas: <b>Original (PT)</b> — o que escrevemos; <b>Français</b> — o que vai no deck francês; <b>Retour au portugais</b> — a retrotradução feita por um agente independente que traduziu o francês de volta ao português <b>sem ver o original</b>. Se a 1ª e a 3ª coluna dizem a mesma coisa, o francês está fiel.</p>
+<div class="legend"><span><i style="background:var(--surface);border:1px solid var(--hair)"></i>trecho normal, sentido preservado</span><span><i style="background:var(--warnbg);border:1px solid var(--warnedge)"></i>trecho com comentário (⚠), quase sempre escolha de localização, não erro</span></div>
+</div>
+
+<section class="slide" id="d01">
+<h2><span class="sn">01</span>Couverture</h2>
+<div class="colhead"><span>Original (PT)</span><span>Français</span><span>Retour au portugais</span></div>
+<div class="segs"><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Montreal · Canadá · 2026 · CALASS · XXXVI</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Montréal · Canada · 2026 · CALASS · XXXVI</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Montreal · Canadá · 2026 · CALASS · XXXVI</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>XXXVI Congresso Anual da Associação Latina para a Análise dos Sistemas de Saúde · Montreal · Canadá · 2026</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>XXXV Ie Congrès annuel de l&#x27;Association latine pour l&#x27;analyse des systèmes de santé · Montréal · Canada · 2026</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>XXXVI Congresso anual da Associação Latina para a Análise dos Sistemas de Saúde · Montreal · Canadá · 2026</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Um modelo inovador de governança para a segurança do paciente no Brasil</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Un modèle innovant de gouvernance pour la sécurité des patients au Brésil</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Um modelo inovador de governança para a segurança dos pacientes no Brasil</p></div>
+</div><div class="seg warn">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Os Núcleos Estaduais de Gestão Estratégica da Segurança do Paciente: Negesp</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Les Noyaux d&#x27;État de Gestion Stratégique de la Sécurité des Patients : Negesp</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Os Núcleos Estaduais de Gestão Estratégica da Segurança dos Pacientes: Negesp  <span class="wm">⚠</span> o francês usa &quot;des patients&quot; (plural) — termo oficial OMS; no Brasil é &quot;Segurança do Paciente&quot; (singular).</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Carla Ulhoa André Assessora Técnica</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Carla Ulhoa André Conseillère technique</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Carla Ulhoa André / Conselheira técnica</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Conass Conselho Nacional de Secretários de Saúde · Brasil</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Conass Conseil national des secrétaires à la santé · Brésil</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Conass / Conselho Nacional dos Secretários de Saúde · Brasil</p></div>
+</div></div>
+</section><section class="slide" id="d02">
+<h2><span class="sn">02</span>Brésil</h2>
+<div class="colhead"><span>Original (PT)</span><span>Français</span><span>Retour au portugais</span></div>
+<div class="segs"><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>O contexto brasileiro</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Le contexte brésilien</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>O contexto brasileiro</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Brasil: dimensão continental</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Brésil : dimension continentale</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Brasil: dimensão continental</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Território, área e densidade · Censo 2022 · 71% dos municípios com menos de 20 mil hab. (IBGE)</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Territoire, superficie et densité · Recensement 2022 · 71 % des municipalités comptent moins de 20 000 hab. (IBGE)</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Território, superfície e densidade · Censo 2022 · 71% dos municípios têm menos de 20.000 hab. (IBGE)</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>213.485.153 habitantes · população residente (IBGE, 2026)</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>213 485 153 habitants · population résidente (IBGE, 2026)</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>213.485.153 habitantes · população residente (IBGE, 2026)</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>26+DF Estados e DF</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>26+DF États et DF</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>26 +DF / Estados e DF</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>5.571 Municípios</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>5 571 Municipalités</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>5.571 / Municípios</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>5 Regiões geográficas</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>5 Régions géographiques</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>5 / Regiões geográficas</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>117 Macrorregiões de saúde</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>117 Macrorégions de santé</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>117 / Macrorregiões de saúde</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>453 Regiões de saúde</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>453 Régions de santé</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>453 / Regiões de saúde</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Índice de Gini por grande região (2024) · Brasil 0,509 · 2º país com maior desigualdade no G20</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Indice de Gini par grande région (2024) · Brésil 0,509 · 2 e pays le plus inégalitaire du G20</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Índice de Gini por grande região (2024) · Brasil 0,509 · 2º país mais desigual do G20</p></div>
+</div></div>
+</section><section class="slide" id="d03">
+<h2><span class="sn">03</span>Question d&#x27;ouverture</h2>
+<div class="colhead"><span>Original (PT)</span><span>Français</span><span>Retour au portugais</span></div>
+<div class="segs"><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>É possível promover qualidade e segurança do paciente quando as decisões não são sustentadas por evidências?</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Est-il possible de promouvoir la qualité et la sécurité des patients quand les décisions ne reposent pas sur des données probantes ?</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>É possível promover a qualidade e a segurança dos pacientes quando as decisões não se baseiam em evidências (dados probantes)?</p></div>
+</div></div>
+</section><section class="slide" id="d04">
+<h2><span class="sn">04</span>Conass</h2>
+<div class="colhead"><span>Original (PT)</span><span>Français</span><span>Retour au portugais</span></div>
+<div class="segs"><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>O Conselho Nacional de Secretários de Saúde congrega os secretários de saúde dos estados e do Distrito Federal, uma associação que atua pelos princípios do direito público, com autonomia administrativa, financeira e patrimonial.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Le Conseil national des secrétaires à la santé réunit les secrétaires à la santé des États et du District fédéral ; c&#x27;est une association régie par les principes du droit public, dotée d&#x27;une autonomie administrative, financière et patrimoniale.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>O Conselho Nacional dos Secretários de Saúde reúne os secretários de saúde dos Estados e do Distrito Federal; é uma associação regida pelos princípios do direito público, dotada de autonomia administrativa, financeira e patrimonial.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>A força dos estados na garantia do direito à saúde.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>« La force des États dans la garantie du droit à la santé. »</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>&quot;A força dos Estados na garantia do direito à saúde.&quot;</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>1982 instituído em 3 de fevereiro</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>1982 institué le 3 février</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>1982 / instituído em 3 de fevereiro</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>27 Representa as Secretarias Estaduais de Saúde</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>27 Représente les secrétariats à la santé des États</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>27 / Representa as secretarias de saúde dos Estados</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>2 leis federais reconhecem o Conselho: Lei 8.142/1990 e Lei 12.466/2011 (artigos 14-A e 14-B)</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>2 lois fédérales reconnaissent le Conseil : loi nº 8.142/1990 et loi nº 12.466/2011 (articles 14-A et 14-B)</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>2 / leis federais reconhecem o Conselho: lei nº 8.142/1990 e lei nº 12.466/2011 (artigos 14-A e 14-B)</p></div>
+</div></div>
+</section><section class="slide" id="d05">
+<h2><span class="sn">05</span>Organigramme du Conass</h2>
+<div class="colhead"><span>Original (PT)</span><span>Français</span><span>Retour au portugais</span></div>
+<div class="segs"><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Como o Conass se organiza</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>L&#x27;organisation du Conass</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>A organização do Conass</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Da Assembleia Geral às câmaras técnicas</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>De l&#x27;Assemblée générale aux chambres techniques</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Da Assembleia geral às câmaras técnicas</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Assembleia Geral Os 27 secretários de Saúde dos estados e do Distrito Federal</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Assemblée générale Les 27 secrétaires à la santé des États et du District fédéral</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Assembleia geral / Os 27 secretários de saúde dos Estados e do Distrito Federal</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Comitê Consultivoex-presidentes</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Comité consultatifanciens présidents</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Comitê consultivo / ex-presidentes</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Diretoria1 presidente e 5 vice-presidentes · 1 por macrorregião</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Direction1 président et 5 vice-présidents · 1 par macrorégion</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Direção / 1 presidente e 5 vice-presidentes · 1 por macrorregião</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Conselho Fiscal</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Conseil fiscal</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Conselho fiscal</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Presidência</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Présidence</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Presidência</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Secretaria Executiva Secretário Executivo · Equipes Técnica e Administrativa</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Secrétariat exécutif Secrétaire exécutif · Équipes technique et administrative</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Secretariado executivo / Secretário executivo · Equipes técnica e administrativa</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Câmaras Técnicas</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Chambres techniques</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Câmaras técnicas</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Gabinete</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Cabinet</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Gabinete</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Apoio do Gabinete</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Soutien au cabinet</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Apoio ao gabinete</p></div>
+</div><div class="seg warn">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Assessoria Jurídica</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Conseil juridique</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Assessoria jurídica  <span class="wm">⚠</span> &quot;Conseil juridique&quot;; mantido como unidade equivalente.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Assessoria Parlamentar</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Relations parlementaires</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Relações parlamentares</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Assessoria de Comunicação</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Communication</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Comunicação</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Assessoria de Informações Estratégicas</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Information stratégique</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Informação estratégica</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Coordenação de Desenvolvimento Institucional</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Coordination du développement institutionnel</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Coordenação do desenvolvimento institucional</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Coordenação Técnica</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Coordination technique</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Coordenação técnica</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Coordenação de Administração e de Finanças</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Coordination de l&#x27;administration et des finances</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Coordenação da administração e das finanças</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Assessorias Técnicas</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Services techniques</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Serviços técnicos</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Gerência Administrativa</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Gestion administrative</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Gestão administrativa</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Gerência Financeira</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Gestion financière</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Gestão financeira</p></div>
+</div></div>
+</section><section class="slide" id="d06">
+<h2><span class="sn">06</span>Chambre technique</h2>
+<div class="colhead"><span>Original (PT)</span><span>Français</span><span>Retour au portugais</span></div>
+<div class="segs"><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Onde a agenda nacional se encontra</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Là où l&#x27;agenda national se rencontre</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Onde a agenda nacional se encontra</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>A Câmara Técnica de Qualidade no Cuidado e Segurança do Paciente</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>La Chambre technique de qualité des soins et de sécurité des patients</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>A Câmara técnica de qualidade do cuidado e de segurança dos pacientes</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Objetivos</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Objectifs</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Objetivos</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Assessorar a Secretaria Executiva, a Diretoria e a Assembleia dos Secretários do Conass na formulação de políticas e estratégias voltadas à qualidade e segurança do paciente, promovendo a construção de consensos técnicos.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Conseiller le Secrétariat exécutif, la Direction et l&#x27;Assemblée des secrétaires du Conass dans la formulation de politiques et de stratégies axées sur la qualité et la sécurité des patients, en favorisant la construction de consensus techniques.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Assessorar o Secretariado executivo, a Direção e a Assembleia dos secretários do Conass na formulação de políticas e estratégias voltadas para a qualidade e a segurança dos pacientes, favorecendo a construção de consensos técnicos.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Instituição e composição</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Création et composition</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Criação e composição</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Constituída em 2017, é composta por representantes das Secretarias de Saúde e do Distrito Federal, oficialmente indicados pelos Secretários de Estado da Saúde, com designação de um representante titular e um suplente.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Créée en 2017, elle est composée de représentants des secrétariats à la santé des États et du District fédéral, officiellement désignés par les secrétaires à la santé des États, avec un représentant titulaire et un suppléant.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Criada em 2017, é composta por representantes das secretarias de saúde dos Estados e do Distrito Federal, oficialmente designados pelos secretários de saúde dos Estados, com um representante titular e um suplente.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Eixos de atuação</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Axes d&#x27;action</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Eixos de ação</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Promove a integração e a troca de experiências entre as secretarias, fortalecendo a gestão estadual e qualificando os processos de trabalho.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Elle favorise l&#x27;intégration et l&#x27;échange d&#x27;expériences entre les secrétariats, renforçant la gestion des États et améliorant la qualité des processus de travail.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Ela favorece a integração e a troca de experiências entre as secretarias, fortalecendo a gestão dos Estados e melhorando a qualidade dos processos de trabalho.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Governança e funcionamento</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Gouvernance et fonctionnement</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Governança e funcionamento</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Reuniões ordinárias e extraordinárias, promovendo a construção de consensos técnicos. Sua atuação é fortalecida pela articulação com o Ministério da Saúde, a Agência Nacional de Vigilância Sanitária, o Conselho Nacional de Secretarias Municipais de Saúde e a Organização Pan-Americana da Saúde, contribuindo para o desenvolvimento e a implementação de políticas públicas.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Réunions ordinaires et extraordinaires, favorisant la construction de consensus techniques. Son action est renforcée par la concertation avec le Ministère de la Santé, l&#x27;Agence nationale de surveillance sanitaire, le Conseil national des secrétariats municipaux à la santé et l&#x27;Organisation panaméricaine de la santé, contribuant à l&#x27;élaboration et à la mise en œuvre de politiques publiques.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Reuniões ordinárias e extraordinárias, favorecendo a construção de consensos técnicos. Sua ação é reforçada pela articulação com o Ministério da Saúde, a Agência Nacional de Vigilância Sanitária, o Conselho Nacional das Secretarias Municipais de Saúde e a Organização Pan-Americana da Saúde, contribuindo para a elaboração e a implementação de políticas públicas.</p></div>
+</div></div>
+</section><section class="slide" id="d07">
+<h2><span class="sn">07</span>Le problème : la fragmentation</h2>
+<div class="colhead"><span>Original (PT)</span><span>Français</span><span>Retour au portugais</span></div>
+<div class="segs"><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>O ponto de partida</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Le point de départ</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>O ponto de partida</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Um sistema potente, ações fragmentadas O que a evolução exige</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Un système puissant, des actions fragmentées Ce que l&#x27;évolution exige</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Um sistema poderoso, ações fragmentadas / O que a evolução exige</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Fragmentação das ações de segurança do paciente.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Fragmentation des actions de sécurité des patients.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Fragmentação das ações de segurança dos pacientes.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Baixa integração entre as áreas estratégicas das secretarias estaduais de saúde.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Faible intégration entre les domaines stratégiques des secrétariats à la santé des États.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Fraca integração entre as áreas estratégicas das secretarias de saúde dos Estados.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Dados brutos que não se transformam em decisões ágeis.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Données brutes qui ne se transforment pas en décisions rapides.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Dados brutos que não se transformam em decisões rápidas.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Informações qualificadas para apoiar a alta gestão.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Informations qualifiées pour appuyer la haute direction.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Informações qualificadas para apoiar a alta direção.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Fortalecimento da Política Nacional de Qualidade e Segurança do Paciente.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Renforcement de la Politique nationale de qualité et de sécurité des patients.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Fortalecimento da Política Nacional de Qualidade e Segurança dos Pacientes.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Monitoramento de riscos em toda a Rede de Atenção à Saúde.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Suivi des risques dans l&#x27;ensemble du réseau de soins de santé.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Monitoramento dos riscos em toda a rede de atenção à saúde.</p></div>
+</div></div>
+</section><section class="slide" id="d08">
+<h2><span class="sn">08</span>La définition de la politique</h2>
+<div class="colhead"><span>Original (PT)</span><span>Français</span><span>Retour au portugais</span></div>
+<div class="segs"><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>O alicerce nacional</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Le socle national</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>A base nacional</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Um conjunto de ações, práticas e processos destinados a reduzir riscos e danos evitáveis, promovendo cuidado seguro, efetivo, oportuno, eficiente, equitativo e centrado na pessoa.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Un ensemble d&#x27;actions, de pratiques et de processus destinés à réduire les risques et les préjudices évitables, en favorisant des soins sûrs, efficaces, opportuns, efficients, équitables et centrés sur la personne. »</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Um conjunto de ações, práticas e processos destinados a reduzir os riscos e os danos evitáveis, favorecendo cuidados seguros, eficazes, oportunos, eficientes, equitativos e centrados na pessoa.&quot;</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Política Nacional de Qualidade e Segurança do Paciente</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Politique nationale de qualité et de sécurité des patients</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Política Nacional de Qualidade e Segurança dos Pacientes</p></div>
+</div></div>
+</section><section class="slide" id="d09">
+<h2><span class="sn">09</span>Le cadre légal</h2>
+<div class="colhead"><span>Original (PT)</span><span>Français</span><span>Retour au portugais</span></div>
+<div class="segs"><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>O marco legal da transformação</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Le cadre légal de la transformation</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>O marco legal da transformação</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>A segurança do paciente vira política de Estado</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>La sécurité des patients devient une politique d&#x27;État</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>A segurança dos pacientes torna-se uma política de Estado</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Publicada</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Publié</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Publicado</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Diário Oficial da União</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Journal officiel de l&#x27;Union</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Diário Oficial da União</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>9 de junho de 2026</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>9 juin 2026</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>9 de junho de 2026</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Portaria número 11.527 · Ministério da Saúde</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Arrêté nº 11.527 · Ministère de la Santé</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Portaria nº 11.527 · Ministério da Saúde</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Institui a Política Nacional de Qualidade e Segurança do Paciente no âmbito do Sistema Único de Saúde.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Institue la Politique nationale de qualité et de sécurité des patients dans le cadre du Système unique de santé.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Institui a Política Nacional de Qualidade e Segurança dos Pacientes no âmbito do Sistema Único de Saúde.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Esforço governamental temporário</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Effort gouvernemental temporaire</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Esforço governamental temporário</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Política de Estado permanente</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Politique d&#x27;État permanente</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Política de Estado permanente</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Iniciativas dispersas</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Initiatives dispersées</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Iniciativas dispersas</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Implementação por eixos territoriais, orientada por resultados</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Mise en œuvre par axes territoriaux, orientée par les résultats</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Implementação por eixos territoriais, orientada pelos resultados</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Modelos isolados</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Modèles isolés</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Modelos isolados</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Um modelo sistêmico para todos os estabelecimentos do Sistema Único de Saúde</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Un modèle systémique pour tous les établissements du Système unique de santé</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Um modelo sistêmico para todos os estabelecimentos do Sistema Único de Saúde</p></div>
+</div></div>
+</section><section class="slide" id="d10">
+<h2><span class="sn">10</span>Une gouvernance à quatre niveaux</h2>
+<div class="colhead"><span>Original (PT)</span><span>Français</span><span>Retour au portugais</span></div>
+<div class="segs"><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Do macro ao micro</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Du macro au micro</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Do macro ao micro</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Uma política, quatro níveis de responsabilidade</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Une politique, quatre niveaux de responsabilité</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Uma política, quatro níveis de responsabilidade</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Responsabilidade estratégica</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Responsabilité stratégique</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Responsabilidade estratégica</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Federal</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Fédéral</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Federal</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Ministério da Saúde</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Ministère de la Santé</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Ministério da Saúde</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Definir a política nacional.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Définir la politique nationale.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Definir a política nacional.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Estabelecer diretrizes, estratégias e prioridades nacionais.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Établir les orientations, les stratégies et les priorités nationales.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Estabelecer as orientações, as estratégias e as prioridades nacionais.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Instituir mecanismos de financiamento e adotar estratégias indutoras para o fortalecimento das ações.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Instituer des mécanismes de financement et adopter des stratégies incitatives pour renforcer les actions.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Instituir mecanismos de financiamento e adotar estratégias de incentivo para fortalecer as ações.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Estadual</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>État fédéré</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Estado federado</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Núcleo Estadual de Gestão Estratégica da Segurança do Paciente</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Noyau d&#x27;État de Gestion Stratégique de la Sécurité des Patients</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Núcleo Estadual de Gestão Estratégica da Segurança dos Pacientes</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Coordenar a implementação da política no território.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Coordonner la mise en œuvre de la politique sur le territoire.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Coordenar a implementação da política no território.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Promover a integração das ações no âmbito das regiões de saúde.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Favoriser l&#x27;intégration des actions à l&#x27;échelle des régions de santé.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Favorecer a integração das ações no âmbito das regiões de saúde.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Apoiar tecnicamente os municípios na implementação das ações.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Appuyer techniquement les municipalités dans la mise en œuvre des actions.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Apoiar tecnicamente os municípios na implementação das ações.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Monitorar resultados da Rede de Atenção à Saúde.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Suivre les résultats du réseau de soins de santé.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Monitorar os resultados da rede de atenção à saúde.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Municipal</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Municipal</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Municipal</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Núcleo Municipal de Gestão Estratégica da Segurança do Paciente</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Noyau municipal de gestion stratégique de la sécurité des patients</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Núcleo municipal de gestão estratégica da segurança dos pacientes</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Coordenar a implementação das ações da política nos serviços de saúde.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Coordonner la mise en œuvre des actions de la politique dans les services de santé.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Coordenar a implementação das ações da política nos serviços de saúde.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Monitorar e analisar indicadores.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Suivre et analyser les indicateurs.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Monitorar e analisar os indicadores.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Apoiar a implementação e o funcionamento dos Núcleos de Segurança do Paciente nos serviços de saúde.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Appuyer la mise en place et le fonctionnement des Noyaux de sécurité des patients dans les services de santé.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Apoiar a implantação e o funcionamento dos Núcleos de Segurança dos Pacientes nos serviços de saúde.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Serviços de saúde</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Services de santé</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Serviços de saúde</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Hospitais, unidades básicas e demais pontos de atenção à saúde</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Hôpitaux, centres de soins de base et autres points de soins</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Hospitais, centros de atenção básica e outros pontos de atenção</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Instituir Núcleo de Segurança do Paciente.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Instituer un Noyau de sécurité des patients.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Instituir um Núcleo de Segurança dos Pacientes.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Implementar práticas assistenciais seguras baseadas em evidências e diretrizes.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Mettre en œuvre des pratiques de soins sûres, fondées sur des données probantes et des lignes directrices.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Implementar práticas de cuidado seguras, baseadas em evidências e em diretrizes.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Notificar, analisar e promover aprendizagem organizacional a partir de incidentes e eventos adversos.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Notifier, analyser et favoriser l&#x27;apprentissage organisationnel à partir des incidents et des événements indésirables.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Notificar, analisar e favorecer a aprendizagem organizacional a partir dos incidentes e dos eventos adversos.</p></div>
+</div></div>
+</section><section class="slide" id="d11">
+<h2><span class="sn">11</span>Le maillon critique</h2>
+<div class="colhead"><span>Original (PT)</span><span>Français</span><span>Retour au portugais</span></div>
+<div class="segs"><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>O elo que faltava no Sistema Único de Saúde</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Le maillon qui manquait au Système unique de santé</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>O elo que faltava ao Sistema Único de Saúde</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>O Núcleo Estadual de Gestão Estratégica da Segurança do Paciente, Negesp, é a estrutura permanente que conecta a evidência científica à prática cotidiana.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Le Noyau d&#x27;État de Gestion Stratégique de la Sécurité des Patients, Negesp, est la structure permanente qui relie la preuve scientifique à la pratique quotidienne.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>O Núcleo Estadual de Gestão Estratégica da Segurança dos Pacientes, Negesp, é a estrutura permanente que liga a evidência científica à prática cotidiana.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Vinculado à alta gestão das secretarias estaduais de saúde</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Rattaché à la haute direction des secrétariats à la santé des États</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Vinculado à alta direção das secretarias de saúde dos Estados</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Transversal a toda Rede de Atenção à Saúde</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Transversal à l&#x27;ensemble du réseau de soins de santé</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Transversal a toda a rede de atenção à saúde</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Foco: subsidiar as tomadas de decisão, reduzir eventos adversos evitáveis e otimizar recursos públicos</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Objectif : éclairer la prise de décision, réduire les événements indésirables évitables et optimiser les ressources publiques</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Objetivo: subsidiar a tomada de decisão, reduzir os eventos adversos evitáveis e otimizar os recursos públicos</p></div>
+</div></div>
+</section><section class="slide" id="d12">
+<h2><span class="sn">12</span>Qu&#x27;est-ce que le Negesp</h2>
+<div class="colhead"><span>Original (PT)</span><span>Français</span><span>Retour au portugais</span></div>
+<div class="segs"><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Anatomia do modelo</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Anatomie du modèle</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Anatomia do modelo</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Uma estrutura estratégica deliberativa, vinculada à alta gestão da secretaria estadual</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Une structure stratégique délibérative, rattachée à la haute direction du secrétariat de l&#x27;État</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Uma estrutura estratégica deliberativa, vinculada à alta direção da secretaria do Estado</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Apoia a gestão na formulação, no monitoramento e na avaliação das ações de qualidade do cuidado e segurança do paciente, e cumpre cinco funções.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Elle appuie la gestion dans la formulation, le suivi et l&#x27;évaluation des actions de qualité des soins et de sécurité des patients, et remplit cinq fonctions.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Ela apoia a gestão na formulação, no monitoramento e na avaliação das ações de qualidade do cuidado e de segurança dos pacientes, e desempenha cinco funções.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Negesp</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Negesp</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Negesp</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>1 · Espaço de governança</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>1 · Espace de gouvernance</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>1 · Espaço de governança</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>2 · Integração entre áreas</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>2 · Intégration entre les domaines</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>2 · Integração entre as áreas</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>3 · Apoio à tomada de decisão</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>3 · Appui à la prise de décision</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>3 · Apoio à tomada de decisão</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>4 · Produção de inteligência para a gestão</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>4 · Production d&#x27;intelligence pour la gestion</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>4 · Produção de inteligência para a gestão</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>5 · Indução da cultura de segurança</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>5 · Impulsion de la culture de sécurité</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>5 · Impulso à cultura de segurança</p></div>
+</div></div>
+</section><section class="slide" id="d13">
+<h2><span class="sn">13</span>Le Negesp en chiffres</h2>
+<div class="colhead"><span>Original (PT)</span><span>Français</span><span>Retour au portugais</span></div>
+<div class="segs"><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>O Negesp em números</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Le Negesp en chiffres</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>O Negesp em números</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>unidades federativas no movimento nacional de implantação</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>unités fédérées dans le mouvement national de déploiement</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>unidades federadas no movimento nacional de implantação</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Estados implantados: Negesp oficialmente instituído e em funcionamento</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>États déployés : Negesp officiellement institué et opérationnel</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Estados implantados: Negesp oficialmente instituído e operacional</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Rio Grande do Sul: em implementação, estado em processo de estruturação</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Rio Grande do Sul : en cours de déploiement, État en phase de structuration</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Rio Grande do Sul: em processo de implantação, Estado em fase de estruturação</p></div>
+</div></div>
+</section><section class="slide" id="d14">
+<h2><span class="sn">14</span>Le moteur du Negesp</h2>
+<div class="colhead"><span>Original (PT)</span><span>Français</span><span>Retour au portugais</span></div>
+<div class="segs"><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Como a estratégia vira ação</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Comment la stratégie devient action</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Como a estratégia se torna ação</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Entradas</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Entrées</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Entradas</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Diretrizes da Política Nacional de Qualidade e Segurança do Paciente</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Orientations de la Politique nationale de qualité et de sécurité des patients</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Orientações da Política Nacional de Qualidade e Segurança dos Pacientes</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Evidências científicas</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Données probantes scientifiques</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Evidências científicas</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Dados locais</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Données locales</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Dados locais</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>O processo Negesp</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Le processus Negesp</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>O processo Negesp</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Diagnóstico situacional</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Diagnostic situationnel</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Diagnóstico situacional</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>matriz de forças, fraquezas, oportunidades e ameaças</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>matrice des forces, faiblesses, opportunités et menaces</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>matriz de forças, fraquezas, oportunidades e ameaças</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Planejamento de melhoria</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Planification de l&#x27;amélioration</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Planejamento da melhoria</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>ciclos planejar · fazer · estudar · agir</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>cycles planifier · faire · étudier · agir</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>ciclos planejar · fazer · estudar · agir</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Articulação intersetorial</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Concertation intersectorielle</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Articulação intersetorial</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>além dos muros da secretaria</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>au-delà des murs du secrétariat</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>para além dos muros da secretaria</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Resultados</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Résultats</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Resultados</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Tomada de decisão assertiva com o Centro de Inteligência Estratégica</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Prise de décision assertive avec le Centre d&#x27;intelligence stratégique</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Tomada de decisão assertiva com o Centro de Inteligência Estratégica</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Cultura de melhoria contínua</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Culture d&#x27;amélioration continue</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Cultura de melhoria contínua</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Ambiente de cuidado seguro em toda a Rede de Atenção à Saúde</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Un environnement de soins sûrs dans l&#x27;ensemble du réseau de soins de santé</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Um ambiente de cuidados seguros em toda a rede de atenção à saúde</p></div>
+</div></div>
+</section><section class="slide" id="d15">
+<h2><span class="sn">15</span>Les couches de gouvernance</h2>
+<div class="colhead"><span>Original (PT)</span><span>Français</span><span>Retour au portugais</span></div>
+<div class="segs"><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Da equipe técnica à rede nacional</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>De l&#x27;équipe technique au réseau national</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Da equipe técnica à rede nacional</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Rede nacional e parceiros externos</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Réseau national et partenaires externes</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Rede nacional e parceiros externos</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>1 Rede nacional e parceiros externos</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>1 Réseau national et partenaires externes</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>1 / Rede nacional e parceiros externos</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>a articulação sistêmica, coordenada pelo Conselho Nacional de Secretários de Saúde.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>la concertation systémique, coordonnée par le Conseil national des secrétaires à la santé.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>a articulação sistêmica, coordenada pelo Conselho Nacional dos Secretários de Saúde.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Negesp estadual</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Negesp de l&#x27;État</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Negesp do Estado</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>2 Negesp estadual</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>2 Negesp de l&#x27;État</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>2 / Negesp do Estado</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>a estrutura consolidada de governança no estado.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>la structure de gouvernance consolidée dans l&#x27;État.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>a estrutura de governança consolidada no Estado.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Rede nacional e parceiros externos Comitê consultivo</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Réseau national et partenaires externes Comité consultatif</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Rede nacional e parceiros externos / Comitê consultivo</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Comitê consultivo</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Comité consultatif</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Comitê consultivo</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>3 Comitê consultivo</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>3 Comité consultatif</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>3 / Comitê consultivo</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>a integração com os departamentos da secretaria estadual de saúde.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>l&#x27;intégration avec les départements du secrétariat à la santé de l&#x27;État.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>a integração com os departamentos da secretaria de saúde do Estado.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Negesp estadual Equipe técnica multiprofissional</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Negesp de l&#x27;État Équipe technique multiprofessionnelle</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Negesp do Estado / Equipe técnica multiprofissional</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Equipe técnica multiprofissional</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Équipe technique multiprofessionnelle</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Equipe técnica multiprofissional</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>4 Equipe técnica multiprofissional</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>4 Équipe technique multiprofessionnelle</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>4 / Equipe técnica multiprofissional</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>a base de operação técnica, dentro da secretaria estadual.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>la base d&#x27;opération technique, au sein du secrétariat de l&#x27;État.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>a base de operação técnica, no âmbito da secretaria do Estado.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Comitê consultivo</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Comité consultatif</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>(rótulo de navegação do slide interativo)</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>1 Rede nacional e parceiros externos</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>1 Réseau national et partenaires externes</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>1 / Rede nacional e parceiros externos</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>a articulação sistêmica, coordenada pelo Conselho Nacional de Secretários de Saúde.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>la concertation systémique, coordonnée par le Conseil national des secrétaires à la santé.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>a articulação sistêmica, coordenada pelo Conselho Nacional dos Secretários de Saúde.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>2 Negesp estadual</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>2 Negesp de l&#x27;État</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>2 / Negesp do Estado</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>a estrutura consolidada de governança no estado.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>la structure de gouvernance consolidée dans l&#x27;État.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>a estrutura de governança consolidada no Estado.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>3 Comitê consultivo</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>3 Comité consultatif</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>3 / Comitê consultivo</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>a integração com os departamentos da secretaria estadual de saúde.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>l&#x27;intégration avec les départements du secrétariat à la santé de l&#x27;État.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>a integração com os departamentos da secretaria de saúde do Estado.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>4 Equipe técnica multiprofissional</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>4 Équipe technique multiprofessionnelle</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>4 / Equipe técnica multiprofissional</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>a base de operação técnica, dentro da secretaria estadual.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>la base d&#x27;opération technique, au sein du secrétariat de l&#x27;État.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>a base de operação técnica, no âmbito da secretaria do Estado.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>1 · Rede nacional e parceiros externosa articulação sistêmica, coordenada pelo Conselho Nacional de Secretários de Saúde.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>1 · Réseau national et partenaires externesla concertation systémique, coordonnée par le Conseil national des secrétaires à la santé.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>1 · Rede nacional e parceiros externos / a articulação sistêmica, coordenada pelo Conselho Nacional dos Secretários de Saúde.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>2 · Negesp estaduala estrutura consolidada de governança no estado.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>2 · Negesp de l&#x27;Étatla structure de gouvernance consolidée dans l&#x27;État.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>2 · Negesp do Estado / a estrutura de governança consolidada no Estado.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>3 · Comitê consultivoa integração com os departamentos da secretaria estadual de saúde.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>3 · Comité consultatifl&#x27;intégration avec les départements du secrétariat à la santé de l&#x27;État.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>3 · Comitê consultivo / a integração com os departamentos da secretaria de saúde do Estado.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>4 · Equipe técnica multiprofissionala base de operação técnica, dentro da secretaria estadual.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>4 · Équipe technique multiprofessionnellela base d&#x27;opération technique, au sein du secrétariat de l&#x27;État.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>4 · Equipe técnica multiprofissional / a base de operação técnica, no âmbito da secretaria do Estado.</p></div>
+</div></div>
+</section><section class="slide" id="d16">
+<h2><span class="sn">16</span>Le comité consultatif de l&#x27;intérieur</h2>
+<div class="colhead"><span>Original (PT)</span><span>Français</span><span>Retour au portugais</span></div>
+<div class="segs"><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>O motor de integração interna</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Le moteur de l&#x27;intégration interne</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>O motor da integração interna</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>O Comitê Consultivo é uma instância colegiada de caráter técnico-consultivo que apoia o Negesp na governança, no planejamento e na tomada de decisão.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Le Comité consultatif est une instance collégiale à caractère technique et consultatif qui appuie le Negesp dans la gouvernance, la planification et la prise de décision.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>O Comitê consultivo é uma instância colegiada de caráter técnico e consultivo que apoia o Negesp na governança, no planejamento e na tomada de decisão.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Função central</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Fonction centrale</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Função central</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Reunir diferentes áreas estratégicas da Secretaria Estadual de Saúde e parceiros relevantes.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Réunir différents domaines stratégiques du secrétariat à la santé de l&#x27;État et des partenaires pertinents.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Reunir diferentes áreas estratégicas da secretaria de saúde do Estado e parceiros pertinentes.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Garantir que as decisões do Negesp sejam integradas, baseadas em evidências e alinhadas às necessidades da Rede de Atenção à Saúde.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Garantir que les décisions du Negesp soient intégrées, fondées sur des données probantes et alignées sur les besoins du réseau de soins de santé.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Garantir que as decisões do Negesp sejam integradas, baseadas em evidências e alinhadas às necessidades da rede de atenção à saúde.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Principais atribuições</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Principales attributions</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Principais atribuições</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Assessorar tecnicamente o Negesp na definição de prioridades estratégicas.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Conseiller techniquement le Negesp dans la définition des priorités stratégiques.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Assessorar tecnicamente o Negesp na definição das prioridades estratégicas.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Contribuir para a elaboração, implementação e monitoramento do plano operativo estadual.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Contribuer à l&#x27;élaboration, à la mise en œuvre et au suivi du plan opérationnel de l&#x27;État.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Contribuir para a elaboração, a implementação e o monitoramento do plano operacional do Estado.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Analisar indicadores, eventos adversos e resultados de qualidade e segurança do paciente.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Analyser les indicateurs, les événements indésirables et les résultats de qualité et de sécurité des patients.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Analisar os indicadores, os eventos adversos e os resultados de qualidade e de segurança dos pacientes.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Propor estratégias de melhoria e apoiar a gestão de riscos.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Proposer des stratégies d&#x27;amélioration et appuyer la gestion des risques.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Propor estratégias de melhoria e apoiar a gestão dos riscos.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Favorecer a integração entre as áreas da secretaria e demais instituições parceiras.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Favoriser l&#x27;intégration entre les domaines du secrétariat et les autres institutions partenaires.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Favorecer a integração entre as áreas da secretaria e as demais instituições parceiras.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Apoiar a implementação da Política Nacional de Qualidade e Segurança do Paciente no âmbito estadual.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Appuyer la mise en œuvre de la Politique nationale de qualité et de sécurité des patients à l&#x27;échelle de l&#x27;État.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Apoiar a implementação da Política Nacional de Qualidade e Segurança dos Pacientes no âmbito do Estado.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Fortalecer a articulação entre estado, municípios, serviços de saúde, instituições de ensino e órgãos de controle, quando pertinente.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Renforcer la concertation entre l&#x27;État, les municipalités, les services de santé, les établissements d&#x27;enseignement et les organes de contrôle, le cas échéant.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Fortalecer a articulação entre o Estado, os municípios, os serviços de saúde, as instituições de ensino e os órgãos de controle, quando for o caso.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Composição sugerida</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Composition suggérée</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Composição sugerida</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Pode reunir representantes de áreas estratégicas da secretaria estadual, como:</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Elle peut réunir des représentants de domaines stratégiques du secrétariat de l&#x27;État, tels que :</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Ela pode reunir representantes de áreas estratégicas da secretaria do Estado, tais como:</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Atenção Primária à Saúde</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Soins de santé primaires</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Atenção primária à saúde</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Atenção Especializada e Hospitalar</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Soins spécialisés et hospitaliers</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Atenção especializada e hospitalar</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Vigilância em Saúde</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Surveillance de la santé</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Vigilância em saúde</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Regulação</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Régulation</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Regulação</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Planejamento</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Planification</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Planejamento</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Gestão da Qualidade</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Gestion de la qualité</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Gestão da qualidade</p></div>
+</div><div class="seg warn">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Educação Permanente</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Formation continue</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Formação continuada  <span class="wm">⚠</span> no SUS o termo usual é &quot;Educação permanente&quot;.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Saúde Digital e Informação</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Santé numérique et information</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Saúde digital e informação</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Assistência Farmacêutica</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Assistance pharmaceutique</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Assistência farmacêutica</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Auditoria, avaliação e monitoramento</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Audit, évaluation et suivi</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Auditoria, avaliação e monitoramento</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Ouvidoria</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Ombudsman</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Ombudsman (Ouvidoria)</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Escola de Saúde Pública, quando houver</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>École de santé publique, le cas échéant</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Escola de saúde pública, se for o caso</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Participação ampliada, com representantes externos convidados conforme a pauta.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Participation élargie, avec des représentants externes invités selon l&#x27;ordre du jour.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Participação ampliada, com representantes externos convidados de acordo com a pauta (ordem do dia).</p></div>
+</div></div>
+</section><section class="slide" id="d17">
+<h2><span class="sn">17</span>La dynamique au secrétariat</h2>
+<div class="colhead"><span>Original (PT)</span><span>Français</span><span>Retour au portugais</span></div>
+<div class="segs"><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>O que muda na prática</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Ce qui change en pratique</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>O que muda na prática</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Da informação dispersa à ação intersetorial</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>De l&#x27;information dispersée à l&#x27;action intersectorielle</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Da informação dispersa à ação intersetorial</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Qualidade e segurança do paciente transversais a toda a gestão</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Qualité et sécurité des patients transversales à toute la gestion</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Qualidade e segurança dos pacientes transversais a toda a gestão</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Entrada</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Entrée</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Entrada</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Compartilhamento</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Partage</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Compartilhamento</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Informações, indicadores e evidências antes dispersas entre os departamentos passam a circular.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Les informations, indicateurs et données probantes autrefois dispersés entre les départements se mettent à circuler.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>As informações, indicadores e evidências antes dispersos entre os departamentos passam a circular.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Processamento</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Traitement</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Tratamento</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Análise</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Analyse</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Análise</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Riscos prioritários identificados e analisados de forma transversal para a alta gestão estadual.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Les risques prioritaires sont identifiés et analysés de façon transversale pour la haute direction de l&#x27;État.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Os riscos prioritários são identificados e analisados de forma transversal para a alta direção do Estado.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Saída</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Sortie</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Saída</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Ação intersetorial</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Action intersectorielle</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Ação intersetorial</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Planos de ação coordenados, com elaboração e monitoramento do plano operativo da Política Nacional.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Des plans d&#x27;action coordonnés, avec l&#x27;élaboration et le suivi du plan opérationnel de la Politique nationale.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Planos de ação coordenados, com a elaboração e o monitoramento do plano operacional da Política Nacional.</p></div>
+</div></div>
+</section><section class="slide" id="d18">
+<h2><span class="sn">18</span>Le réseau national collaboratif</h2>
+<div class="colhead"><span>Original (PT)</span><span>Français</span><span>Retour au portugais</span></div>
+<div class="segs"><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Nenhum estado caminha sozinho</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Aucun État n&#x27;avance seul</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Nenhum Estado avança sozinho</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Uma rede nacional colaborativa, coordenada pelo Conselho</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Un réseau national collaboratif, coordonné par le Conseil</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Uma rede nacional colaborativa, coordenada pelo Conselho</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Compartilharexperiências exitosas entre os estados.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Partagerles expériences réussies entre les États.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Compartilhar as experiências bem-sucedidas entre os Estados.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Monitoraros indicadores dos núcleos estaduais.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Suivreles indicateurs des noyaux des États.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Monitorar os indicadores dos núcleos dos Estados.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Produzirsoluções colaborativas.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Produiredes solutions collaboratives.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Produzir soluções colaborativas.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Desenvolverprojetos estratégicos integrados.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Développerdes projets stratégiques intégrés.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Desenvolver projetos estratégicos integrados.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Promoveraprendizagem mútua.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Promouvoirl&#x27;apprentissage mutuel.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Promover a aprendizagem mútua.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Apoiara implementação contínua da Política Nacional.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Appuyerla mise en œuvre continue de la Politique nationale.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Apoiar a implementação contínua da Política Nacional.</p></div>
+</div></div>
+</section><section class="slide" id="d19">
+<h2><span class="sn">19</span>Au-delà des murs</h2>
+<div class="colhead"><span>Original (PT)</span><span>Français</span><span>Retour au portugais</span></div>
+<div class="segs"><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>A ponte entre a gestão, o conhecimento e a sociedade</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Le pont entre la gestion, le savoir et la société</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>A ponte entre a gestão, o saber e a sociedade</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>A segurança do paciente exige articulação além dos muros da secretaria</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>La sécurité des patients exige une concertation au-delà des murs du secrétariat</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>A segurança dos pacientes exige uma articulação para além dos muros da secretaria</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Negesp</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Negesp</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Negesp</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Ciência e inovação</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Science et innovation</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Ciência e inovação</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Universidades, centros de pesquisa e hospitais de ensino.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Universités, centres de recherche et hôpitaux universitaires.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Universidades, centros de pesquisa e hospitais universitários.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Ética e prática</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Éthique et pratique</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Ética e prática</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Conselhos profissionais, sociedades científicas e escolas de saúde pública.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Ordres professionnels, sociétés savantes et écoles de santé publique.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Conselhos profissionais, sociedades científicas e escolas de saúde pública.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Controle institucional</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Contrôle institutionnel</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Controle institucional</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Ministério Público e tribunais de contas.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Ministère public et cours des comptes.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Ministério Público e tribunais de contas.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Alinhamento global</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Alignement mondial</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Alinhamento global</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Organismos nacionais e internacionais.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Organismes nationaux et internationaux.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Organismos nacionais e internacionais.</p></div>
+</div></div>
+</section><section class="slide" id="d20">
+<h2><span class="sn">20</span>L&#x27;équation de valeur</h2>
+<div class="colhead"><span>Original (PT)</span><span>Français</span><span>Retour au portugais</span></div>
+<div class="segs"><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>A equação de valor do Negesp</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>L&#x27;équation de valeur du Negesp</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>A equação de valor do Negesp</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Conecta</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Relie</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Conecta</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Produz</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Produit</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Produz</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Entrega</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Livre</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Entrega</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Gestão, assistência, vigilância, ensino e controle social.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Gestion, soins, surveillance, enseignement et contrôle social.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Gestão, cuidado, vigilância, ensino e controle social.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Dados, evidências, aprendizagem e melhoria contínua.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Données, données probantes, apprentissage et amélioration continue.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Dados, evidências, aprendizagem e melhoria contínua.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Governança, decisões qualificadas e resultados em saúde.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Gouvernance, décisions éclairées et résultats en santé.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Governança, decisões esclarecidas e resultados em saúde.</p></div>
+</div></div>
+</section><section class="slide" id="d21">
+<h2><span class="sn">21</span>Vision : message final</h2>
+<div class="colhead"><span>Original (PT)</span><span>Français</span><span>Retour au portugais</span></div>
+<div class="segs"><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Visão</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Vision</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Visão</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>A segurança do paciente não é um programa isolado. É a cultura que transforma a Atenção Primária, conecta a Rede de Atenção à Saúde e protege a vida de cada brasileiro.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>La sécurité des patients n&#x27;est pas un programme isolé. C&#x27;est la culture qui transforme les soins de santé primaires, relie le réseau de soins de santé et protège la vie de chaque Brésilien.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>A segurança dos pacientes não é um programa isolado. É a cultura que transforma a atenção primária à saúde, conecta a rede de atenção à saúde e protege a vida de cada brasileiro.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Biblioteca Digital Conass</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Bibliothèque numérique du Conass</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Biblioteca digital do Conass</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Rede Negesp</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Réseau Negesp</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Rede Negesp</p></div>
+</div></div>
+</section><section class="slide" id="d22">
+<h2><span class="sn">22</span>Clôture</h2>
+<div class="colhead"><span>Original (PT)</span><span>Français</span><span>Retour au portugais</span></div>
+<div class="segs"><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Obrigada.</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Merci.</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Obrigada.</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Contato</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Contact</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Contato</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>Carla Ulhoa André Assessora Técnica · Conselho Nacional de Secretários de Saúde</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>Carla Ulhoa André Conseillère technique · Conseil national des secrétaires à la santé</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>Carla Ulhoa André / Conselheira técnica · Conselho Nacional dos Secretários de Saúde</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>carla.andre@conass.org.br</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>carla.andre@conass.org.br</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>carla.andre@conass.org.br</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>linkedin.com/in/carlaulhoa</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>linkedin.com/in/carlaulhoa</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>linkedin.com/in/carlaulhoa</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>@eucarlaulhoa</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>@eucarlaulhoa</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>@eucarlaulhoa</p></div>
+</div><div class="seg">
+<div class="cell o"><span class="lbl">Original (PT)</span><p>A força dos estados na garantia do direito à saúde</p></div>
+<div class="cell f"><span class="lbl">Français</span><p>La force des États dans la garantie du droit à la santé</p></div>
+<div class="cell b"><span class="lbl">Retour PT</span><p>A força dos Estados na garantia do direito à saúde</p></div>
+</div></div>
+</section>
+
+<section class="slide gloss" id="glossaire">
+<h2><span class="sn">★</span>Glossário dos termos-chave</h2>
+<div class="colhead"><span>Português</span><span>Français</span><span>Fonte / nota</span></div>
+<div style="border:1px solid var(--hair);border-radius:12px;padding:.2rem 1rem;background:var(--surface)"><div class="grow"><span class="gp">segurança do paciente</span><span class="gf">sécurité des patients</span><span class="gs">OMS</span></div><div class="grow"><span class="gp">qualidade do cuidado</span><span class="gf">qualité des soins</span><span class="gs">OMS</span></div><div class="grow"><span class="gp">danos evitáveis</span><span class="gf">préjudices évitables</span><span class="gs">OMS</span></div><div class="grow"><span class="gp">eventos adversos</span><span class="gf">événements indésirables</span><span class="gs">termo médico FR</span></div><div class="grow"><span class="gp">baseado em evidências</span><span class="gf">fondé sur des données probantes</span><span class="gs">EBM francófono (Canadá/Québec)</span></div><div class="grow"><span class="gp">Sistema Único de Saúde (SUS)</span><span class="gf">Système unique de santé (SUS)</span><span class="gs">Cairn / OPS</span></div><div class="grow"><span class="gp">Atenção Primária à Saúde</span><span class="gf">soins de santé primaires</span><span class="gs">OMS (Alma-Ata)</span></div><div class="grow"><span class="gp">Rede de Atenção à Saúde</span><span class="gf">réseau de soins de santé</span><span class="gs">—</span></div><div class="grow"><span class="gp">Conselho Nacional de Secretários de Saúde</span><span class="gf">Conseil national des secrétaires à la santé</span><span class="gs">—</span></div><div class="grow"><span class="gp">Secretário/Secretaria Estadual de Saúde</span><span class="gf">secrétaire/secrétariat à la santé de l&#x27;État</span><span class="gs">evita confusão com &quot;secrétaire d&#x27;État&quot;</span></div><div class="grow"><span class="gp">Negesp — Núcleo Estadual de Gestão Estratégica…</span><span class="gf">Negesp — Noyau d&#x27;État de Gestion Stratégique…</span><span class="gs">sigla mantida</span></div><div class="grow"><span class="gp">Câmara Técnica</span><span class="gf">Chambre technique</span><span class="gs">—</span></div><div class="grow"><span class="gp">Portaria</span><span class="gf">Arrêté</span><span class="gs">instrumento equivalente</span></div><div class="grow"><span class="gp">Ouvidoria</span><span class="gf">Ombudsman</span><span class="gs">termo usado no Québec</span></div><div class="grow"><span class="gp">ALASS / CALASS</span><span class="gf">Association latine pour l&#x27;analyse des systèmes de santé</span><span class="gs">alass.org</span></div></div>
+</section>
+</div>
+<footer>Notas da apresentadora (tecla N no deck) permanecem em português de propósito. Os dois mapas do slide « Brésil » estão sendo recriados com rótulos em francês. Terminologia ancorada em OMS, ALASS (alass.org) e OPS/Cairn.</footer>
+</div>
+</body>
+</html>
