@@ -444,12 +444,14 @@ body.light #s08 svg.links path{stroke:rgba(14,122,78,.5);filter:none}
 }
 
 /* ═══ SBRA: Brasil (território + números em destaque à esq.; Gini alto à dir.) ═══ */
-#sbra .wrap{padding-top:clamp(2.1rem,4.8vh,3.1rem);padding-bottom:clamp(1.2rem,3.2vh,2.1rem);display:flex;flex-direction:column}
+#sbra .wrap{padding-top:clamp(2.1rem,4.8vh,3.1rem);padding-bottom:clamp(3rem,7vh,4.2rem);display:flex;flex-direction:column}
 #sbra .title{margin-bottom:clamp(.4rem,1.2vh,.8rem)}
 #sbra .bcols{flex:1;min-height:0;display:grid;grid-template-columns:1fr auto;gap:clamp(1.6rem,4vw,3.4rem);
-  align-items:stretch;padding-top:clamp(.3rem,1vh,.7rem)}
-/* coluna esquerda: território em cima, números grandes embaixo */
-#sbra .bleft{display:flex;flex-direction:column;justify-content:center;gap:clamp(1rem,2.8vh,1.9rem);min-width:0;min-height:0}
+  align-items:stretch;padding-top:clamp(.4rem,1.6vh,1.2rem)}
+/* topo dos dois mapas desce junto para não invadir a logo do canto (topo permanece alinhado) */
+body.showlogo #sbra .bcols{padding-top:clamp(2.7rem,6.3vh,3.7rem)}
+/* coluna esquerda: território em cima (topo alinhado ao Gini), números grandes embaixo */
+#sbra .bleft{display:flex;flex-direction:column;justify-content:space-between;gap:clamp(.8rem,2.2vh,1.5rem);min-width:0;min-height:0}
 #sbra .tmap{margin:0;display:flex;flex-direction:column;align-items:flex-start;gap:clamp(.28rem,.85vh,.5rem)}
 #sbra .tmap img{width:min(46vw,600px);max-width:100%;height:auto;max-height:min(42vh,342px);border-radius:12px;
   filter:drop-shadow(0 26px 46px rgba(6,46,30,.34)) drop-shadow(0 6px 14px rgba(6,46,30,.18))}
@@ -457,16 +459,16 @@ body.light #s08 svg.links path{stroke:rgba(14,122,78,.5);filter:none}
 /* números bem maiores */
 #sbra .stats{display:flex;flex-direction:column;gap:clamp(.55rem,1.7vh,1.1rem)}
 #sbra .pop{display:flex;flex-direction:column;gap:.04em}
-#sbra .pop b{font-size:clamp(2rem,3.7vw,3.05rem);font-weight:800;font-stretch:112%;line-height:.92;color:var(--green);
+#sbra .pop b{font-size:clamp(2.5rem,4.4vw,4rem);font-weight:800;font-stretch:112%;line-height:.9;color:var(--green);
   font-variant-numeric:tabular-nums;letter-spacing:-.02em;text-shadow:0 0 30px rgba(14,122,78,.16)}
-#sbra .pop span{font-size:clamp(.72rem,1.06vw,.96rem);color:var(--ink-2);font-weight:600}
-#sbra .grid5{display:flex;flex-wrap:wrap;gap:clamp(.9rem,2.3vw,2.1rem);align-items:flex-end}
-#sbra .s{display:flex;flex-direction:column;gap:.1em}
-#sbra .s b{font-size:clamp(1.4rem,2.3vw,2rem);font-weight:800;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
-#sbra .s b i{font-style:normal;font-size:.48em;color:var(--orange);margin-left:.1em;vertical-align:.34em}
-#sbra .s span{font-size:clamp(.68rem,.98vw,.88rem);color:var(--ink-2);line-height:1.18}
-/* coluna direita: Gini alto */
-#sbra .gmap{margin:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+#sbra .pop span{font-size:clamp(.82rem,1.2vw,1.08rem);color:var(--ink-2);font-weight:600}
+#sbra .grid5{display:flex;flex-wrap:wrap;gap:clamp(1rem,2.6vw,2.3rem);align-items:flex-end}
+#sbra .s{display:flex;flex-direction:column;gap:.12em}
+#sbra .s b{font-size:clamp(1.8rem,3vw,2.65rem);font-weight:800;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
+#sbra .s b i{font-style:normal;font-size:.46em;color:var(--orange);margin-left:.1em;vertical-align:.36em}
+#sbra .s span{font-size:clamp(.74rem,1.05vw,.95rem);color:var(--ink-2);line-height:1.18}
+/* coluna direita: Gini alto, topo alinhado ao território */
+#sbra .gmap{margin:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
   gap:clamp(.4rem,1.1vh,.8rem);min-height:0}
 #sbra .gmap img{height:min(63vh,548px);width:auto;max-width:min(42vw,470px);border-radius:12px;
   filter:drop-shadow(0 26px 46px rgba(6,46,30,.34)) drop-shadow(0 6px 14px rgba(6,46,30,.18))}
@@ -484,11 +486,11 @@ body.light #s08 svg.links path{stroke:rgba(14,122,78,.5);filter:none}
   #sbra .bcols figure{opacity:1;transform:none;transition:none}
   #sbra.on .bcols img{animation:none}
 }
-@media (max-height:680px){
-  #sbra .pop b{font-size:clamp(1.7rem,3vw,2.3rem)}
-  #sbra .s b{font-size:clamp(1.2rem,2vw,1.6rem)}
+@media (max-height:760px){
+  #sbra .pop b{font-size:clamp(1.9rem,3.4vw,2.7rem)}
+  #sbra .s b{font-size:clamp(1.45rem,2.4vw,1.95rem)}
   #sbra .tmap img{width:min(42vw,520px)}
-  #sbra .gmap img{height:63vh}
+  #sbra .gmap img{height:60vh}
 }
 
 /* ═══ S20: foto + contatos com fonte máxima ═══ */
