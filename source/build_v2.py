@@ -75,7 +75,8 @@ body.showlogo .hud .htr{display:none}
 /* títulos de largura cheia não invadem a logo do canto (s10 tem coluna própria) */
 body.showlogo #s04 .title,body.showlogo #s05 .title,body.showlogo #s07 .title,
 body.showlogo #s08 .title,body.showlogo #s14 .title,body.showlogo #s15 .title,
-body.showlogo #s16 .title,body.showlogo #s17 .title{padding-right:clamp(9.5rem,18vw,14.5rem)}
+body.showlogo #s16 .title,body.showlogo #s17 .title,
+body.showlogo #sbra .title,body.showlogo #sorg .title{padding-right:clamp(9.5rem,18vw,14.5rem)}
 
 /* ═══ S03: parágrafo em 4 linhas, par centralizado ═══ */
 #s03 .wrap{display:flex;flex-direction:column;padding-left:52px}
@@ -359,76 +360,112 @@ body.light #s08 svg.links path{stroke:rgba(14,122,78,.5);filter:none}
   @keyframes rotph{0%,22%{transform:rotate(0)}58%,100%{transform:rotate(-90deg)}}
 }
 
-/* ═══ SORG: organograma do Conass (Assembleia → coordenações → núcleos e câmaras) ═══ */
-#sorg .wrap{padding-top:clamp(2.5rem,5.8vh,3.5rem);padding-bottom:clamp(2rem,5vh,3rem);display:flex;flex-direction:column}
-#sorg .title{font-size:clamp(1rem,1.7vw,1.5rem);margin-top:.3em;margin-bottom:clamp(.5rem,1.5vh,.85rem)}
-#sorg .chart{flex:1;min-height:0;display:flex;flex-direction:column;gap:clamp(.28rem,.9vh,.52rem)}
-#sorg .obox{background:#fff;border:1px solid var(--hair);border-radius:12px;text-align:center;
-  padding:.42em .95em;box-shadow:0 10px 26px rgba(6,46,30,.08)}
-#sorg .obox b{display:block;font-weight:800;font-stretch:110%;font-size:clamp(.76rem,1.08vw,.98rem);color:var(--ink);line-height:1.22}
-#sorg .obox span{display:block;font-size:clamp(.58rem,.85vw,.78rem);color:var(--ink-2);line-height:1.3;margin-top:.14em}
-#sorg .obox.top{align-self:center;width:min(48vw,580px);background:var(--green);border-color:transparent;
-  box-shadow:0 14px 34px rgba(14,122,78,.3)}
-#sorg .obox.top b{color:#fff}#sorg .obox.top span{color:rgba(255,255,255,.88)}
+/* ═══ SORG: organograma do Conass (estrutura oficial, modelo enxuto) ═══ */
+#sorg .wrap{padding-top:clamp(2.1rem,4.8vh,3.1rem);padding-bottom:clamp(1.3rem,3.4vh,2.2rem);display:flex;flex-direction:column}
+#sorg .title{font-size:clamp(1rem,1.7vw,1.5rem);margin-top:.3em;margin-bottom:clamp(.4rem,1.2vh,.7rem)}
+#sorg .chart{flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(.18rem,.62vh,.4rem)}
+/* caixas */
+#sorg .obox{background:#fff;border:1px solid var(--hair);border-radius:11px;text-align:center;
+  padding:clamp(.28rem,.8vh,.5rem) clamp(.7rem,1.3vw,1.1rem);box-shadow:0 8px 22px rgba(6,46,30,.07)}
+#sorg .obox b{display:block;font-weight:800;font-stretch:110%;font-size:clamp(.72rem,1.02vw,.94rem);color:var(--ink);line-height:1.2}
+#sorg .obox span{display:block;font-size:clamp(.55rem,.8vw,.73rem);color:var(--ink-2);line-height:1.26;margin-top:.1em}
+#sorg .obox.solo{align-self:center}
+#sorg .obox.top{background:var(--green);border-color:transparent;box-shadow:0 12px 30px rgba(14,122,78,.28);max-width:min(52vw,560px)}
+#sorg .obox.top b{color:#fff}#sorg .obox.top span{color:rgba(255,255,255,.9)}
 #sorg .obox.sec{border-top:3px solid var(--orange)}
-#sorg .vl{align-self:center;width:2px;height:clamp(.45rem,1.4vh,.85rem);background:rgba(14,122,78,.4)}
-#sorg .brow{display:grid;grid-template-columns:1fr clamp(.7rem,1.8vw,1.5rem) min(34vw,430px) clamp(.7rem,1.8vw,1.5rem) 1fr;align-items:center}
-#sorg .hl{height:2px;background:rgba(14,122,78,.4);width:100%}
-#sorg .sats{display:flex;flex-direction:column;gap:.32em}
-#sorg .sats.L{align-items:flex-end}
-#sorg .sats.R{align-items:flex-start}
-#sorg .chip{background:rgba(255,255,255,.85);border:1px solid rgba(14,122,78,.28);border-radius:9px;
-  padding:.3em .8em;text-align:center}
-#sorg .chip b{font-weight:700;font-size:clamp(.62rem,.9vw,.8rem);color:var(--ink);line-height:1.2;display:block}
-#sorg .chip span{display:block;font-size:clamp(.52rem,.76vw,.68rem);color:var(--ink-3);line-height:1.2}
-#sorg .asslbl{font-size:clamp(.5rem,.72vw,.64rem);letter-spacing:.24em;text-transform:uppercase;font-weight:700;
-  color:var(--orange);margin-bottom:.1em}
-#sorg .chiprow{display:flex;flex-wrap:wrap;gap:.3em}
-#sorg .hl.o{background:rgba(230,126,34,.45)}
-/* linha de distribuição: Secretaria (50%) alimenta as 3 coordenações (25% · 62.5% · 87.5%) */
-#sorg .dist{position:relative;height:clamp(.85rem,2.4vh,1.25rem)}
-#sorg .dist i{position:absolute;background:rgba(14,122,78,.4)}
-#sorg .dist .feed{left:50%;top:0;width:2px;height:52%;translate:-1px 0}
-#sorg .dist .bar{left:25%;right:12.5%;top:50%;height:2px}
-#sorg .dist .drop{width:2px;top:50%;bottom:0}
-#sorg .dist .d1{left:25%}#sorg .dist .d2{left:62.5%}#sorg .dist .d3{left:87.5%}
-#sorg .cols{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(.5rem,1.2vw,.95rem)}
-#sorg .coord{display:flex;align-items:center;justify-content:center;border-radius:10px;padding:.4em .7em}
-#sorg .coord b{font-size:clamp(.68rem,.98vw,.9rem);line-height:1.22}
-#sorg .coord.tec{grid-column:1/3;border-top:3px solid var(--green)}
-#sorg .coord.adm{border-top:3px solid var(--orange)}
+#sorg .obox.cam{background:var(--orange);border-color:transparent;box-shadow:0 12px 30px rgba(232,119,34,.32);
+  padding:clamp(.34rem,.95vh,.6rem) clamp(.85rem,1.7vw,1.5rem)}
+#sorg .obox.cam b{color:#fff;font-size:clamp(.74rem,1.06vw,1rem);letter-spacing:.02em}
+/* conectores verticais */
+#sorg .vl{width:2px;height:clamp(.32rem,1vh,.62rem);background:rgba(14,122,78,.4)}
+/* linhas com satélite à direita (Assembleia+Comitê, Diretoria+Conselho Fiscal) */
+#sorg .orow{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;width:100%}
+#sorg .orow>.obox{grid-column:2;justify-self:center}
+#sorg .orow>.side{display:flex;align-items:center}
+#sorg .orow>.side.R{grid-column:3;justify-self:start}
+#sorg .tap{height:2px;width:clamp(.7rem,1.9vw,1.5rem);background:rgba(14,122,78,.4);flex:none}
+#sorg .tap.o{background:rgba(232,119,34,.5)}
+/* chips (satélites e subitens) */
+#sorg .chip{background:#fff;border:1px solid var(--hair);border-radius:9px;padding:.3em .75em;text-align:center;
+  box-shadow:0 6px 16px rgba(6,46,30,.05)}
+#sorg .chip b{font-weight:700;font-size:clamp(.6rem,.86vw,.78rem);color:var(--ink);line-height:1.2;display:block}
+#sorg .chip span{display:block;font-size:clamp(.5rem,.74vw,.66rem);color:var(--ink-3);line-height:1.2}
+/* faixa de ramais: Câmaras Técnicas (esq.) · espinha · Gabinete (dir.) */
+#sorg .branch{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;width:100%;margin:clamp(.1rem,.3vh,.24rem) 0}
+#sorg .branch .bcol{display:flex;align-items:center}
+#sorg .branch .bcol.L{grid-column:1;justify-content:flex-end}
+#sorg .branch .spine{grid-column:2;width:2px;align-self:stretch;justify-self:center;background:rgba(14,122,78,.4)}
+#sorg .branch .bcol.R{grid-column:3;justify-content:flex-start}
+#sorg .pan.gab{background:#fff;border:1px solid var(--hair);border-radius:11px;box-shadow:0 8px 22px rgba(6,46,30,.07);
+  padding:clamp(.34rem,.85vh,.58rem) clamp(.6rem,1.1vw,.95rem);max-width:min(30vw,340px)}
+#sorg .pan.gab h6{font-size:clamp(.62rem,.9vw,.82rem);font-weight:800;font-stretch:110%;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--green);margin-bottom:.3em;text-align:center}
+#sorg .pan.gab ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.13em}
+#sorg .pan.gab li{position:relative;font-size:clamp(.56rem,.8vw,.72rem);line-height:1.24;color:var(--ink-2);padding-left:.85em}
+#sorg .pan.gab li::before{content:"";position:absolute;left:0;top:.42em;width:.26em;height:.26em;border-radius:50%;background:var(--green)}
+/* distribuidor: Secretaria (50%) → 3 coordenações (16.7% · 50% · 83.3%) */
+#sorg .dist3{position:relative;width:100%;height:clamp(.55rem,1.5vh,.95rem)}
+#sorg .dist3 i{position:absolute;background:rgba(14,122,78,.4)}
+#sorg .dist3 .feed{left:50%;top:0;width:2px;height:50%;translate:-1px 0}
+#sorg .dist3 .bar{left:16.667%;right:16.667%;top:50%;height:2px}
+#sorg .dist3 .d{width:2px;top:50%;bottom:0;translate:-1px 0}
+#sorg .dist3 .a{left:16.667%}#sorg .dist3 .b{left:50%}#sorg .dist3 .c{left:83.333%}
+/* coordenações */
+#sorg .coords{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(.5rem,1.2vw,1rem);width:100%}
+#sorg .coord{display:flex;align-items:center;justify-content:center;text-align:center;background:#fff;border:1px solid var(--hair);
+  border-radius:10px;padding:.5em .7em;box-shadow:0 8px 22px rgba(6,46,30,.07)}
+#sorg .coord b{font-size:clamp(.64rem,.94vw,.86rem);line-height:1.2;color:var(--ink)}
 #sorg .coord.dev{border-top:3px solid #57B98A}
-/* ticks: Técnica bifurca p/ os 2 painéis; Adm e Desenv descem direto */
-#sorg .ticks{position:relative;height:clamp(.6rem,1.7vh,.95rem)}
-#sorg .ticks i{position:absolute;background:rgba(14,122,78,.4)}
-#sorg .ticks .tfeed{left:25%;top:0;width:2px;height:34%;translate:-1px 0}
-#sorg .ticks .tbar{left:12.5%;width:25%;top:34%;height:2px}
-#sorg .ticks .tk{width:2px;bottom:0}
-#sorg .ticks .k1{left:12.5%;top:34%}#sorg .ticks .k2{left:37.5%;top:34%}
-#sorg .ticks .k3{left:62.5%;top:0}#sorg .ticks .k4{left:87.5%;top:0}
-#sorg .pan{background:#fff;border:1px solid var(--hair);border-radius:12px;box-shadow:0 10px 26px rgba(6,46,30,.08);
-  padding:.55em .85em}
-#sorg .pan h6{font-size:clamp(.66rem,.96vw,.88rem);font-weight:800;font-stretch:112%;letter-spacing:.07em;
-  text-transform:uppercase;color:var(--green);margin-bottom:.46em;text-align:center}
-#sorg .pan ul{list-style:none;columns:2;column-gap:1.1em;margin:0;padding:0}
-#sorg .pan li{font-size:clamp(.58rem,.85vw,.78rem);line-height:1.3;color:var(--ink-2);break-inside:avoid;
-  position:relative;padding-left:.72em;margin-bottom:.18em}
-#sorg .pan li::before{content:"";position:absolute;left:0;top:.42em;width:.28em;height:.28em;border-radius:50%;background:var(--green)}
-#sorg .pan li.hi{color:var(--ink);font-weight:700}
-#sorg .pan li.hi::before{background:var(--orange)}
-/* seta: as câmaras técnicas derivam dos núcleos técnicos */
-#sorg .pans{position:relative}
-#sorg .n2c{position:absolute;left:25%;top:50%;width:.5em;height:.5em;translate:-50% -50%;rotate:45deg;
-  border-top:2.5px solid var(--green);border-right:2.5px solid var(--green);z-index:2}
-#sorg .stackcol{display:flex;flex-direction:column;gap:.42em}
-#sorg .chip.ger{border-radius:10px;border:1px solid var(--hair);border-left:3px solid var(--orange);background:#fff;
-  padding:.42em .7em;box-shadow:0 8px 20px rgba(6,46,30,.06)}
-#sorg .chip.ger b{font-size:clamp(.62rem,.9vw,.82rem)}
-#sorg .chip.ger.dev{border-left-color:#57B98A}
-@media (max-height:640px){
-  #sorg .pan li{font-size:.56rem;line-height:1.24;margin-bottom:.14em}
+#sorg .coord.tec{border-top:3px solid var(--green)}
+#sorg .coord.adm{border-top:3px solid var(--orange)}
+/* subitens sob Técnica e Adm/Finanças */
+#sorg .subs{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(.5rem,1.2vw,1rem);width:100%;align-items:start}
+#sorg .subcol{display:flex;flex-direction:column;align-items:center}
+#sorg .subcol .drop{width:2px;height:clamp(.32rem,.95vh,.58rem);background:rgba(14,122,78,.4)}
+#sorg .subcol .gerrow{display:flex;gap:clamp(.4rem,1vw,.8rem)}
+/* forquilha p/ as 2 gerências */
+#sorg .fork{position:relative;width:min(66%,160px);height:clamp(.28rem,.85vh,.52rem)}
+#sorg .fork i{position:absolute;background:rgba(14,122,78,.4)}
+#sorg .fork .fb{left:25%;right:25%;top:0;height:2px}
+#sorg .fork .fd{width:2px;top:0;bottom:0}
+#sorg .fork .fl{left:25%}#sorg .fork .fr{right:25%}
+@media (max-height:680px){
   #sorg .obox b{font-size:.72rem}
-  #sorg .title{font-size:1rem;margin-bottom:.3rem}
+  #sorg .obox span,#sorg .pan.gab li{font-size:.58rem}
+  #sorg .title{font-size:1rem;margin-bottom:.28rem}
+}
+
+/* ═══ SBRA: Brasil (contexto do país, dados IBGE + mapas) ═══ */
+#sbra .wrap{padding-top:clamp(2.1rem,4.8vh,3.1rem);padding-bottom:clamp(1.4rem,3.6vh,2.4rem);display:flex;flex-direction:column}
+#sbra .title{margin-bottom:clamp(.5rem,1.6vh,1rem)}
+#sbra .bcols{flex:1;min-height:0;display:grid;grid-template-columns:1fr .82fr;gap:clamp(1.2rem,3vw,2.6rem);align-items:center}
+#sbra .bdata{display:flex;flex-direction:column;gap:clamp(.5rem,1.5vh,1rem);min-width:0;min-height:0}
+#sbra .hero{display:flex;flex-direction:column;gap:.1em}
+#sbra .hero b{font-size:clamp(1.9rem,3.6vw,3.1rem);font-weight:800;font-stretch:112%;line-height:.95;color:var(--green);
+  font-variant-numeric:tabular-nums;letter-spacing:-.02em;text-shadow:0 0 30px rgba(14,122,78,.16)}
+#sbra .hero span{font-size:clamp(.7rem,1.02vw,.92rem);color:var(--ink-2);font-weight:600}
+#sbra .flist{display:flex;flex-direction:column;gap:clamp(.25rem,.75vh,.48rem)}
+#sbra .fr{display:flex;align-items:baseline;gap:.7em;border-bottom:1px solid var(--hair);padding-bottom:clamp(.22rem,.7vh,.42rem)}
+#sbra .fr b{flex:none;min-width:3.2em;text-align:right;font-size:clamp(1rem,1.6vw,1.42rem);font-weight:800;color:var(--ink);
+  line-height:1;font-variant-numeric:tabular-nums}
+#sbra .fr b i{font-style:normal;font-size:.5em;color:var(--orange);margin-left:.12em;vertical-align:.32em}
+#sbra .fr span{font-size:clamp(.64rem,.92vw,.83rem);color:var(--ink-2);line-height:1.24}
+#sbra figure{margin:0}
+#sbra .tmap{background:#fff;border:1px solid var(--hair);border-radius:12px;padding:clamp(.35rem,.9vh,.6rem);
+  box-shadow:0 12px 30px rgba(6,46,30,.08)}
+#sbra .tmap img{display:block;width:100%;max-height:min(30vh,240px);object-fit:contain;border-radius:7px}
+#sbra .tmap figcaption{margin-top:.4em;font-size:clamp(.56rem,.82vw,.72rem);color:var(--ink-3);text-align:center;letter-spacing:.02em}
+#sbra .gmap{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(.4rem,1.1vh,.75rem);
+  height:100%;min-height:0}
+#sbra .gmap img{display:block;max-height:min(64vh,560px);max-width:100%;object-fit:contain;border-radius:10px;
+  box-shadow:0 16px 40px rgba(6,46,30,.14),0 0 0 1px rgba(6,46,30,.05)}
+#sbra .gmap figcaption{font-size:clamp(.6rem,.88vw,.78rem);color:var(--ink-2);text-align:center;line-height:1.35;max-width:44ch}
+#sbra .gmap figcaption b{color:var(--orange-soft);font-weight:800}
+#sbra .gmap figcaption em{font-style:normal;color:var(--orange);font-weight:700}
+@media (max-height:680px){
+  #sbra .hero b{font-size:clamp(1.7rem,3.2vw,2.6rem)}
+  #sbra .fr b{font-size:clamp(.95rem,1.5vw,1.3rem)}
+  #sbra .tmap img{max-height:22vh}
 }
 
 /* ═══ S20: foto + contatos com fonte máxima ═══ */
@@ -450,22 +487,33 @@ def sem_travessao(t):
     return t.replace(' ,', ',')
 
 order = [f's{i:02d}' for i in range(1, 21)]
-order.insert(3, 'sorg')   # organograma do Conass, entre o s03 (Conass) e o s04 (Câmara Técnica)
+order.insert(1, 'sbra')   # slide Brasil (contexto do país), logo após a capa (s01)
+order.insert(4, 'sorg')   # organograma do Conass, entre o s03 (Conass) e o s04 (Câmara Técnica)
 
 # slides exclusivos do V2 (sem contraparte no V1): título p/ índice + notas da apresentadora
 EXTRA_SLIDES = {
+    'sbra': {
+        'title': 'Brasil',
+        'notes': ('Antes de entrar no modelo, vale situar a escala do país. O Brasil tem cerca de 213 milhões '
+                  'de habitantes, segundo o IBGE, distribuídos em 26 estados e no Distrito Federal e em 5.571 '
+                  'municípios, sendo que 71% deles têm menos de 20 mil habitantes. O território se organiza em '
+                  '5 regiões geográficas e, na saúde, em 117 macrorregiões e 453 regiões de saúde. É um país de '
+                  'dimensão continental e profundamente desigual: o Índice de Gini de 2024 é de 0,509, o que '
+                  'coloca o Brasil como o segundo país com maior desigualdade no G20. É nesse cenário de escala '
+                  'e desigualdade que o modelo dos núcleos precisa funcionar.'),
+    },
     'sorg': {
         'title': 'Organograma do Conass',
-        'notes': ('Antes de falar da Câmara Técnica, vale ver o desenho institucional completo. '
-                  'No topo, a Assembleia reúne os 27 secretários de Saúde dos estados e do Distrito Federal. '
-                  'A Diretoria tem 1 presidente e 5 vice-presidentes, um por macrorregião, com o apoio da '
-                  'Comissão Fiscal, das Representações Oficiais e do Comitê Consultivo, formado pelos ex-presidentes. '
-                  'A Secretaria Executiva conduz a operação com as assessorias Jurídica, de Comunicação Social e '
-                  'Parlamentar, e se organiza em três coordenações. Na Coordenação Técnica estão os 14 núcleos '
-                  'técnicos, que se desdobram em 14 câmaras técnicas, entre elas a Câmara Técnica de Qualidade no '
-                  'Cuidado e Segurança do Paciente, que veremos a seguir. A Coordenação de Administração e de '
-                  'Finanças reúne as gerências Administrativa, de Compras e Contratos e Financeira. A Coordenação '
-                  'de Desenvolvimento Institucional abriga a Unidade de Gestão de Projetos.'),
+        'notes': ('Antes de falar da Câmara Técnica, vale ver o desenho institucional do Conass. No topo está a '
+                  'Assembleia Geral, que reúne os 27 secretários de Saúde dos estados e do Distrito Federal, com o '
+                  'Comitê Consultivo formado pelos ex-presidentes. Abaixo vêm a Diretoria, acompanhada do Conselho '
+                  'Fiscal, e a Presidência. A Secretaria Executiva conduz a operação e conta com o Gabinete e suas '
+                  'assessorias: de Apoio do Gabinete, Jurídica, Parlamentar, de Comunicação e de Informações '
+                  'Estratégicas. Dela partem três coordenações: de Desenvolvimento Institucional, Técnica e de '
+                  'Administração e de Finanças. A Coordenação Técnica reúne as assessorias técnicas, e a de '
+                  'Administração e de Finanças, as gerências Administrativa e Financeira. É no conjunto das câmaras '
+                  'técnicas, destacado aqui, que está a Câmara Técnica de Qualidade no Cuidado e Segurança do '
+                  'Paciente, que veremos a seguir.'),
     },
 }
 meta_of = lambda sid: inv[sid] if sid in inv else EXTRA_SLIDES[sid]
@@ -538,6 +586,8 @@ tok = {
     '%%QRBIB%%':      open(f'{A}/qr_bib.b64').read().strip(),
     '%%QRNEG%%':      open(f'{A}/qr_neg.b64').read().strip(),
     '%%MAPDATA%%':    open(f'{A}/map_data.json').read().strip(),
+    '%%MAPTERR%%':    open(f'{A}/mapa_terr.png.b64').read().strip(),
+    '%%MAPGINI%%':    open(f'{A}/mapa_gini.png.b64').read().strip(),
 }
 for k, v in tok.items():
     html = html.replace(k, v)

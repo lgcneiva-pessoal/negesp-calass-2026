@@ -47,93 +47,79 @@ SORG = '''
 <section class="slide" id="sorg" data-title="Organograma do Conass">
   <div class="wrap">
     <div class="kick rv" style="--d:60">Como o Conass se organiza</div>
-    <h2 class="title rv" style="--d:160">Da Assembleia às <em>câmaras técnicas</em></h2>
+    <h2 class="title rv" style="--d:160">Da Assembleia Geral às <em>câmaras técnicas</em></h2>
     <div class="chart">
-      <div class="obox top rv" style="--d:300"><b>Assembleia</b><span>Os 27 secretários de Saúde dos estados e do Distrito Federal</span></div>
-      <i class="vl rv" style="--d:360"></i>
-      <div class="brow rv" style="--d:420">
-        <div class="sats L">
-          <div class="chip"><b>Comissão Fiscal</b></div>
-          <div class="chip"><b>Representações Oficiais</b></div>
-        </div>
-        <i class="hl"></i>
-        <div class="obox mid"><b>Diretoria do Conass</b><span>1 presidente e 5 vice-presidentes · 1 por macrorregião</span></div>
-        <i class="hl"></i>
-        <div class="sats R">
-          <div class="chip"><b>Comitê Consultivo</b><span>ex-presidentes</span></div>
-        </div>
+      <div class="orow rv" style="--d:280">
+        <div class="obox top"><b>Assembleia Geral</b><span>Os 27 secretários de Saúde dos estados e do Distrito Federal</span></div>
+        <div class="side R"><i class="tap"></i><div class="chip"><b>Comitê Consultivo</b><span>ex-presidentes</span></div></div>
       </div>
-      <i class="vl rv" style="--d:480"></i>
-      <div class="brow rv" style="--d:540">
-        <div class="sats L"></div>
-        <i></i>
-        <div class="obox mid sec"><b>Secretaria Executiva do Conass</b><span>Secretário Executivo · Equipes Técnica e Administrativa</span></div>
-        <i class="hl o"></i>
-        <div class="sats R">
-          <div class="asslbl">Assessorias</div>
-          <div class="chiprow">
-            <div class="chip sm"><b>Jurídica</b></div>
-            <div class="chip sm"><b>Comunicação Social</b></div>
-            <div class="chip sm"><b>Parlamentar</b></div>
+      <i class="vl rv" style="--d:330"></i>
+      <div class="orow rv" style="--d:380">
+        <div class="obox"><b>Diretoria</b><span>1 presidente e 5 vice-presidentes · 1 por macrorregião</span></div>
+        <div class="side R"><i class="tap"></i><div class="chip"><b>Conselho Fiscal</b></div></div>
+      </div>
+      <i class="vl rv" style="--d:430"></i>
+      <div class="obox solo rv" style="--d:470"><b>Presidência</b></div>
+      <i class="vl rv" style="--d:510"></i>
+      <div class="obox solo sec rv" style="--d:550"><b>Secretaria Executiva</b><span>Secretário Executivo · Equipes Técnica e Administrativa</span></div>
+      <i class="vl rv" style="--d:590"></i>
+      <div class="branch rv" style="--d:620">
+        <div class="bcol L"><div class="obox cam"><b>Câmaras Técnicas</b></div><i class="tap o"></i></div>
+        <i class="spine"></i>
+        <div class="bcol R"><i class="tap"></i>
+          <div class="pan gab">
+            <h6>Gabinete</h6>
+            <ul>
+              <li>Apoio do Gabinete</li>
+              <li>Assessoria Jurídica</li>
+              <li>Assessoria Parlamentar</li>
+              <li>Assessoria de Comunicação</li>
+              <li>Assessoria de Informações Estratégicas</li>
+            </ul>
           </div>
         </div>
       </div>
-      <div class="dist rv" style="--d:620"><i class="feed"></i><i class="bar"></i><i class="drop d1"></i><i class="drop d2"></i><i class="drop d3"></i></div>
-      <div class="cols rv" style="--d:700">
-        <div class="obox coord tec"><b>Coordenação Técnica</b></div>
-        <div class="obox coord adm"><b>Coordenação de Administração e de Finanças</b></div>
-        <div class="obox coord dev"><b>Coordenação de Desenvolvimento Institucional</b></div>
+      <i class="vl rv" style="--d:660"></i>
+      <div class="dist3 rv" style="--d:700"><i class="feed"></i><i class="bar"></i><i class="d a"></i><i class="d b"></i><i class="d c"></i></div>
+      <div class="coords rv" style="--d:740">
+        <div class="coord dev"><b>Coordenação de Desenvolvimento Institucional</b></div>
+        <div class="coord tec"><b>Coordenação Técnica</b></div>
+        <div class="coord adm"><b>Coordenação de Administração e de Finanças</b></div>
       </div>
-      <div class="ticks rv" style="--d:740"><i class="tfeed"></i><i class="tbar"></i><i class="tk k1"></i><i class="tk k2"></i><i class="tk k3"></i><i class="tk k4"></i></div>
-      <div class="cols pans rv" style="--d:800">
-        <div class="pan nuc">
-          <h6>14 Núcleos Técnicos</h6>
-          <ul>
-            <li>Planejamento e Gestão</li>
-            <li>Financiamento e Investimento</li>
-            <li>Atenção Primária à Saúde</li>
-            <li>Atenção à Saúde (MAC e Regulação)</li>
-            <li>Assistência Farmacêutica</li>
-            <li>Epidemiologia</li>
-            <li>Vigilância em Saúde Ambiental</li>
-            <li>Vigilância Sanitária</li>
-            <li>Gestão do Trabalho e da Educação em Saúde</li>
-            <li>Promoção à Saúde</li>
-            <li>Ciência e Tecnologia</li>
-            <li>Relações Internacionais</li>
-            <li>Informação e Informática em Saúde</li>
-            <li class="hi">Qualidade e Segurança do Paciente</li>
-          </ul>
-        </div>
-        <i class="n2c" aria-hidden="true"></i>
-        <div class="pan cam">
-          <h6>14 Câmaras Técnicas</h6>
-          <ul>
-            <li>Atenção Primária à Saúde</li>
-            <li>Atenção à Saúde</li>
-            <li>Assistência Farmacêutica</li>
-            <li>Epidemiologia</li>
-            <li>Vigilância Sanitária</li>
-            <li>Gestão e Financiamento</li>
-            <li>Gestão do Trabalho e da Educação em Saúde</li>
-            <li>Informação e Informática</li>
-            <li>Comunicação em Saúde</li>
-            <li>Saúde Ambiental</li>
-            <li>Saúde do Trabalhador</li>
-            <li>Direito Sanitário</li>
-            <li>Laboratório de Saúde Pública</li>
-            <li class="hi">Qualidade no Cuidado e Segurança do Paciente</li>
-          </ul>
-        </div>
-        <div class="stackcol">
-          <div class="chip ger"><b>Gerência Administrativa</b></div>
-          <div class="chip ger"><b>Gerência de Compras e Contratos</b></div>
-          <div class="chip ger"><b>Gerência Financeira</b></div>
-        </div>
-        <div class="stackcol">
-          <div class="chip ger dev"><b>Unidade de Gestão de Projetos</b></div>
-        </div>
+      <div class="subs rv" style="--d:790">
+        <div class="subcol"></div>
+        <div class="subcol"><i class="drop"></i><div class="chip"><b>Assessorias Técnicas</b></div></div>
+        <div class="subcol"><i class="drop"></i><div class="fork"><i class="fb"></i><i class="fd fl"></i><i class="fd fr"></i></div><div class="gerrow"><div class="chip"><b>Gerência Administrativa</b></div><div class="chip"><b>Gerência Financeira</b></div></div></div>
       </div>
+    </div>
+  </div>
+  {NOTES}
+</section>'''
+
+SBRA = '''
+<section class="slide" id="sbra" data-title="Brasil">
+  <div class="wrap">
+    <div class="kick rv" style="--d:60">O contexto brasileiro</div>
+    <h2 class="title rv" style="--d:160"><em>Brasil</em>: dimensão continental</h2>
+    <div class="bcols">
+      <div class="bdata">
+        <div class="hero rv" style="--d:300"><b>213.485.153</b><span>habitantes · população residente (IBGE, 2026)</span></div>
+        <div class="flist">
+          <div class="fr rv" style="--d:360"><b>26<i>+DF</i></b><span>Estados e Distrito Federal</span></div>
+          <div class="fr rv" style="--d:400"><b>5.571</b><span>Municípios · 71% com menos de 20.000 hab.</span></div>
+          <div class="fr rv" style="--d:440"><b>5</b><span>Regiões geográficas</span></div>
+          <div class="fr rv" style="--d:480"><b>117</b><span>Macrorregiões de saúde</span></div>
+          <div class="fr rv" style="--d:520"><b>453</b><span>Regiões de saúde</span></div>
+        </div>
+        <figure class="tmap rv" style="--d:580">
+          <img src="data:image/png;base64,%%MAPTERR%%" alt="Mapa do território brasileiro por população, com área de 8.510.418 km² e densidade de 23,86 habitantes por km² (Censo 2022, IBGE)">
+          <figcaption>Território e população · Censo 2022 (IBGE)</figcaption>
+        </figure>
+      </div>
+      <figure class="gmap rv" style="--d:440">
+        <img src="data:image/png;base64,%%MAPGINI%%" alt="Mapa do Brasil pelo Índice de Gini por grande região: Sul 0,448, Centro-Oeste 0,486, Sudeste 0,508, Norte 0,517 e Nordeste 0,520; Brasil 0,509. Fonte: IBGE">
+        <figcaption>Índice de Gini por grande região (2024) · Brasil <b>0,509</b> · 2º país com maior desigualdade no <em>G20</em></figcaption>
+      </figure>
     </div>
   </div>
   {NOTES}
@@ -268,4 +254,4 @@ S10 = '''
   {NOTES}
 </section>'''
 
-SECTIONS_A = {'s01':S01,'s02':S02,'s03':S03,'sorg':SORG,'s04':S04,'s05':S05,'s06':S06,'s07':S07,'s08':S08,'s09':S09,'s10':S10}
+SECTIONS_A = {'s01':S01,'sbra':SBRA,'s02':S02,'s03':S03,'sorg':SORG,'s04':S04,'s05':S05,'s06':S06,'s07':S07,'s08':S08,'s09':S09,'s10':S10}
