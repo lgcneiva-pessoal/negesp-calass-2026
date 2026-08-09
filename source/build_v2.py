@@ -435,37 +435,49 @@ body.light #s08 svg.links path{stroke:rgba(14,122,78,.5);filter:none}
   #sorg .title{font-size:1rem;margin-bottom:.28rem}
 }
 
-/* ═══ SBRA: Brasil (contexto do país, dados IBGE + mapas) ═══ */
-#sbra .wrap{padding-top:clamp(2.1rem,4.8vh,3.1rem);padding-bottom:clamp(1.4rem,3.6vh,2.4rem);display:flex;flex-direction:column}
-#sbra .title{margin-bottom:clamp(.5rem,1.6vh,1rem)}
-#sbra .bcols{flex:1;min-height:0;display:grid;grid-template-columns:1fr .82fr;gap:clamp(1.2rem,3vw,2.6rem);align-items:center}
-#sbra .bdata{display:flex;flex-direction:column;gap:clamp(.5rem,1.5vh,1rem);min-width:0;min-height:0}
-#sbra .hero{display:flex;flex-direction:column;gap:.1em}
-#sbra .hero b{font-size:clamp(1.9rem,3.6vw,3.1rem);font-weight:800;font-stretch:112%;line-height:.95;color:var(--green);
-  font-variant-numeric:tabular-nums;letter-spacing:-.02em;text-shadow:0 0 30px rgba(14,122,78,.16)}
-#sbra .hero span{font-size:clamp(.7rem,1.02vw,.92rem);color:var(--ink-2);font-weight:600}
-#sbra .flist{display:flex;flex-direction:column;gap:clamp(.25rem,.75vh,.48rem)}
-#sbra .fr{display:flex;align-items:baseline;gap:.7em;border-bottom:1px solid var(--hair);padding-bottom:clamp(.22rem,.7vh,.42rem)}
-#sbra .fr b{flex:none;min-width:3.2em;text-align:right;font-size:clamp(1rem,1.6vw,1.42rem);font-weight:800;color:var(--ink);
-  line-height:1;font-variant-numeric:tabular-nums}
-#sbra .fr b i{font-style:normal;font-size:.5em;color:var(--orange);margin-left:.12em;vertical-align:.32em}
-#sbra .fr span{font-size:clamp(.64rem,.92vw,.83rem);color:var(--ink-2);line-height:1.24}
-#sbra figure{margin:0}
-#sbra .tmap{background:#fff;border:1px solid var(--hair);border-radius:12px;padding:clamp(.35rem,.9vh,.6rem);
-  box-shadow:0 12px 30px rgba(6,46,30,.08)}
-#sbra .tmap img{display:block;width:100%;max-height:min(30vh,240px);object-fit:contain;border-radius:7px}
-#sbra .tmap figcaption{margin-top:.4em;font-size:clamp(.56rem,.82vw,.72rem);color:var(--ink-3);text-align:center;letter-spacing:.02em}
-#sbra .gmap{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(.4rem,1.1vh,.75rem);
-  height:100%;min-height:0}
-#sbra .gmap img{display:block;max-height:min(64vh,560px);max-width:100%;object-fit:contain;border-radius:10px;
-  box-shadow:0 16px 40px rgba(6,46,30,.14),0 0 0 1px rgba(6,46,30,.05)}
-#sbra .gmap figcaption{font-size:clamp(.6rem,.88vw,.78rem);color:var(--ink-2);text-align:center;line-height:1.35;max-width:44ch}
+/* ═══ SBRA: Brasil (faixa de dados no topo + dois mapas em destaque) ═══ */
+#sbra .wrap{padding-top:clamp(2.1rem,4.8vh,3.1rem);padding-bottom:clamp(1.2rem,3.2vh,2.1rem);display:flex;flex-direction:column}
+#sbra .title{margin-bottom:clamp(.45rem,1.4vh,.9rem)}
+/* faixa compacta de dados */
+#sbra .bbar{display:flex;align-items:center;gap:clamp(1rem,2.6vw,2.2rem);flex-wrap:wrap;
+  border-bottom:1px solid var(--hair);padding-bottom:clamp(.5rem,1.5vh,.95rem)}
+body.showlogo #sbra .bbar{padding-right:clamp(10rem,18.5vw,15rem)}
+#sbra .popn{display:flex;flex-direction:column;gap:.06em;flex:none}
+#sbra .popn b{font-size:clamp(1.5rem,2.7vw,2.35rem);font-weight:800;font-stretch:112%;line-height:.95;color:var(--green);
+  font-variant-numeric:tabular-nums;letter-spacing:-.02em;text-shadow:0 0 26px rgba(14,122,78,.16)}
+#sbra .popn span{font-size:clamp(.62rem,.9vw,.82rem);color:var(--ink-2);font-weight:600}
+#sbra .fchips{display:flex;flex-wrap:wrap;gap:clamp(.7rem,1.8vw,1.6rem);margin-left:auto}
+#sbra .fc{display:flex;flex-direction:column;gap:.05em}
+#sbra .fc b{font-size:clamp(.98rem,1.5vw,1.35rem);font-weight:800;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
+#sbra .fc b i{font-style:normal;font-size:.5em;color:var(--orange);margin-left:.1em;vertical-align:.32em}
+#sbra .fc span{font-size:clamp(.58rem,.82vw,.74rem);color:var(--ink-2);line-height:1.2}
+/* palco dos mapas */
+#sbra .bmaps{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;
+  gap:clamp(1.4rem,4vw,3.4rem);padding-top:clamp(.3rem,1vh,.7rem)}
+#sbra .bmaps figure{margin:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:clamp(.3rem,.9vh,.6rem);min-height:0;max-height:100%}
+#sbra .bmaps img{display:block;object-fit:contain;border-radius:12px;
+  filter:drop-shadow(0 26px 46px rgba(6,46,30,.34)) drop-shadow(0 6px 14px rgba(6,46,30,.18))}
+#sbra .tmap img{width:min(48vw,600px);max-width:100%;height:auto}
+#sbra .gmap img{height:min(66vh,560px);width:auto;max-width:min(42vw,430px)}
+#sbra .bmaps figcaption{font-size:clamp(.6rem,.88vw,.78rem);color:var(--ink-2);text-align:center;line-height:1.34;max-width:46ch}
 #sbra .gmap figcaption b{color:var(--orange-soft);font-weight:800}
 #sbra .gmap figcaption em{font-style:normal;color:var(--orange);font-weight:700}
+/* entrada em "pulo" (escala com leve overshoot) + flutuação contínua = salta da página */
+#sbra .bmaps figure{opacity:0;transform:translateY(32px) scale(.86)}
+#sbra.on .bmaps figure{opacity:1;transform:none;
+  transition:opacity .5s ease,transform .85s cubic-bezier(.34,1.46,.5,1);transition-delay:var(--jd,0s)}
+@keyframes sbfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+#sbra.on .bmaps img{animation:sbfloat 6s ease-in-out 1.1s infinite}
+#sbra.on .gmap img{animation-duration:6.9s}
+@media (prefers-reduced-motion:reduce){
+  #sbra .bmaps figure{opacity:1;transform:none;transition:none}
+  #sbra.on .bmaps img{animation:none}
+}
 @media (max-height:680px){
-  #sbra .hero b{font-size:clamp(1.7rem,3.2vw,2.6rem)}
-  #sbra .fr b{font-size:clamp(.95rem,1.5vw,1.3rem)}
-  #sbra .tmap img{max-height:22vh}
+  #sbra .popn b{font-size:clamp(1.4rem,2.5vw,2rem)}
+  #sbra .tmap img{max-height:44vh}
+  #sbra .gmap img{height:60vh}
 }
 
 /* ═══ S20: foto + contatos com fonte máxima ═══ */
