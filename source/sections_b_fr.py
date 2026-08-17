@@ -57,7 +57,7 @@ S12 = '''
         <h5 class="rv" style="--d:200">Résultats</h5>
         <div class="io glass st">Prise de décision assertive <span>avec le Centre d'intelligence stratégique</span></div>
         <div class="io glass st">Culture d'amélioration continue</div>
-        <div class="io glass st">Un environnement de soins sûrs dans l'ensemble du réseau de soins de santé</div>
+        <div class="io glass st">Un environnement de soins sécuritaires dans l'ensemble du réseau de soins de santé</div>
       </div>
     </div>
   </div>
