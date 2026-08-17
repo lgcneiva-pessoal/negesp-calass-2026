@@ -31,7 +31,7 @@ S03 = '''
 <section class="slide" id="s03" data-title="Conass">
   <div class="wrap">
     <div class="midpair">
-      <div class="leadbox rv" style="--d:260"><p class="lead">Le Conseil national des secrétaires à la santé réunit les secrétaires à la santé des États et du District fédéral ; c'est une association régie par les principes du droit public, dotée d'une autonomie administrative, financière et patrimoniale.</p></div>
+      <div class="leadbox rv" style="--d:260"><p class="lead">Le Conseil national des secrétaires à la santé réunit les secrétaires à la santé des États (= ministres provinciaux) et du District fédéral ; c'est une association régie par les principes du droit public, dotée d'une autonomie administrative, financière et patrimoniale.</p></div>
       <div class="photo rv" style="--d:420"><div class="frame"><img src="data:image/jpeg;base64,%%JATENE%%" alt="Photographie du docteur Adib Jatene, avec son nom imprimé sur la pièce originale"></div></div>
     </div>
     <div class="tagbox rv" style="--d:800">« La force des États dans la garantie du <em>droit à la santé</em>. »</div>
@@ -173,7 +173,7 @@ S06 = '''
   <div class="glyph" aria-hidden="true">“</div>
   <div class="wrap">
     <div class="kick rv" style="--d:60">Le socle national</div>
-    <p class="quote rv" style="--d:280">Un ensemble d'actions, de pratiques et de processus destinés à <span class="hl">réduire les risques et les préjudices évitables</span>, en favorisant des soins <span class="hl2">sûrs, efficaces, opportuns, efficients, équitables et centrés sur la personne</span>. »</p>
+    <p class="quote rv" style="--d:280">Un ensemble d'actions, de pratiques et de processus destinés à <span class="hl">réduire les risques et les préjudices évitables</span>, en favorisant des soins <span class="hl2">sécuritaires, efficaces, opportuns, efficients, équitables et centrés sur la personne</span>. »</p>
     <div class="attr rv" style="--d:820">Politique nationale de qualité et de sécurité des patients</div>
   </div>
   {NOTES}

@@ -204,11 +204,11 @@ S18 = '''
   <div class="wrap">
     <div class="kick center rv" style="--d:60">L'équation de valeur du Negesp</div>
     <div class="eqline">
-      <div class="term a st"><h4>Relie</h4></div>
+      <div class="term a st"><h4>Relier</h4></div>
       <div class="op st">+</div>
-      <div class="term b st"><h4>Produit</h4></div>
+      <div class="term b st"><h4>Produire</h4></div>
       <div class="op st">=</div>
-      <div class="term c st"><h4>Livre</h4></div>
+      <div class="term c st"><h4>Livrer</h4></div>
     </div>
     <div class="caps">
       <div class="cap a st">Gestion, soins, surveillance, enseignement et contrôle social.</div>
@@ -237,7 +237,7 @@ S20 = '''
 <section class="slide" id="s20" data-title="Clôture">
   <div class="wrap">
     <div class="left">
-      <div class="thanks rv" style="--d:100">Merci.</div>
+      <div class="thanks rv" style="--d:100">Merci !</div>
     </div>
     <div class="right rv" style="--d:750">
       <div class="cphoto"><img src="data:image/jpeg;base64,%%CARLA%%" alt="Carla Ulhoa André"></div>
