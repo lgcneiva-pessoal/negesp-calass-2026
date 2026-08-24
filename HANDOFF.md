@@ -128,8 +128,28 @@ Correções de digitação feitas vs. as telas originais: "(MAC eRegulação)" �
 
 ## 11. Pendências / próximos passos
 
-- **PDF e PPTX de backup:** ainda NÃO gerados. O LG pediu para gerar só quando ele e a Carla terminarem a revisão final. Quando ele avisar, gerar os dois a partir do v2 e salvar em `~/Downloads`. (Os PDF/PPTX antigos em Downloads eram do v1.)
+- **PDF e PPTX de backup: GERADOS** (a pedido do LG, agosto/2026), nas duas línguas, em `~/Downloads`:
+  `Negesp-CALASS-2026-PT.pdf` · `Negesp-CALASS-2026-PT.pptx` · `Negesp-CALASS-2026-FR.pdf` · `Negesp-CALASS-2026-FR.pptx`
+  Todos com 22 slides, 16:9 (13,333 × 7,5 pol), imagens 2560×1440.
 - Nenhuma outra pendência aberta; a apresentação está aprovada pelo LG.
+
+### Como regerar o PDF/PPTX (fiel ao deck aprovado)
+
+Não recriar o design em pptxgenjs (perde fidelidade). O método que funcionou: **renderizar os slides reais** com Playwright e montar os arquivos a partir das imagens. Script em `source/render_deck.py`:
+
+```bash
+cd <repo> && python3 -m http.server 8791 &     # servir o repo
+python3 source/render_deck.py "http://localhost:8791/v2/index.html"    ~/Downloads/Negesp-CALASS-2026-PT
+python3 source/render_deck.py "http://localhost:8791/v2-fr/index.html" ~/Downloads/Negesp-CALASS-2026-FR
+```
+
+Requisitos: `playwright` (python) + chromium, `Pillow`, `python-pptx`.
+Detalhes que o script já trata (não remover):
+- Navega com `window.goTo(i, true)` (revela todos os passos do slide).
+- **s13 (órbita)** entra sempre no passo 0; o script força `window.__s13step(5)` para mostrar os 4 cards de resumo.
+- **s11 / s16 (mapas)** precisam de ~4s de espera: o traçado e os arcos são animados via JS.
+- Slides com conectores SVG (s08, s10, s12, s14, s15, s17) e o `sbra` (mapas com "pulo") precisam de espera extra antes do screenshot.
+- Esconde só `.hud .hbl` (dica de teclado, que não faz sentido impressa); mantém logo e numeração.
 
 ## 12. Dicas de verificação (workflow que funcionou)
 
