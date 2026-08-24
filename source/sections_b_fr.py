@@ -139,7 +139,7 @@ S14 = '''
         <li>Santé numérique et information</li>
         <li>Assistance pharmaceutique</li>
         <li>Audit, évaluation et suivi</li>
-        <li>Ombudsman</li>
+        <li>Médiation</li>
         <li>École de santé publique, le cas échéant</li>
       </ul></div>
     </div>
@@ -192,7 +192,7 @@ S17 = '''
       <div class="hub rv" style="--d:400" id="fanHub">Negesp</div>
       <div class="qd glass st" style="left:46%;top:11%"><h4>Science et <em>innovation</em></h4><p>Universités, centres de recherche et hôpitaux universitaires.</p></div>
       <div class="qd glass st" style="left:56%;top:37%"><h4>Éthique et <em>pratique</em></h4><p>Ordres professionnels, sociétés savantes et écoles de santé publique.</p></div>
-      <div class="qd glass st" style="left:56%;top:63%"><h4>Contrôle <em>institutionnel</em></h4><p>Ministère public et cours des comptes.</p></div>
+      <div class="qd glass st" style="left:56%;top:63%"><h4>Contrôle <em>institutionnel</em></h4><p>Ministère public et Cour des comptes.</p></div>
       <div class="qd glass st" style="left:46%;top:89%"><h4>Alignement <em>mondial</em></h4><p>Organismes nationaux et internationaux.</p></div>
     </div>
   </div>

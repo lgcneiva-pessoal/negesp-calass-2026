@@ -7,7 +7,7 @@ S01 = '''
   <div class="cover"></div><div class="scrim"></div>
   <div class="rail rv" style="--d:1900"><span>Montréal · Canada · <b>2026</b> · CALASS · XXXVI</span></div>
   <div class="wrap">
-    <div class="badge rv" style="--d:100">XXXVIe Congrès annuel de l'Association latine pour l'analyse des systèmes de santé · Montréal · Canada · 2026</div>
+    <div class="badge rv" style="--d:100">XXXVI Congrès annuel de l'Association latine pour l'analyse des systèmes de santé · Montréal · Canada · 2026</div>
     <h1 data-words>Un modèle <span class="hl">innovant</span> de gouvernance pour la <span class="hl">sécurité des patients</span> au Brésil</h1>
     <p class="sub rv" style="--d:1500">Les Noyaux d'État de Gestion Stratégique de la Sécurité des Patients : <span class="neg">Negesp</span></p>
     <div class="authors rv" style="--d:1750">
@@ -38,7 +38,7 @@ S03 = '''
     <div class="stats">
       <div class="stat st"><b>1982</b><span>institué le 3 février</span></div>
       <div class="stat st"><b>27</b><span>Représente les secrétariats à la santé des États</span></div>
-      <div class="stat st"><b>2</b><span>lois fédérales reconnaissent le Conseil : loi nº 8.142/1990 et loi nº 12.466/2011 (articles 14-A et 14-B)</span></div>
+      <div class="stat st"><b>2</b><span>lois fédérales reconnaissent le Conseil : loi n° 8 142/1990 et loi n° 12 466/2011 (articles 14-A et 14-B)</span></div>
     </div>
   </div>
   {NOTES}
@@ -173,7 +173,7 @@ S06 = '''
   <div class="glyph" aria-hidden="true">“</div>
   <div class="wrap">
     <div class="kick rv" style="--d:60">Le socle national</div>
-    <p class="quote rv" style="--d:280">Un ensemble d'actions, de pratiques et de processus destinés à <span class="hl">réduire les risques et les préjudices évitables</span>, en favorisant des soins <span class="hl2">sécuritaires, efficaces, opportuns, efficients, équitables et centrés sur la personne</span>. »</p>
+    <p class="quote rv" style="--d:280">« Un ensemble d'actions, de pratiques et de processus destinés à <span class="hl">réduire les risques et les préjudices évitables</span>, en favorisant des soins <span class="hl2">sécuritaires, efficaces, opportuns, efficients, équitables et centrés sur la personne</span>. »</p>
     <div class="attr rv" style="--d:820">Politique nationale de qualité et de sécurité des patients</div>
   </div>
   {NOTES}
@@ -189,7 +189,7 @@ S07 = '''
         <div class="selo">Publié</div>
         <div class="dou">Journal officiel de l'Union</div>
         <div class="bigdate">9 juin 2026</div>
-        <div class="portn">Arrêté nº 11.527 · Ministère de la Santé</div>
+        <div class="portn">Arrêté n° 11 527 · Ministère de la Santé</div>
         <p class="ementa">Institue la Politique nationale de qualité et de sécurité des patients dans le cadre du Système unique de santé.</p>
       </div>
       <div class="metro">
