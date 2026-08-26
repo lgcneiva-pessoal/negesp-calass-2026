@@ -151,6 +151,24 @@ Detalhes que o script já trata (não remover):
 - Slides com conectores SVG (s08, s10, s12, s14, s15, s17) e o `sbra` (mapas com "pulo") precisam de espera extra antes do screenshot.
 - Esconde só `.hud .hbl` (dica de teclado, que não faz sentido impressa); mantém logo e numeração.
 
+## 11b. Slides ocultos (ocultar sem apagar)
+
+O deck tem 22 slides na fonte, mas **21 no ar**: o slide 16 (`s14`, "Comitê consultivo por dentro" /
+"Le comité consultatif de l'intérieur") está **oculto a pedido da Carla**, não apagado.
+
+O controle fica em `build_v2.py`, logo depois da montagem do `order`:
+
+```python
+OCULTOS = {'s14'}
+order = [sid for sid in order if sid not in OCULTOS]
+```
+
+- **Para REEXIBIR:** tire o id do set, rode `python3 build_fr.py` (que refaz PT e FR) e publique.
+- **Para ocultar outro:** acrescente o id interno ao set. Atenção: o número que aparece no rodapé
+  NÃO é o id. Confira a correspondência (posição 16 = `s14`; o id `s16` é a posição 18).
+- Numeração do rodapé, índice (tecla O), total de slides e o PDF/PPTX se reajustam sozinhos.
+- O parity checker percorre o `order`, então slides ocultos saem da conferência sem quebrar o build.
+
 ## 12. Dicas de verificação (workflow que funcionou)
 
 - Servir local pra testar: `cd <repo> && python3 -m http.server 8791`, abrir `http://localhost:8791/v2/index.html`.

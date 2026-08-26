@@ -515,6 +515,15 @@ order = [f's{i:02d}' for i in range(1, 21)]
 order.insert(1, 'sbra')   # slide Brasil (contexto do país), logo após a capa (s01)
 order.insert(4, 'sorg')   # organograma do Conass, entre o s03 (Conass) e o s04 (Câmara Técnica)
 
+# ── SLIDES OCULTOS ──────────────────────────────────────────────────────────
+# NADA é apagado: o slide continua inteiro em sections_a/b(.py e _fr.py) e nas
+# notas; ele apenas fica de fora da montagem. Para REEXIBIR, remova o id do set
+# e rode o build de novo (build_v2.py e build_fr.py). A numeração, o índice (O)
+# e o total de slides se reajustam sozinhos.
+#   's14' = slide 16 "Comitê consultivo por dentro" (oculto a pedido da Carla)
+OCULTOS = {'s14'}
+order = [sid for sid in order if sid not in OCULTOS]
+
 # slides exclusivos do V2 (sem contraparte no V1): título p/ índice + notas da apresentadora
 EXTRA_SLIDES = {
     'sbra': {

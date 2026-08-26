@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Renderiza os 22 slides do deck HTML e monta PDF + PPTX fiéis ao que está no ar.
+"""Renderiza todos os slides do deck HTML e monta PDF + PPTX fiéis ao que está no ar.
 
 Uso (com o repo servido em http://localhost:8791):
     python3 source/render_deck.py "http://localhost:8791/v2/index.html"    ~/Downloads/Negesp-CALASS-2026-PT
@@ -15,7 +15,7 @@ from pptx import Presentation
 from pptx.util import Inches
 
 URL, OUTBASE = sys.argv[1], sys.argv[2]
-N, W, H, SCALE = 22, 1280, 720, 2
+W, H, SCALE = 1280, 720, 2   # N (total de slides) e lido do proprio deck
 TMP = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)),
                                    '..', '.render', os.path.basename(OUTBASE)))
 os.makedirs(TMP, exist_ok=True)
@@ -64,6 +64,8 @@ with sync_playwright() as p:
     pg.goto(URL, wait_until='networkidle')
     pg.add_style_tag(content=EXPORT_CSS)
     pg.wait_for_timeout(1500)                      # fonte embutida + primeiro layout
+    N = pg.evaluate("() => document.querySelectorAll('.slide').length")
+    print(f'  deck com {N} slides', flush=True)
 
     for i in range(N):
         pg.evaluate("i => window.goTo(i, true)", i)
