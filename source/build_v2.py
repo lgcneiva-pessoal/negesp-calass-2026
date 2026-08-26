@@ -88,6 +88,11 @@ body.showlogo #sbra .title,body.showlogo #sorg .title{padding-right:clamp(9.5rem
 #s03 .photo .frame{background:#fff;border-radius:16px;padding:clamp(.5rem,1vw,.85rem);display:flex;
   box-shadow:0 24px 60px rgba(6,46,30,.22);transform:rotate(2deg)}
 #s03 .photo img{display:block;max-width:100%;max-height:min(48vh,480px);object-fit:contain;border-radius:8px}
+/* a foto (polaroid) subia por baixo da logo do canto em telas de 720-860px de altura,
+   e pior em frances (texto mais longo). Empurra o par para baixo da logo e limita a foto
+   nas telas baixas. Medido: folga de 28px (FR 1280x720) a 113px (1920x1080). */
+body.showlogo #s03 .midpair{padding-top:170px}
+@media (max-height:790px){#s03 .photo img{max-height:min(42vh,480px)}}
 #s03 .tagbox{align-self:flex-start;writing-mode:horizontal-tb;transform:none;text-align:left;max-width:none;
   border:none;border-left:2px solid var(--orange);padding:.15em 0 .15em 1em;margin-top:clamp(.5rem,2vh,1.2rem);
   font-size:clamp(1.08rem,1.72vw,1.5rem);font-weight:650;line-height:1.4;color:var(--ink)}
