@@ -72,31 +72,39 @@ Ou rode o atalho `source/build-and-deploy.sh "mensagem do commit"` (faz build + 
 - **Slides exclusivos do v2** (sem contraparte no v1, ex.: o organograma) ficam no dict `EXTRA_SLIDES` de `build_v2.py`, com `title` (índice) e `notes` (notas da apresentadora). O parity checker os ignora.
 - **Fluxo de trabalho com o LG:** editar direto e publicar; **não** ficar avisando sobre atualizar PDF/PPTX até ele dizer que terminou a revisão. Idioma: **pt-BR**.
 
-## 7. Ordem dos slides e o que tem em cada um
+## 7. Ordem dos slides (número no rodapé × id interno)
 
-Ordem montada em `build_v2.py` (`order`), com o organograma inserido no índice 3:
-`s01, s02, s03, sorg, s04, s05, s06, s07, s08, s09, s10, s11, s12, s13, s14, s15, s16, s17, s18, s19, s20`
+⚠️ **O número que aparece no rodapé NÃO é o id.** Sempre confira nesta tabela antes de mexer.
+Ordem montada em `build_v2.py` (`order`), com `sbra` no índice 1 e `sorg` no índice 4.
 
 | Nº | id | Conteúdo |
 |----|-----|----------|
-| 1 | s01 | Capa (fundo escuro) |
-| 2 | s02 | Citação de abertura |
-| 3 | s03 | O Conass (frase justificada+negrito, foto Dr. Adib Jatene, stats 1982/27/2) |
-| **4** | **sorg** | **Organograma do Conass** (slide NOVO do v2 — ver item 8) |
-| 5 | s04 | Câmara Técnica de Qualidade no Cuidado e Segurança do Paciente (3 faixas) |
-| 6 | s05 | (substituído pelo do v1) |
-| 7–12 | s06–s11 | Conteúdo Negesp; s10 = feixes/beams; s11 = mapa grande |
-| 13 | s12 | Entradas → Processo → Resultados |
-| 14 | s13 | **Órbita radial** (21st.dev) — passos 1–4 abrem cada nó; passo 5 mostra os 4 cards resumo. **Sempre entra pela órbita** (regra `#s13.on` reseta step 0), mesmo em acesso direto/índice |
-| 15 | s14 | Comitê Consultivo (opção "faixas") |
-| 16 | s15 | — |
-| 17 | s16 | Rede nacional colaborativa (6 cards uniformes ao redor do mapa) |
-| 18 | s17 | — |
-| 19 | s18 | — |
-| **20** | **s19** | **Visão + 2 QR codes** (Biblioteca Digital Conass / Rede Negesp) — ver item 9 |
-| 21 | s20 | Encerramento "Obrigada." + contatos da Carla + foto |
+| 1 | `s01` | Capa (fundo escuro) |
+| 2 | `sbra` | **Brasil** (dados IBGE + 2 mapas em destaque) |
+| 3 | `s02` | Pergunta de abertura |
+| 4 | `s03` | O Conass (foto Dr. Adib Jatene, stats 1982/27/2) |
+| 5 | `sorg` | **Organograma do Conass** |
+| 6 | `s04` | Câmara Técnica de Qualidade no Cuidado e Segurança do Paciente |
+| 7 | `s05` | O problema: fragmentação (pontos que se conectam) |
+| 8 | `s06` | A definição da política |
+| 9 | `s07` | O marco legal |
+| 10 | `s08` | Governança em quatro níveis (losango) |
+| 11 | `s09` | O elo crítico (logo Negesp) |
+| 12 | `s10` | O que é o Negesp (feixes/beams) |
+| 13 | `s11` | O Negesp em números (mapa grande) |
+| 14 | `s12` | O motor do Negesp (entradas → processo → resultados) |
+| 15 | `s13` | **Órbita radial** — passos 1–4 abrem cada nó; passo 5 mostra os 4 cards resumo. Sempre entra pela órbita (`#s13.on` reseta step 0) |
+| — | `s14` | ~~Comitê consultivo por dentro~~ **OCULTO** (ver item 11b) |
+| 16 | `s15` | A dinâmica na secretaria |
+| 17 | `s16` | Rede nacional colaborativa (6 cards ao redor do mapa) |
+| 18 | `s17` | Além dos muros |
+| 19 | `s18` | A equação de valor |
+| 20 | `s19` | **Visão + 2 QR codes** (Biblioteca Digital / Rede Negesp) — ver item 9 |
+| 21 | `s20` | Encerramento "Obrigada." / "Merci !" + contatos da Carla |
 
-Menu/índice (tecla **O**) tem os 21 itens; numeração e HUD já refletem 21 slides. A **logo Conass** aparece no canto de todos, exceto capa (s01) e encerramento (s20); no s19 ela é ocultada de propósito (`#s19.on ~ .cornerlogo{display:none}`) para a frase usar a largura toda.
+Menu/índice (tecla **O**), numeração e HUD refletem os **21 slides visíveis**. A **logo Conass**
+aparece no canto de todos, exceto capa (`s01`) e encerramento (`s20`); no `s19` ela é ocultada de
+propósito (`#s19.on ~ .cornerlogo{display:none}`) para a frase usar a largura toda.
 
 ## 8. Slide 4 — Organograma (dados auditados; NÃO alterar sem conferir)
 
