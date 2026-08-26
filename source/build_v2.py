@@ -529,6 +529,13 @@ order.insert(4, 'sorg')   # organograma do Conass, entre o s03 (Conass) e o s04 
 OCULTOS = {'s14'}
 order = [sid for sid in order if sid not in OCULTOS]
 
+# ── REORDENACAO ─────────────────────────────────────────────────────────────
+# Pedido da Carla (ago/2026): citar PRIMEIRO a politica (marco legal / portaria de
+# 9 de junho, s07) e SO DEPOIS o conceito de seguranca do paciente definido nela
+# (s06). Antes vinha o conceito antes da norma.
+i6, i7 = order.index('s06'), order.index('s07')
+order[i6], order[i7] = order[i7], order[i6]
+
 # slides exclusivos do V2 (sem contraparte no V1): título p/ índice + notas da apresentadora
 EXTRA_SLIDES = {
     'sbra': {
